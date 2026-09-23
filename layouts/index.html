@@ -1,83 +1,64 @@
 {{ define "main" }}
-<div class="portfolio-shell">
+<div class="portfolio-shell home-simple">
+  <svg class="side-bloom side-bloom-left" aria-hidden="true" viewBox="0 0 240 240" fill="none">
+    <path d="M228 12 Q150 38 128 100 Q112 148 60 168 Q28 180 16 220 M128 100 Q150 118 178 128 M60 168 Q40 158 18 160" />
+    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(199 19) rotate(206)" />
+    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(164 45) rotate(83)" />
+    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q8 -5 16 0 Q8 5 0 0Z" transform="translate(141 71) rotate(195)" />
+    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q7 -5 14 0 Q7 5 0 0Z" transform="translate(154 114) rotate(334)" />
+    <circle class="bloom-flower" cx="178" cy="128" r="5.5" />
+    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(120 120) rotate(176)" />
+    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(102 142) rotate(80)" />
+    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q8 -5 16 0 Q8 5 0 0Z" transform="translate(83 157) rotate(203)" />
+    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q7 -5 14 0 Q7 5 0 0Z" transform="translate(38 162) rotate(136)" />
+    <circle class="bloom-flower" cx="18" cy="160" r="5" />
+    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q7 -5 14 0 Q7 5 0 0Z" transform="translate(32 186) rotate(310)" />
+  </svg>
+  <svg class="side-bloom side-bloom-right" aria-hidden="true" viewBox="0 0 240 240" fill="none">
+    <path d="M228 12 Q150 38 128 100 Q112 148 60 168 Q28 180 16 220 M128 100 Q150 118 178 128 M60 168 Q40 158 18 160" />
+    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(199 19) rotate(206)" />
+    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(164 45) rotate(83)" />
+    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q8 -5 16 0 Q8 5 0 0Z" transform="translate(141 71) rotate(195)" />
+    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q7 -5 14 0 Q7 5 0 0Z" transform="translate(154 114) rotate(334)" />
+    <circle class="bloom-flower" cx="178" cy="128" r="5.5" />
+    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(120 120) rotate(176)" />
+    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(102 142) rotate(80)" />
+    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q8 -5 16 0 Q8 5 0 0Z" transform="translate(83 157) rotate(203)" />
+    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q7 -5 14 0 Q7 5 0 0Z" transform="translate(38 162) rotate(136)" />
+    <circle class="bloom-flower" cx="18" cy="160" r="5" />
+    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q7 -5 14 0 Q7 5 0 0Z" transform="translate(32 186) rotate(310)" />
+  </svg>
   <section class="hero">
-    <p class="eyebrow">A Prologue</p>
+    <p class="eyebrow">Software Engineer · Hyderabad, India</p>
     <h1>Sumedhaa</h1>
-    <p class="hero-copy">Senior Software Engineer at FactSet in Hyderabad, with 6+ years building reliable, scalable data and cloud systems across AWS, Terraform, Kubernetes, and AI-powered workflows.</p>
-    <div class="hero-actions">
-      <a class="pill-link" href="mailto:sumedhaa.mc@gmail.com">Email me <span aria-hidden="true">↗</span></a>
-      <a class="text-link" href="{{ "resume/" | relURL }}">View my résumé</a>
-    </div>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/sumedhaa/">LinkedIn</a>
-      <a href="https://github.com/sumedhaa-dev">GitHub</a>
-      <a href="mailto:sumedhaa.mc@gmail.com">Email</a>
-    </div>
+    <p class="hero-copy">I build reliable data and cloud systems, from event-driven pipelines and APIs to the infrastructure that runs them. My work spans software engineering, data platforms, and cloud infrastructure.</p>
+    <p class="hero-links"><a href="{{ "resume/" | relURL }}">Résumé <span aria-hidden="true">↗</span></a><span aria-hidden="true">·</span><a href="mailto:sumedhaa.mc@gmail.com">Email <span aria-hidden="true">↗</span></a></p>
   </section>
 
-  <div class="flourish" aria-hidden="true"><svg viewBox="0 0 160 44"><path d="M5 22 Q80 2 155 22"/><ellipse cx="55" cy="15" rx="7" ry="3.5"/><circle cx="80" cy="9" r="4.5"/><ellipse cx="105" cy="15" rx="7" ry="3.5"/></svg></div>
-
-  <section class="story-section">
-    <p class="eyebrow">The Story So Far</p>
-    <p class="story-copy">My work sits where software engineering, data engineering, and cloud infrastructure meet. I build event-driven pipelines, APIs, infrastructure automation, and platform tools—with a focus on systems that are reliable, scalable, and easy to operate. I like looking beyond how to use a tool: understanding how it works, weighing its trade-offs, and building to learn.</p>
-    <a class="text-link" href="{{ "about/" | relURL }}">A little more about me <span aria-hidden="true">→</span></a>
+  <section class="home-focus" aria-label="Areas of focus">
+    <div><p class="chapter-meta">01</p><h2>Data systems</h2><p>Building and operating data pipelines with Airflow, Spark, and Snowflake.</p></div>
+    <div><p class="chapter-meta">02</p><h2>Cloud platforms</h2><p>Designing AWS infrastructure with Terraform, Kubernetes, and automation.</p></div>
+    <div><p class="chapter-meta">03</p><h2>Applied AI</h2><p>Exploring agent workflows and tools that make data easier to discover and use.</p></div>
   </section>
 
-  <section class="chapter-section" id="experience">
-    <header class="section-heading"><p class="eyebrow">The Chapters</p><h2>Experience</h2></header>
-    <div class="chapter-row"><span class="chapter-number">I</span><div><p class="chapter-meta">JAN 2026 — PRESENT · FACTSET</p><h3>Senior Software Engineer</h3><ul class="impact-list"><li>Architected an MCP server that exposes FactSet’s data catalog and query execution as LLM-callable tools.</li><li>Designed agentic Data Navigator workflows for data discovery, query execution, and insight generation.</li><li>Built Elasticsearch-powered search to deliver relevant results across Data Navigator.</li></ul></div></div>
-    <div class="chapter-row"><span class="chapter-number chapter-two">II</span><div><p class="chapter-meta">APR 2023 — JAN 2026 · FACTSET</p><h3>Software Engineer III</h3><ul class="impact-list"><li>Built 30+ data feeds for banking, insurance, and oil and gas, and curated Standard Data Feeds for 4,000+ clients.</li><li>Designed a bulk transfer pipeline for 500K+ files, reducing storage costs by 20%.</li><li>Led Crossplane deployment patterns for AWS ECR, reducing manual configuration by 30%, and delivered zero-downtime EKS upgrades.</li></ul></div></div>
-    <div class="chapter-row"><span class="chapter-number chapter-three">III</span><div><p class="chapter-meta">APR 2022 — APR 2023 · FACTSET</p><h3>Software Engineer II</h3><ul class="impact-list"><li>Redesigned seven Airflow pipelines, reducing costs by 80% and improving efficiency by 20%.</li><li>Built a configurable PySpark rules engine on AWS and migrated Standard Data Feeds to Snowflake.</li><li>Developed event-driven serverless ETL pipelines for three data providers.</li></ul></div></div>
-    <div class="chapter-row"><span class="chapter-number chapter-two">IV</span><div><p class="chapter-meta">DEC 2020 — APR 2022 · FACTSET</p><h3>Software Engineer I</h3><ul class="impact-list"><li>Developed 13 endpoints for a centralized serverless AWS API serving three data providers.</li><li>Built an Elasticsearch cache with Airflow-orchestrated blue-green refreshes and supported production data integrations.</li></ul></div></div>
-    <div class="chapter-row"><span class="chapter-number chapter-three">V</span><div><p class="chapter-meta">SEP 2020 — DEC 2020 · DELOX</p><h3>Software Engineer</h3><ul class="impact-list"><li>Built a metro ticket booking system with React, MongoDB, and Java REST APIs.</li><li>Developed a responsive field-worker location tracking app from UX wireframes.</li></ul></div></div>
+  <section class="home-note">
+    <p class="eyebrow">A little beyond the work</p>
+    <p>I like understanding how things work, comparing approaches, and building to find out. Away from engineering, I’m usually dancing, travelling, or following a new curiosity.</p>
+    <a class="text-link" href="{{ "about/" | relURL }}">More about me <span aria-hidden="true">→</span></a>
   </section>
 
-  <section class="story-section beyond-section">
-    <p class="eyebrow">Beyond the Code</p>
-    <p class="story-copy">Outside engineering, I spend my time dancing, travelling, and following whatever happens to spark my curiosity.</p>
-  </section>
-
-  <section class="chapter-section skills-section" id="skills">
-    <header class="section-heading"><p class="eyebrow">The Toolkit</p><h2>Technical Skills</h2></header>
-    <div class="skill-categories">
-      <div><h3>AI Engineering</h3><p>MCP, AI agents, LangGraph, multi-agent systems, RAG</p></div>
-      <div><h3>Data Engineering</h3><p>Apache Airflow, Spark / PySpark, Snowflake, AWS Glue, Athena</p></div>
-      <div><h3>Cloud &amp; DevOps</h3><p>AWS, Terraform, Kubernetes, Crossplane, Docker, GitHub Actions</p></div>
-      <div><h3>Data Stores</h3><p>PostgreSQL, MySQL, SQL Server, Elasticsearch, MongoDB, Redis</p></div>
-      <div><h3>Languages &amp; Frameworks</h3><p>Python, Java, JavaScript, SQL, Bash, Flask, Django, Spring Boot, React · Exploring Go</p></div>
-    </div>
-  </section>
-
-  <section class="chapter-section credentials-section" id="credentials">
-    <header class="section-heading"><p class="eyebrow">Foundations</p><h2>Education &amp; Certifications</h2></header>
-    <div class="credential-card"><h3>Government Model Engineering College</h3><p>B.Tech, Electronics and Communication Engineering · 2016–2020 · CGPA 8.73/10</p></div>
-    <div class="credential-card"><h3>Certifications</h3><p>Kubernetes and Cloud Native Associate (2026) · HashiCorp Certified: Terraform Associate (003) · AWS Certified Data Analytics – Specialty · AWS Certified Developer – Associate</p></div>
-    <div class="credential-card"><h3>Recognition</h3><p>FactSet Blue Ribbon Award, received three times · AWS All Builders Welcome Grant</p></div>
-  </section>
-
-  <div class="flourish flourish-lower" aria-hidden="true"><svg viewBox="0 0 160 44"><path d="M5 22 Q80 42 155 22"/><ellipse cx="55" cy="29" rx="7" ry="3.5"/><circle cx="80" cy="35" r="4.5"/><ellipse cx="105" cy="29" rx="7" ry="3.5"/></svg></div>
-
-  <section class="writing-section" id="talks">
-    <header class="section-heading"><p class="eyebrow">Elsewhere</p><h2>Words &amp; Talks</h2></header>
+  <section class="writing-section home-writing" id="writing">
+    <header class="section-heading"><p class="eyebrow">Field Notes</p><h2>Writing &amp; travel</h2></header>
     <div class="writing-grid">
-      <a class="writing-card" href="#talks"><p class="chapter-meta">COMMUNITY</p><h3>Talks</h3><p>I care about sharing knowledge and helping make technology easier to navigate.</p><span class="text-link">More soon →</span></a>
-      <a class="writing-card" href="{{ "blog/" | relURL }}"><p class="chapter-meta">YOUR WRITING</p><h3>Blog</h3><p>Notes, ideas, and things you’ve learned along the way.</p><span class="text-link">Visit the blog →</span></a>
-      <a class="writing-card" href="{{ "travel/" | relURL }}"><p class="chapter-meta">TRAVEL JOURNAL</p><h3>Travel</h3><p>Notes and stories from places, journeys, and the things I discover along the way.</p><span class="text-link">Explore the journal →</span></a>
+      <a class="writing-card" href="{{ "blog/" | relURL }}"><p class="chapter-meta">ENGINEERING</p><h3>Blog</h3><p>Notes on tools, systems, and things I’m learning.</p><span class="text-link">Read the blog →</span></a>
+      <a class="writing-card" href="{{ "travel/" | relURL }}"><p class="chapter-meta">PLACES &amp; JOURNEYS</p><h3>Travel journal</h3><p>Stories and small discoveries from the road.</p><span class="text-link">Explore the journal →</span></a>
     </div>
   </section>
 
-  <section class="newsletter-section" id="newsletter">
-    <svg class="newsletter-sprig" aria-hidden="true" viewBox="0 0 120 56"><path d="M6 40 Q28 10 60 20 Q78 26 84 10 M60 20 Q86 32 114 24"/><ellipse cx="25" cy="28" rx="7" ry="3"/><ellipse cx="43" cy="18" rx="6" ry="2.5"/><ellipse cx="72" cy="24" rx="6" ry="2.5"/><ellipse cx="82" cy="15" rx="5" ry="2.3"/><ellipse cx="98" cy="29" rx="7" ry="3"/><circle cx="60" cy="20" r="2.5"/></svg>
-    <p class="eyebrow">An Epilogue, of Sorts</p>
-    <h2>Coffee &amp; collaboration</h2>
-    <p>Have an idea, a question, or something interesting to build together? Let’s connect.</p>
-    <a class="pill-link" href="https://topmate.io/sumedhaa" target="_blank" rel="noopener noreferrer">Connect on Topmate <span aria-hidden="true">↗</span></a>
+  <section class="home-contact" id="contact">
+    <p class="eyebrow">Get in touch</p>
+    <p>Have an interesting problem or idea to discuss?</p>
+    <a class="text-link" href="mailto:sumedhaa.mc@gmail.com">Write to me <span aria-hidden="true">↗</span></a>
   </section>
-
-  <section class="contact-section" id="contact"><p class="eyebrow">Write to Me</p><h2>Get in Touch</h2>
-    <p>For a short message or question, reach out on LinkedIn.</p>
-    <a class="pill-link" href="https://www.linkedin.com/in/sumedhaa/" target="_blank" rel="noopener noreferrer">Message me on LinkedIn <span aria-hidden="true">↗</span></a>
-  </section>
-  <div class="flourish closing-flourish" aria-hidden="true"><svg viewBox="0 0 120 36"><path d="M4 18 Q60 2 116 18"/><circle cx="40" cy="10" r="4"/><circle cx="60" cy="5" r="3"/><circle cx="80" cy="10" r="4"/></svg></div>
 </div>
 {{ end }}
