@@ -1,9 +1,5 @@
 {{ define "main" }}
 <div class="portfolio-shell section-page travel-page">
-  {{ partial "blossom-branch.html" "travel-left" }}
-  {{ partial "blossom-branch.html" "travel-right" }}
-  {{ partial "hydrangea-edge.html" "left" }}
-  {{ partial "hydrangea-edge.html" "right" }}
   <header class="section-heading page-heading">
     <p class="eyebrow">Journeys &amp; Field Notes</p>
     <h1>{{ .Title }}</h1>
@@ -13,7 +9,7 @@
   {{ $posts := .RegularPages.ByWeight }}
   {{ $categories := slice
     (dict "title" "International Trips" "slug" "international-trips" "intro" "Journeys beyond India.")
-    (dict "title" "Within India" "slug" "within-india" "intro" "Places and journeys across India.")
+    (dict "title" "Within India" "slug" "within-india" "intro" "Places and journeys across India")
   }}
   <nav class="travel-category-nav" aria-label="Travel categories">
     {{ range $categories }}<a href="#{{ .slug }}">{{ .title }}</a>{{ end }}
@@ -31,6 +27,7 @@
     <div class="writing-grid blog-grid">
       {{ range $categoryPosts }}
       <a class="writing-card" href="{{ .RelPermalink }}">
+        {{ partial "hydrangea-edge.html" . }}
         <h3>{{ .Title }}</h3>
         <p>{{ .Summary | plainify | truncate 180 }}</p>
         <span class="text-link">Read the story →</span>

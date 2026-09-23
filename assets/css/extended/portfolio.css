@@ -87,21 +87,28 @@ html{scroll-behavior:smooth}body{font-family:'Outfit',sans-serif;font-weight:300
 .side-bloom-left{left:-100px;transform:scaleX(-1) rotate(-5deg)}.side-bloom-right{right:-100px;top:250px;transform:rotate(9deg)}
 .botanical-divider .divider-leaf{animation-name:divider-leaf-sway;animation-duration:2.8s;transform-box:fill-box;transform-origin:0 50%}
 @keyframes divider-leaf-sway{from{rotate:-3deg}to{rotate:3deg}}
+.botanical-divider .divider-blossom{transform-box:fill-box;transform-origin:center;animation:divider-flower-sway 3.8s ease-in-out infinite alternate}
+.botanical-divider .divider-blossom:nth-of-type(2){animation-delay:-1.9s}
+.botanical-divider .divider-blossom:nth-of-type(3){animation-delay:-.95s}
+@keyframes divider-flower-sway{from{rotate:-2deg}to{rotate:2deg}}
 .dark .side-bloom{opacity:.27}.dark .side-bloom-stem{stroke:#b68d84}.dark .side-bloom-leaf.leaf-rose{fill:#dc98a3}.dark .side-bloom-leaf.leaf-lilac{fill:#bf9bc4}.dark .side-bloom-flower{fill:#dc98a3}
 @keyframes side-branch-sway{from{rotate:-2deg}to{rotate:2deg}}
 @media(max-width:900px){.side-bloom{width:170px;opacity:.3}.side-bloom-left{left:-95px}.side-bloom-right{right:-95px;top:240px}}
 @media(max-width:640px){.side-bloom{display:none}}
 @media(prefers-reduced-motion:reduce){.side-bloom,.side-bloom-flower{animation:none!important;opacity:1;rotate:0deg}}
-.hydrangea-edge{position:absolute;z-index:0;width:clamp(105px,13vw,145px);height:auto;pointer-events:none;opacity:.34}
-.hydrangea-stem{stroke:#9da68b;stroke-width:1.25;stroke-linecap:round}
-.hydrangea-leaf{fill:#b5b99f;opacity:.8}
-.hydrangea-floret{fill:#bdc9e1}
-.hydrangea-floret:nth-of-type(2n){fill:#d2c2de}
-.hydrangea-floret:nth-of-type(3n){fill:#d8c7d6}
-.hydrangea-center{fill:#f7edf0}
-.hydrangea-edge-left{top:125px;left:-48px}
-.hydrangea-edge-right{top:560px;right:-48px;transform:scaleX(-1)}
-.dark .hydrangea-edge{opacity:.25}.dark .hydrangea-stem{stroke:#8c9a80}.dark .hydrangea-leaf{fill:#879276}.dark .hydrangea-floret{fill:#8d91b4}.dark .hydrangea-floret:nth-of-type(2n){fill:#a38eae}.dark .hydrangea-floret:nth-of-type(3n){fill:#aa8f9f}.dark .hydrangea-center{fill:#d4c0c9}
-@media(max-width:760px){.hydrangea-edge{display:none}}
+.travel-page .writing-card{position:relative;overflow:hidden}
+.travel-page .writing-card>:not(.hydrangea-corner){position:relative;z-index:1}
+.hydrangea-corner{position:absolute;z-index:0;width:82px;height:72px;opacity:.28;pointer-events:none;transition:opacity .2s ease}
+.travel-page .writing-card:nth-child(odd) .hydrangea-corner{top:0;right:0}
+.travel-page .writing-card:nth-child(even) .hydrangea-corner{bottom:0;left:0;transform:rotate(180deg)}
+.hydrangea-stem{stroke:#9c927f;stroke-width:.8;stroke-linecap:round}
+.hydrangea-leaf{fill:#b1b59a;stroke:#8f9b7f;stroke-width:.4}
+.hydrangea-floret-light{fill:#d4c7e5;stroke:#b8a7d2;stroke-width:.35}
+.hydrangea-floret-mid{fill:#c3b1dc;stroke:#a38ec5;stroke-width:.35}
+.hydrangea-floret-deep{fill:#ad9acb;stroke:#9882ba;stroke-width:.35}
+.hydrangea-center{fill:#f0e7ef;stroke:none}
+.travel-page .writing-card:hover .hydrangea-corner{opacity:.42}
+.dark .hydrangea-stem{stroke:#8c806f}.dark .hydrangea-leaf{fill:#727d67;stroke:#869074}.dark .hydrangea-floret-light{fill:#9689b4;stroke:#b4a5ce}.dark .hydrangea-floret-mid{fill:#8476a7;stroke:#a99ac6}.dark .hydrangea-floret-deep{fill:#716390;stroke:#9888b5}.dark .hydrangea-center{fill:#e0d4e2}
+@media(max-width:640px){.hydrangea-corner{width:70px;height:62px;opacity:.2}}
 /* Keep ordinary words intact while allowing narrow layouts to shrink and wrap. */
 body{word-break:normal;overflow-wrap:break-word;hyphens:none}.portfolio-shell,.portfolio-shell>*,.portfolio-shell section,.portfolio-shell header,.portfolio-shell p,.portfolio-shell h1,.portfolio-shell h2,.portfolio-shell h3,.portfolio-shell a,.writing-grid,.writing-card,.chapter-row>div,.curiosity-list>div{min-width:0;max-width:100%}.writing-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}.nav-links{min-width:0}

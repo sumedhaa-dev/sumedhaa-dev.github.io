@@ -1,6 +1,8 @@
-<div class="botanical-divider" data-botanical-divider aria-hidden="true">
+{{ $count := .Scratch.Get "botanical-divider-count" | default 0 }}
+<div class="botanical-divider{{ if eq (mod $count 2) 1 }} botanical-divider--down{{ end }}" data-botanical-divider aria-hidden="true">
   <svg viewBox="0 0 180 48" fill="none">
-    <path class="divider-branch" d="M5 28 Q90 -2 175 28" />
+    <path class="divider-branch" d="{{ if eq (mod $count 2) 1 }}M5 12 Q90 42 175 12{{ else }}M5 28 Q90 -2 175 28{{ end }}" />
+    {{ if eq (mod $count 2) 1 }}<g class="divider-flora" transform="translate(0 40) scale(1 -1)">{{ else }}<g class="divider-flora">{{ end }}
     <path class="divider-leaf" d="M0 0 Q8 -7 18 0 Q8 7 0 0Z" transform="translate(29 22) rotate(205)" />
     <path class="divider-leaf" d="M0 0 Q7 -6 15 0 Q7 6 0 0Z" transform="translate(43 16) rotate(35)" />
     <path class="divider-leaf" d="M0 0 Q8 -7 18 0 Q8 7 0 0Z" transform="translate(136 23) rotate(24)" />
@@ -29,5 +31,7 @@
       <ellipse class="blossom-petal blossom-petal-rose" cx="0" cy="-4.5" rx="3.3" ry="5" transform="rotate(288)" />
       <circle class="divider-flower" r="2.2" />
     </g>
+    </g>
   </svg>
 </div>
+{{ .Scratch.Set "botanical-divider-count" (add $count 1) }}
