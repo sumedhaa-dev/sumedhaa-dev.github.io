@@ -1,5 +1,4 @@
 ---
 title: Blogs
+description: Notes on tools, systems, and things I’m learning.
 ---
-
-A place to share my insights and level up together.

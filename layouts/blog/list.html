@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="portfolio-shell section-page">
-  <header class="section-heading page-heading"><p class="eyebrow">Field Notes</p><h1>{{ .Title }}</h1><p class="page-intro">A place to share my insights and level up together.</p></header>
+  <header class="section-heading page-heading"><p class="eyebrow">Field Notes</p><h1>{{ .Title }}</h1>{{ with .Description }}<p class="page-intro">{{ . }}</p>{{ end }}</header>
   <div class="writing-grid blog-grid">
     {{ range .RegularPages.ByDate.Reverse }}
     <a class="writing-card" href="{{ .RelPermalink }}"><p class="chapter-meta">{{ .Date.Format "January 2, 2006" }}</p><h2>{{ .Title }}</h2><p>{{ .Summary | plainify | truncate 180 }}</p><span class="text-link">Read the post →</span></a>

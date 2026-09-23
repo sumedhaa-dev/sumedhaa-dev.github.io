@@ -1,20 +1,22 @@
+{{/* A compact mophead hydrangea: tightly packed four sepal florets form a rounded head. */}}
 {{ $florets := slice
-  (dict "x" 23 "y" 18 "tone" "light") (dict "x" 34 "y" 12 "tone" "mid") (dict "x" 46 "y" 13 "tone" "light") (dict "x" 57 "y" 20 "tone" "deep")
-  (dict "x" 17 "y" 29 "tone" "mid") (dict "x" 28 "y" 28 "tone" "deep") (dict "x" 40 "y" 25 "tone" "light") (dict "x" 52 "y" 29 "tone" "mid") (dict "x" 63 "y" 31 "tone" "light")
-  (dict "x" 22 "y" 41 "tone" "light") (dict "x" 34 "y" 40 "tone" "mid") (dict "x" 46 "y" 41 "tone" "deep") (dict "x" 57 "y" 42 "tone" "mid")
-  (dict "x" 31 "y" 51 "tone" "deep") (dict "x" 43 "y" 52 "tone" "light") (dict "x" 53 "y" 51 "tone" "mid")
+  (dict "x" 35 "y" 10 "tone" "light") (dict "x" 47 "y" 11 "tone" "mid")
+  (dict "x" 24 "y" 16 "tone" "mid") (dict "x" 36 "y" 20 "tone" "deep") (dict "x" 49 "y" 21 "tone" "light") (dict "x" 61 "y" 17 "tone" "mid")
+  (dict "x" 17 "y" 28 "tone" "light") (dict "x" 29 "y" 31 "tone" "mid") (dict "x" 42 "y" 32 "tone" "light") (dict "x" 55 "y" 31 "tone" "deep") (dict "x" 67 "y" 27 "tone" "light")
+  (dict "x" 20 "y" 41 "tone" "deep") (dict "x" 33 "y" 43 "tone" "light") (dict "x" 46 "y" 44 "tone" "mid") (dict "x" 59 "y" 41 "tone" "light")
+  (dict "x" 28 "y" 54 "tone" "mid") (dict "x" 41 "y" 56 "tone" "deep") (dict "x" 53 "y" 53 "tone" "mid")
 }}
-<svg class="hydrangea-corner" viewBox="0 0 82 72" fill="none" aria-hidden="true">
-  <path class="hydrangea-stem" d="M39 45 C39 55 34 61 26 68 M43 48 C49 56 57 61 66 64" />
-  <path class="hydrangea-leaf" d="M0 0 C8 -8 17 -6 19 1 C13 8 5 8 0 0Z" transform="translate(31 59) rotate(202)" />
-  <path class="hydrangea-leaf" d="M0 0 C8 -8 17 -6 19 1 C13 8 5 8 0 0Z" transform="translate(50 56) rotate(-25)" />
+<svg class="hydrangea-corner" viewBox="0 0 84 76" fill="none" aria-hidden="true">
+  <path class="hydrangea-stem" d="M41 47 C41 57 36 65 29 72 M44 49 C50 58 58 64 67 68" />
+  <path class="hydrangea-leaf" d="M29 70 C20 62 13 64 11 69 C16 75 24 76 29 70Z" />
+  <path class="hydrangea-leaf" d="M58 64 C59 55 67 52 71 55 C71 62 66 67 58 64Z" />
   {{ range $florets }}
   <g class="hydrangea-floret hydrangea-floret-{{ .tone }}" transform="translate({{ .x }} {{ .y }})">
-    <ellipse cx="0" cy="-2.1" rx="1.8" ry="2.6" />
-    <ellipse cx="2.1" cy="0" rx="1.8" ry="2.6" transform="rotate(90 2.1 0)" />
-    <ellipse cx="0" cy="2.1" rx="1.8" ry="2.6" />
-    <ellipse cx="-2.1" cy="0" rx="1.8" ry="2.6" transform="rotate(90 -2.1 0)" />
-    <circle class="hydrangea-center" r=".7" />
+    <ellipse cx="0" cy="-1.7" rx="1.55" ry="2.15" />
+    <ellipse cx="1.7" cy="0" rx="1.55" ry="2.15" transform="rotate(90 1.7 0)" />
+    <ellipse cx="0" cy="1.7" rx="1.55" ry="2.15" />
+    <ellipse cx="-1.7" cy="0" rx="1.55" ry="2.15" transform="rotate(90 -1.7 0)" />
+    <circle class="hydrangea-center" r=".48" />
   </g>
   {{ end }}
 </svg>

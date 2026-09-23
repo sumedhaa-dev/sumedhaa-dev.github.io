@@ -7,10 +7,7 @@
   </header>
 
   {{ $posts := .RegularPages.ByWeight }}
-  {{ $categories := slice
-    (dict "title" "International Trips" "slug" "international-trips" "intro" "Journeys beyond India.")
-    (dict "title" "Within India" "slug" "within-india" "intro" "Places and journeys across India")
-  }}
+  {{ $categories := .Site.Data.travel.categories }}
   <nav class="travel-category-nav" aria-label="Travel categories">
     {{ range $categories }}<a href="#{{ .slug }}">{{ .title }}</a>{{ end }}
   </nav>

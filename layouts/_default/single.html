@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="portfolio-shell section-page article-page{{ if eq .Section "travel" }} travel-post{{ end }}">
   <header class="section-heading page-heading">
-    <p class="eyebrow">{{ .Date.Format "January 2, 2006" }}</p>
+    {{ if not .Date.IsZero }}<p class="eyebrow">{{ .Date.Format "January 2, 2006" }}</p>{{ end }}
     <h1>{{ .Title }}</h1>
   </header>
   <div class="page-prose">{{ .Content }}</div>

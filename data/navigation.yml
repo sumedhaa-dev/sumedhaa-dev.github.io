@@ -1,0 +1,11 @@
+main:
+  - label: Story
+    url: /#story
+  - label: Chapters
+    url: /#chapters
+  - label: Writing
+    url: /blog/
+  - label: Travel
+    url: /travel/
+  - label: Newsletter
+    url: /#newsletter

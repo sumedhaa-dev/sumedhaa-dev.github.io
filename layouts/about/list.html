@@ -3,27 +3,26 @@
   <header class="about-hero">
     <p class="eyebrow">The person behind the work</p>
     <h1>A little about me</h1>
-    <p class="about-lead">I’m a software engineer who likes getting to the bottom of how things work. These days, that curiosity takes me from data pipelines and cloud platforms to AI tools that make information easier to find.</p>
+    <p class="about-lead">{{ .Params.lead }}</p>
   </header>
 
   {{ partial "botanical-divider.html" . }}
 
   <section class="about-section about-journey">
     <p class="eyebrow">The path so far</p>
-    <h2>Following the problem across layers</h2>
-    <p>I started out building APIs and web applications. At FactSet, I moved into data feeds and pipelines, then into the cloud infrastructure that supports them. More recently, I’ve been working on AI tools that help people discover and use data.</p>
-    <p>Across those chapters, I keep coming back to the same questions: how does this really work, what are the tradeoffs, and how can it be easier to operate?</p>
+    <h2>{{ .Params.journeyheading }}</h2>
+    {{ range .Params.journey }}<p>{{ . }}</p>{{ end }}
   </section>
 
   <section class="about-curiosities">
     <header>
       <p class="eyebrow">What I’m curious about</p>
-      <h2>Questions worth following</h2>
+      <h2>{{ .Params.curiosityheading }}</h2>
     </header>
     <div class="curiosity-list">
-      <div><span>01</span><p>How do we make distributed data systems more dependable?</p></div>
-      <div><span>02</span><p>How can cloud platforms become simpler to operate?</p></div>
-      <div><span>03</span><p>What can AI tools make easier to discover and understand?</p></div>
+      {{ range $index, $question := .Params.curiosities }}
+      <div><span>{{ printf "%02d" (add $index 1) }}</span><p>{{ $question }}</p></div>
+      {{ end }}
     </div>
   </section>
 
@@ -31,8 +30,8 @@
 
   <section class="about-section about-life">
     <p class="eyebrow">Beyond the work</p>
-    <h2>Dance, travel, and whatever catches my curiosity</h2>
-    <p>When I’m away from work, I spend my time dancing, travelling, and following whatever sparks my curiosity. I’m collecting stories from the places I visit, and may share more of my dance journey here too.</p>
+    <h2>{{ .Params.lifeheading }}</h2>
+    <p>{{ .Params.life }}</p>
     <div class="about-links">
       <a class="text-link" href="{{ "travel/" | relURL }}">Visit my travel journal <span aria-hidden="true">→</span></a>
       <a class="text-link" href="{{ "resume/" | relURL }}">View my résumé <span aria-hidden="true">↗</span></a>

@@ -1,0 +1,7 @@
+{{- $author := (.Params.author | default .Site.Data.profile.name) -}}
+{{- $authorType := printf "%T" $author -}}
+{{- if or (eq $authorType "[]string") (eq $authorType "[]interface {}") -}}
+{{- delimit $author ", " -}}
+{{- else -}}
+{{- $author -}}
+{{- end -}}

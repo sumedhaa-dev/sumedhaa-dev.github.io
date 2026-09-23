@@ -1,0 +1,52 @@
+hero:
+  eyebrow: A Prelude
+  introduction: I build data and cloud systems that are dependable, thoughtful, and easy to live with. My work brings together software engineering, data, and cloud infrastructure.
+  resume_label: View my résumé
+story:
+  eyebrow: The Story So Far
+  copy: I build systems that make complexity feel simple, so people can focus on what matters.
+  link_label: A little more about me
+chapters:
+  eyebrow: The Chapters
+  title: Work so far
+  roles:
+    - meta: JAN 2026 TO PRESENT · FACTSET
+      title: Senior Software Engineer
+      summary: I built an MCP server and agent workflows that help financial professionals find data, run queries, and uncover insights.
+    - meta: APR 2023 TO JAN 2026 · FACTSET
+      title: Software Engineer III
+      summary: I built data feeds used by more than 4,000 clients and made file transfers and Kubernetes upgrades more dependable.
+    - meta: APR 2022 TO APR 2023 · FACTSET
+      title: Software Engineer II
+      summary: I simplified Airflow pipelines, built a PySpark rules engine, and helped move Standard Data Feeds to Snowflake.
+    - meta: DEC 2020 TO APR 2022 · FACTSET
+      title: Software Engineer I
+      summary: I built serverless AWS APIs and data services that supported feeds from three providers.
+    - meta: SEP 2020 TO DEC 2020 · DELOX
+      title: Software Engineer
+      summary: I helped build a metro ticket booking system and a location tracking app for field workers.
+  resume_label: Full experience and credentials
+beyond_work:
+  eyebrow: Beyond the Work
+  copy: Dance gives me a different way to learn, move, and be present. I love travelling too, and collecting the small moments that make a place memorable. I may share more of my dance journey here as it unfolds.
+  link_label: Visit my travel journal
+writing:
+  eyebrow: Field Notes
+  title: Writing & travel
+  cards:
+    - category: ENGINEERING
+      title: Blog
+      summary: Notes on tools, systems, and things I’m learning.
+      link_label: Read the blog
+      url: blog/
+    - category: PLACES & JOURNEYS
+      title: Travel journal
+      summary: Stories and small discoveries from the road.
+      link_label: Explore the journal
+      url: travel/
+newsletter:
+  eyebrow: A Letter Now and Then
+  title: Notes from my corner
+  copy: I’m planning occasional notes on engineering, dance, travel, and the things I’m learning. The subscription link will be here soon.
+  note: Newsletter coming soon
+  url: ""

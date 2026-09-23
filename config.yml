@@ -2,54 +2,11 @@ baseURL: https://sumedhaa-dev.github.io/
 title: Sumedhaa
 theme: charlolamode
 
-
-
-menu:
-    main:
-        - name: About
-          url: about/
-          weight: 10
-        - name: Resume
-          url: resume/
-          weight: 20
-        - name: Writing
-          url: blog/
-          weight: 30
-    
-
-
 params:
-    author: Sumedhaa
-    description: Sumedhaa is a Senior Software Engineer at FactSet in Hyderabad, building data platforms, cloud infrastructure, and AI-powered workflows.
-
-
-    defaultTheme: auto
-    # disableThemeToggle: true
-    ShowShareButtons: true
-    ShowReadingTime: true
-    displayFullLangName: true
-    ShowBreadCrumbs: false
-    ShowCodeCopyButtons: true
-    ShowToc: true
-
-    socialIcons:
-        - name: github
-          url: "https://github.com/sumedhaa-dev"
-        - name: youtube
-          url: "https://youtube.com/@sumedhaacodes"
-        - name: twitter
-          url: "https://twitter.com/Sumedhaa1"
-        - name: linkedin
-          url: "https://www.linkedin.com/in/sumedhaa/"
-        - name: instagram
-          url: "https://instagram.com/sumedhaacodes"
-
-    # change favicon in images folder (icon for web tab)
-    assets:
-          favicon: "/images/favicon.ico"
-          
-
-
+  description: Sumedhaa is a Senior Software Engineer at FactSet in Hyderabad, building data platforms, cloud infrastructure, and AI-powered workflows.
+  defaultTheme: auto
+  assets:
+    favicon: /images/favicon.ico
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -57,4 +14,4 @@ enableEmoji: true
 pygmentsUseClasses: true
 
 minify:
-    disableXML: true
+  disableXML: true
