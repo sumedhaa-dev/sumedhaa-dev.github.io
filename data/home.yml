@@ -15,10 +15,10 @@ chapters:
       summary: Today, I shape Data Navigator’s MCP server and agent workflows, helping financial professionals discover data, run queries, and surface insights.
     - meta: APR 2023 TO JAN 2026 · FACTSET
       title: Software Engineer III
-      summary: I built 30+ banking, insurance, and oil and gas data feeds for a platform serving 4,000+ clients, then improved its infrastructure with Crossplane and zero-downtime EKS upgrades.
+      summary: Built 30+ data feeds across banking, insurance, and oil & gas, while contributing to the curation of Standard Data Feeds. As part of the Public Cloud team, explored Crossplane-based infrastructure and helped deliver zero-downtime EKS upgrades.
     - meta: APR 2022 TO APR 2023 · FACTSET
       title: Software Engineer II
-      summary: I made data delivery more efficient by redesigning seven Airflow pipelines, creating an AWS PySpark rules engine, and moving Standard Data Feeds to Snowflake.
+      summary: I redesigned seven Airflow pipelines and created an AWS PySpark rules engine; I also explored Snowflake as part of my data engineering work.
     - meta: DEC 2020 TO APR 2022 · FACTSET
       title: Software Engineer I
       summary: I laid the groundwork for scalable feeds with 13 serverless AWS API endpoints, Elasticsearch caching, and integrations for three data providers.
