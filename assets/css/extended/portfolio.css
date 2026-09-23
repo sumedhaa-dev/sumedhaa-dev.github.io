@@ -77,5 +77,20 @@ html{scroll-behavior:smooth}body{font-family:'Outfit',sans-serif;font-weight:300
 @keyframes divider-leaf-sway{from{rotate:-17deg}to{rotate:17deg}}
 @keyframes branch-sway{from{rotate:-3deg}to{rotate:3deg}}
 @media(prefers-reduced-motion:reduce){.section-bloom .branch-leaf,.section-bloom .branch-petal,.section-bloom .branch-center,.section-bloom-home svg,.botanical-divider .divider-leaf,.botanical-divider .blossom-petal,.botanical-divider .divider-flower{animation:none!important;ry:5.2;opacity:1;rotate:0deg}}
+/* The original paired, curved branches frame the home page again. */
+.home-simple{position:relative}
+.side-bloom{position:absolute;z-index:0;top:70px;width:clamp(150px,20vw,260px);height:auto;overflow:visible;opacity:.38;pointer-events:none;transform-box:fill-box;transform-origin:center;animation:side-branch-sway 5s ease-in-out infinite alternate}
+.side-bloom-stem{fill:none;stroke:var(--blossom-branch);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.side-bloom-leaf.leaf-rose{fill:var(--blossom-pink)}.side-bloom-leaf.leaf-lilac{fill:var(--blossom-lilac)}
+.side-bloom-flower{fill:var(--blossom-pink);transform-box:fill-box;transform-origin:center;animation:flower-glimmer 5s ease-in-out infinite alternate}
+.side-bloom-flower:nth-of-type(2){animation-delay:1.2s}
+.side-bloom-left{left:-100px;transform:scaleX(-1) rotate(-5deg)}.side-bloom-right{right:-100px;top:250px;transform:rotate(9deg)}
+.botanical-divider .divider-leaf{animation-name:divider-leaf-sway;animation-duration:2.8s;transform-box:fill-box;transform-origin:0 50%}
+@keyframes divider-leaf-sway{from{rotate:-3deg}to{rotate:3deg}}
+.dark .side-bloom{opacity:.27}.dark .side-bloom-stem{stroke:#b68d84}.dark .side-bloom-leaf.leaf-rose{fill:#dc98a3}.dark .side-bloom-leaf.leaf-lilac{fill:#bf9bc4}.dark .side-bloom-flower{fill:#dc98a3}
+@keyframes side-branch-sway{from{rotate:-2deg}to{rotate:2deg}}
+@media(max-width:900px){.side-bloom{width:170px;opacity:.3}.side-bloom-left{left:-95px}.side-bloom-right{right:-95px;top:240px}}
+@media(max-width:640px){.side-bloom{display:none}}
+@media(prefers-reduced-motion:reduce){.side-bloom,.side-bloom-flower{animation:none!important;opacity:1;rotate:0deg}}
 /* Keep ordinary words intact while allowing narrow layouts to shrink and wrap. */
 body{word-break:normal;overflow-wrap:break-word;hyphens:none}.portfolio-shell,.portfolio-shell>*,.portfolio-shell section,.portfolio-shell header,.portfolio-shell p,.portfolio-shell h1,.portfolio-shell h2,.portfolio-shell h3,.portfolio-shell a,.writing-grid,.writing-card,.chapter-row>div,.curiosity-list>div{min-width:0;max-width:100%}.writing-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}.nav-links{min-width:0}
