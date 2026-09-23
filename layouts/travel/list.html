@@ -1,24 +1,42 @@
 {{ define "main" }}
-<div class="portfolio-shell section-page">
+<div class="portfolio-shell section-page travel-page">
   <header class="section-heading page-heading">
     <p class="eyebrow">Journeys &amp; Field Notes</p>
     <h1>{{ .Title }}</h1>
     <p class="page-intro">{{ .Description }}</p>
   </header>
-  {{ $posts := .RegularPages.ByDate.Reverse }}
-  {{ if $posts }}
-  <div class="writing-grid blog-grid">
-    {{ range $posts }}
-    <a class="writing-card" href="{{ .RelPermalink }}">
-      <p class="chapter-meta">{{ .Date.Format "January 2, 2006" }}</p>
-      <h2>{{ .Title }}</h2>
-      <p>{{ .Summary | plainify | truncate 180 }}</p>
-      <span class="text-link">Read the story →</span>
-    </a>
+
+  {{ $posts := .RegularPages.ByWeight }}
+  {{ $categories := slice
+    (dict "title" "International Trips" "slug" "international-trips" "intro" "Journeys beyond India.")
+    (dict "title" "Within India" "slug" "within-india" "intro" "Places and journeys across India.")
+  }}
+  <nav class="travel-category-nav" aria-label="Travel categories">
+    {{ range $categories }}<a href="#{{ .slug }}">{{ .title }}</a>{{ end }}
+  </nav>
+
+  {{ range $categories }}
+  {{ $category := . }}
+  {{ $categoryPosts := where $posts "Params.travelCategory" $category.title }}
+  <section class="travel-category" id="{{ $category.slug }}">
+    <header class="section-heading travel-category-heading">
+      <p class="eyebrow">{{ $category.intro }}</p>
+      <h2>{{ $category.title }}</h2>
+    </header>
+    {{ if $categoryPosts }}
+    <div class="writing-grid blog-grid">
+      {{ range $categoryPosts }}
+      <a class="writing-card" href="{{ .RelPermalink }}">
+        <h3>{{ .Title }}</h3>
+        <p>{{ .Summary | plainify | truncate 180 }}</p>
+        <span class="text-link">Read the story →</span>
+      </a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="travel-empty">Stories from this part of the world will appear here soon.</p>
     {{ end }}
-  </div>
-  {{ else }}
-  <p class="travel-empty">Travel stories will appear here soon.</p>
+  </section>
   {{ end }}
 </div>
 {{ end }}
