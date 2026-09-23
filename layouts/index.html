@@ -1,36 +1,8 @@
 {{ define "main" }}
 <div class="portfolio-shell home-simple">
-  <svg class="side-bloom side-bloom-left" aria-hidden="true" viewBox="0 0 240 240" fill="none">
-    <path d="M228 12 Q150 38 128 100 Q112 148 60 168 Q28 180 16 220 M128 100 Q150 118 178 128 M60 168 Q40 158 18 160" />
-    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(199 19) rotate(206)" />
-    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(164 45) rotate(83)" />
-    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q8 -5 16 0 Q8 5 0 0Z" transform="translate(141 71) rotate(195)" />
-    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q7 -5 14 0 Q7 5 0 0Z" transform="translate(154 114) rotate(334)" />
-    <circle class="bloom-flower" cx="178" cy="128" r="5.5" />
-    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(120 120) rotate(176)" />
-    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(102 142) rotate(80)" />
-    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q8 -5 16 0 Q8 5 0 0Z" transform="translate(83 157) rotate(203)" />
-    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q7 -5 14 0 Q7 5 0 0Z" transform="translate(38 162) rotate(136)" />
-    <circle class="bloom-flower" cx="18" cy="160" r="5" />
-    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q7 -5 14 0 Q7 5 0 0Z" transform="translate(32 186) rotate(310)" />
-  </svg>
-  <svg class="side-bloom side-bloom-right" aria-hidden="true" viewBox="0 0 240 240" fill="none">
-    <path d="M228 12 Q150 38 128 100 Q112 148 60 168 Q28 180 16 220 M128 100 Q150 118 178 128 M60 168 Q40 158 18 160" />
-    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(199 19) rotate(206)" />
-    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(164 45) rotate(83)" />
-    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q8 -5 16 0 Q8 5 0 0Z" transform="translate(141 71) rotate(195)" />
-    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q7 -5 14 0 Q7 5 0 0Z" transform="translate(154 114) rotate(334)" />
-    <circle class="bloom-flower" cx="178" cy="128" r="5.5" />
-    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(120 120) rotate(176)" />
-    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" transform="translate(102 142) rotate(80)" />
-    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q8 -5 16 0 Q8 5 0 0Z" transform="translate(83 157) rotate(203)" />
-    <path class="bloom-leaf bloom-leaf-lilac" d="M0 0 Q7 -5 14 0 Q7 5 0 0Z" transform="translate(38 162) rotate(136)" />
-    <circle class="bloom-flower" cx="18" cy="160" r="5" />
-    <path class="bloom-leaf bloom-leaf-rose" d="M0 0 Q7 -5 14 0 Q7 5 0 0Z" transform="translate(32 186) rotate(310)" />
-  </svg>
-
   <section class="hero">
-    <p class="eyebrow">Building with curiosity</p>
+    {{ partial "blossom-branch.html" "home" }}
+    <p class="eyebrow">A Prelude</p>
     <h1>Sumedhaa</h1>
     <p class="hero-copy">I build data and cloud systems that are dependable, thoughtful, and easy to live with. My work brings together software engineering, data, and cloud infrastructure.</p>
     <div class="hero-actions">
@@ -106,6 +78,8 @@
   {{ partial "botanical-divider.html" . }}
 
   <section class="newsletter-section home-newsletter" id="newsletter">
+    {{ partial "blossom-branch.html" "newsletter-left" }}
+    {{ partial "blossom-branch.html" "newsletter-right" }}
     <p class="eyebrow">A Letter Now and Then</p>
     <h2>Notes from my corner</h2>
     <p>I’m planning occasional notes on engineering, dance, travel, and the things I’m learning. The subscription link will be here soon.</p>
