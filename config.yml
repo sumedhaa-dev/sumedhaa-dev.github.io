@@ -1,5 +1,5 @@
 baseURL: https://sumedhaa-dev.github.io/
-title: Your Name
+title: Sumedhaa
 theme: charlolamode
 
 
@@ -19,7 +19,7 @@ menu:
 
 
 params:
-    author: Your Name
+    author: Sumedhaa
     description: A personal portfolio.
 
 

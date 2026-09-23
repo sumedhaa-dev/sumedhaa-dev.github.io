@@ -1,0 +1,9 @@
+{{ define "main" }}
+<article class="portfolio-shell section-page article-page">
+  <header class="section-heading page-heading">
+    <p class="eyebrow">{{ .Date.Format "January 2, 2006" }}</p>
+    <h1>{{ .Title }}</h1>
+  </header>
+  <div class="page-prose">{{ .Content }}</div>
+</article>
+{{ end }}

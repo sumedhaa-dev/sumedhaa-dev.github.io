@@ -2,7 +2,7 @@
 <div class="portfolio-shell">
   <section class="hero">
     <p class="eyebrow">A Prologue</p>
-    <h1>Hi, I’m Your Name<span class="hero-wave"> ✳</span></h1>
+    <h1>Hi, I’m Sumedhaa<span class="hero-wave"> ✳</span></h1>
     <p class="hero-copy">Add a short introduction here: what you do, what you care about, and what you’re currently exploring.</p>
     <div class="hero-actions">
       <a class="pill-link" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
@@ -21,26 +21,39 @@
     <a class="text-link" href="{{ "about/" | relURL }}">A little more about me <span aria-hidden="true">→</span></a>
   </section>
 
-  <section class="chapter-section">
+  <section class="chapter-section" id="experience">
     <header class="section-heading"><p class="eyebrow">The Chapters</p><h2>What I work on</h2></header>
     <div class="chapter-row"><span class="chapter-number">I</span><div><p class="chapter-meta">CURRENT ROLE</p><h3>Your role · Your organization</h3><p>Add a few lines about your current work and responsibilities.</p></div></div>
     <div class="chapter-row"><span class="chapter-number chapter-two">II</span><div><p class="chapter-meta">EXPERIENCE</p><h3>Your areas of focus</h3><p>Highlight the skills, fields, or projects you would like visitors to know about.</p></div></div>
     <div class="chapter-row"><span class="chapter-number chapter-three">III</span><div><p class="chapter-meta">BEYOND THE SCREEN</p><h3>Your interests</h3><p>Share a little about what you enjoy outside of work.</p></div></div>
   </section>
 
-  {{ $posts := where site.RegularPages "Section" "blog" }}
-  {{ if $posts }}
-  <section class="writing-section">
-    <header class="section-heading"><p class="eyebrow">Elsewhere</p><h2>Notes &amp; guides</h2></header>
-    <div class="writing-grid">
-      {{ range first 3 ($posts.ByDate.Reverse) }}
-      <a class="writing-card" href="{{ .RelPermalink }}"><p class="chapter-meta">{{ .Date.Format "January 2006" }}</p><h3>{{ .Title }}</h3><p>{{ .Summary | plainify | truncate 150 }}</p><span class="text-link">Read the post →</span></a>
-      {{ end }}
-    </div>
-    <p class="all-writing"><a class="text-link" href="{{ "blog/" | relURL }}">Browse all writing →</a></p>
-  </section>
-  {{ end }}
+  <div class="flourish flourish-lower" aria-hidden="true"><svg viewBox="0 0 160 44"><path d="M5 22 Q80 42 155 22"/><ellipse cx="55" cy="29" rx="7" ry="3.5"/><circle cx="80" cy="35" r="4.5"/><ellipse cx="105" cy="29" rx="7" ry="3.5"/></svg></div>
 
-  <section class="contact-section" id="contact"><p class="eyebrow">Write to Me</p><h2>Have a question or an idea?</h2><p>Add a contact invitation and link here.</p><a class="pill-link" href="#contact">Get in touch <span aria-hidden="true">↗</span></a></section>
+  <section class="writing-section" id="talks">
+    <header class="section-heading"><p class="eyebrow">Elsewhere</p><h2>Words &amp; Talks</h2></header>
+    <div class="writing-grid">
+      <a class="writing-card" href="#talks"><p class="chapter-meta">ADD YOUR TALKS</p><h3>Talks</h3><p>Conversations and stages on the topics you care about.</p><span class="text-link">Add talks →</span></a>
+      <a class="writing-card" href="{{ "blog/" | relURL }}"><p class="chapter-meta">YOUR WRITING</p><h3>Blog</h3><p>Notes, ideas, and things you’ve learned along the way.</p><span class="text-link">Visit the blog →</span></a>
+    </div>
+  </section>
+
+  <section class="newsletter-section" id="newsletter">
+    <svg class="newsletter-sprig" aria-hidden="true" viewBox="0 0 120 56"><path d="M6 40 Q28 10 60 20 Q78 26 84 10 M60 20 Q86 32 114 24"/><ellipse cx="25" cy="28" rx="7" ry="3"/><ellipse cx="43" cy="18" rx="6" ry="2.5"/><ellipse cx="72" cy="24" rx="6" ry="2.5"/><ellipse cx="82" cy="15" rx="5" ry="2.3"/><ellipse cx="98" cy="29" rx="7" ry="3"/><circle cx="60" cy="20" r="2.5"/></svg>
+    <p class="eyebrow">An Epilogue, of Sorts</p>
+    <h2>Subscribe to my newsletter</h2>
+    <p>Add a short note about what subscribers can expect from you.</p>
+    <a class="pill-link" href="mailto:your-email@example.com?subject=Newsletter">Subscribe <span aria-hidden="true">↗</span></a>
+  </section>
+
+  <section class="contact-section" id="contact"><p class="eyebrow">Write to Me</p><h2>Get in Touch</h2>
+    <form class="contact-form" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+      <label for="contact-name">Your name</label><input id="contact-name" name="name" type="text" placeholder="Name" required>
+      <label for="contact-email">Your email</label><input id="contact-email" name="email" type="email" placeholder="you@example.com" required>
+      <label for="contact-message">Your message</label><textarea id="contact-message" name="message" rows="5" placeholder="What’s on your mind?" required></textarea>
+      <button class="pill-link" type="submit">Send a note <span aria-hidden="true">↗</span></button>
+    </form>
+  </section>
+  <div class="flourish closing-flourish" aria-hidden="true"><svg viewBox="0 0 120 36"><path d="M4 18 Q60 2 116 18"/><circle cx="40" cy="10" r="4"/><circle cx="60" cy="5" r="3"/><circle cx="80" cy="10" r="4"/></svg></div>
 </div>
 {{ end }}
