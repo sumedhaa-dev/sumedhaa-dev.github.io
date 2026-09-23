@@ -2,4 +2,4 @@
 title: Blogs
 ---
 
-A place to share your insights and ideas.
+A place to share my insights and level up together.

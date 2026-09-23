@@ -20,7 +20,7 @@ menu:
 
 params:
     author: Sumedhaa
-    description: A personal portfolio.
+    description: Sumedhaa is a Senior Software Engineer at FactSet in Hyderabad, building data platforms, cloud infrastructure, and AI-powered workflows.
 
 
     defaultTheme: auto
@@ -31,6 +31,18 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowToc: true
+
+    socialIcons:
+        - name: github
+          url: "https://github.com/sumedhaa-dev"
+        - name: youtube
+          url: "https://youtube.com/@sumedhaacodes"
+        - name: twitter
+          url: "https://twitter.com/Sumedhaa1"
+        - name: linkedin
+          url: "https://www.linkedin.com/in/sumedhaa/"
+        - name: instagram
+          url: "https://instagram.com/sumedhaacodes"
 
     # change favicon in images folder (icon for web tab)
     assets:
