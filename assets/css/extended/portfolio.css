@@ -91,6 +91,7 @@ html{scroll-behavior:smooth}body{font-family:'Outfit',sans-serif;font-weight:300
 .botanical-divider .divider-blossom:nth-of-type(2){animation-delay:-1.9s}
 .botanical-divider .divider-blossom:nth-of-type(3){animation-delay:-.95s}
 @keyframes divider-flower-sway{from{rotate:-2deg}to{rotate:2deg}}
+.home-newsletter .section-bloom-newsletter-left .branch-blossom,.home-newsletter .section-bloom-newsletter-right .branch-blossom{display:none}
 .dark .side-bloom{opacity:.27}.dark .side-bloom-stem{stroke:#b68d84}.dark .side-bloom-leaf.leaf-rose{fill:#dc98a3}.dark .side-bloom-leaf.leaf-lilac{fill:#bf9bc4}.dark .side-bloom-flower{fill:#dc98a3}
 @keyframes side-branch-sway{from{rotate:-2deg}to{rotate:2deg}}
 @media(max-width:900px){.side-bloom{width:170px;opacity:.3}.side-bloom-left{left:-95px}.side-bloom-right{right:-95px;top:240px}}
