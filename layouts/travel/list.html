@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="portfolio-shell section-page">
+  <header class="section-heading page-heading">
+    <p class="eyebrow">Journeys &amp; Field Notes</p>
+    <h1>{{ .Title }}</h1>
+    <p class="page-intro">{{ .Description }}</p>
+  </header>
+  {{ $posts := .RegularPages.ByDate.Reverse }}
+  {{ if $posts }}
+  <div class="writing-grid blog-grid">
+    {{ range $posts }}
+    <a class="writing-card" href="{{ .RelPermalink }}">
+      <p class="chapter-meta">{{ .Date.Format "January 2, 2006" }}</p>
+      <h2>{{ .Title }}</h2>
+      <p>{{ .Summary | plainify | truncate 180 }}</p>
+      <span class="text-link">Read the story →</span>
+    </a>
+    {{ end }}
+  </div>
+  {{ else }}
+  <p class="travel-empty">Travel stories will appear here soon.</p>
+  {{ end }}
+</div>
+{{ end }}
