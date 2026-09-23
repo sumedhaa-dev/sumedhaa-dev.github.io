@@ -1,4 +1,3 @@
-### sumedhaa.sanjeevan
+### Personal portfolio
 
-Hi, I am Sumedhaa and this is my personal portfolio based on [theme template](https://github.com/nanxiaobei/hugo-paper).
-
+A Hugo portfolio site with an editorial style. Replace the sample copy and links with your own details.

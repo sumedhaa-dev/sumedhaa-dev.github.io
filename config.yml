@@ -1,6 +1,5 @@
-baseURL: https://misticorion.github.io/
-title: Sumedhaa
-paginate: 6
+baseURL: https://sumedhaa-dev.github.io/
+title: Your Name
 theme: charlolamode
 
 
@@ -9,17 +8,19 @@ menu:
     main:
         - name: About
           url: about/
-          weight: 30
+          weight: 10
         - name: Resume
           url: resume/
-        - name: Blogs
+          weight: 20
+        - name: Writing
           url: blog/
+          weight: 30
     
 
 
 params:
-    author: Sumedhaa
-    description: Hi, I am Sumedhaa, a Software Developer at FactSet and Cloud & Data enthusiast.
+    author: Your Name
+    description: A personal portfolio.
 
 
     defaultTheme: auto
@@ -30,34 +31,6 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowToc: true
-
-    profileMode:
-        enabled: true
-        title: Sumedhaa 👋
-        description: Ula
-        imageUrl: "/images/profile.jpg"
-        imageTitle: Sumedhaa
-        imageWidth: 200
-        imageHeight: 200
-        buttons:
-            - name: Coffee & Collab ☕️ 
-              url: https://topmate.io/sumedhaa
-
-    mainSections:
-      - articles
-
-    socialIcons:
-        - name: github
-          url: "https://github.com/misticorion"
-        - name: youtube
-          url: "https://youtube.com/@sumedhaacodes"
-        - name: twitter
-          url: "https://twitter.com/Sumedhaa1"
-        - name: linkedin
-          url: "https://www.linkedin.com/in/sumedhaa/"
-        - name: instagram
-          url: "https://instagram.com/sumedhaacodes"
-
 
     # change favicon in images folder (icon for web tab)
     assets:
@@ -73,4 +46,3 @@ pygmentsUseClasses: true
 
 minify:
     disableXML: true
-
