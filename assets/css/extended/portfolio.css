@@ -1233,6 +1233,17 @@ a:hover {
   max-width:560px;
 }
 
+.substack-embed {
+  display:block;
+  width:min(480px,100%);
+  height:320px;
+  margin:28px auto 0;
+  border:1px solid #eadfe0;
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 12px 32px rgba(76,51,58,.08);
+}
+
 .newsletter-note {
   display:inline-block;
   margin-top:4px;
@@ -1817,18 +1828,49 @@ a:hover,.nav-links>a:hover {
 }
 
 .section-bloom-newsletter-left {
-  top:18px;
-  left:-28px;
-  width:clamp(140px,19vw,225px);
-  opacity:.18;
+  top:50%;
+  left:-30px;
+  width:clamp(180px,21vw,245px);
+  opacity:.32;
+  transform:translateY(-50%);
 }
 
 .section-bloom-newsletter-right {
-  top:18px;
-  right:-28px;
-  width:clamp(140px,19vw,225px);
-  transform:scaleX(-1);
-  opacity:.18;
+  top:50%;
+  right:-30px;
+  width:clamp(180px,21vw,245px);
+  transform:translateY(-50%) scaleX(-1);
+  opacity:.32;
+}
+
+.home-newsletter .section-bloom .branch-leaf {
+  transform-box:fill-box;
+  transform-origin:0 0;
+  animation:newsletter-leaf-sway 5s ease-in-out infinite alternate;
+}
+
+.home-newsletter .section-bloom .branch-leaf:nth-of-type(2n) {
+  animation-delay:-2s;
+}
+
+.home-newsletter .branch-blossom-petal {
+  fill:var(--blossom-pink);
+  stroke:#ca8b95;
+  stroke-width:.45;
+}
+
+.home-newsletter .branch-blossom-center {
+  fill:var(--blossom-center);
+}
+
+@keyframes newsletter-leaf-sway {
+  from {
+    rotate:-1.5deg;
+  }
+
+  to {
+    rotate:1.5deg;
+  }
 }
 
 .travel-page {
@@ -1885,7 +1927,7 @@ a:hover,.nav-links>a:hover {
 @media(max-width:640px) {
   .section-bloom-newsletter-left,.section-bloom-newsletter-right {
     width:100px;
-    opacity:.12;
+    opacity:.18;
   }
 
   .travel-page .writing-grid {
@@ -2028,6 +2070,18 @@ a:hover,.nav-links>a:hover {
   position:relative;
 }
 
+/* Let the introduction own the first viewport; the story follows below it. */
+.home-simple .hero {
+  box-sizing:border-box;
+  min-height:calc(100vh - 88px);
+  min-height:calc(100svh - 88px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:48px 0;
+}
+
 .side-bloom {
   position:absolute;
   z-index:0;
@@ -2040,6 +2094,27 @@ a:hover,.nav-links>a:hover {
   transform-box:fill-box;
   transform-origin:center;
   animation:side-branch-sway 5s ease-in-out infinite alternate;
+}
+
+/* Bring out the homepage florals against the light canvas. */
+.home-simple .side-bloom {
+  opacity:.56;
+}
+
+.home-simple .side-bloom-stem {
+  stroke:#9a7473;
+}
+
+.home-simple .side-bloom-leaf.leaf-rose {
+  fill:#df9ca8;
+}
+
+.home-simple .side-bloom-leaf.leaf-lilac {
+  fill:#b99acb;
+}
+
+.home-simple .side-bloom-flower {
+  fill:#df9ca8;
 }
 
 .side-bloom-stem {
@@ -2190,7 +2265,7 @@ a:hover,.nav-links>a:hover {
 /* Lilac hydrangea illustrations in travel-card corners. */
 .travel-page .writing-card {
   position:relative;
-  overflow:hidden;
+  overflow:visible;
 }
 
 .travel-page .writing-card>:not(.hydrangea-corner) {
@@ -2201,22 +2276,13 @@ a:hover,.nav-links>a:hover {
 .hydrangea-corner {
   position:absolute;
   z-index:0;
-  width:68px;
-  height:60px;
-  opacity:.22;
+  width:82px;
+  height:74px;
+  right:-12px;
+  bottom:-12px;
+  opacity:.3;
   pointer-events:none;
   transition:opacity .2s ease;
-}
-
-.travel-page .writing-card:nth-child(odd) .hydrangea-corner {
-  top:0;
-  right:0;
-}
-
-.travel-page .writing-card:nth-child(even) .hydrangea-corner {
-  bottom:0;
-  left:0;
-  transform:rotate(180deg);
 }
 
 .hydrangea-stem {
@@ -2226,36 +2292,36 @@ a:hover,.nav-links>a:hover {
 }
 
 .hydrangea-leaf {
-  fill:#b7b69f;
-  stroke:#9b9b83;
+  fill:#aeb58d;
+  stroke:#89936d;
   stroke-width:.35;
 }
 
 .hydrangea-floret-light {
-  fill:#dfd4e9;
-  stroke:#c6b8d8;
+  fill:#d7c4ed;
+  stroke:#b89ed8;
   stroke-width:.2;
 }
 
 .hydrangea-floret-mid {
-  fill:#cdbce0;
-  stroke:#b4a1cc;
+  fill:#c5a9e2;
+  stroke:#a787ce;
   stroke-width:.2;
 }
 
 .hydrangea-floret-deep {
-  fill:#b7a5d1;
-  stroke:#a18dbd;
+  fill:#ad8bce;
+  stroke:#9270b7;
   stroke-width:.2;
 }
 
 .hydrangea-center {
-  fill:#f0e7ef;
+  fill:#f6edf7;
   stroke:none;
 }
 
 .travel-page .writing-card:hover .hydrangea-corner {
-  opacity:.32;
+  opacity:.4;
 }
 
 .dark .hydrangea-stem {
@@ -2288,11 +2354,27 @@ a:hover,.nav-links>a:hover {
 
 @media(max-width:640px) {
   .hydrangea-corner {
-    width:58px;
-    height:52px;
-    opacity:.18;
+    width:64px;
+    height:58px;
+    right:-8px;
+    bottom:-8px;
+    opacity:.23;
   }
 
+}
+
+@media(max-width:640px) {
+  .dark .hydrangea-corner {
+    opacity:.2;
+  }
+}
+
+@media(max-width:640px) {
+  .home-simple .hero {
+    min-height:calc(100vh - 70px);
+    min-height:calc(100svh - 70px);
+    padding:42px 0;
+  }
 }
 
 /* Keep ordinary words intact while allowing narrow layouts to shrink and wrap. */

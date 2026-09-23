@@ -1,11 +1,22 @@
 <div class="section-bloom section-bloom-{{ . }}" aria-hidden="true">
-  <svg viewBox="0 0 300 220" fill="none">
-    <path class="branch-line" d="M6 214 C42 180 75 145 111 118 C157 84 213 45 294 8" />
-    <path class="branch-line branch-line-small" d="M111 118 C100 88 90 67 73 47 M158 83 C181 94 201 105 218 125 M217 47 C218 29 222 20 233 11" />
-    <g class="branch-leaf" transform="translate(62 157) rotate(212)"><path d="M0 0 Q12 -10 24 0 Q12 10 0 0Z" /></g>
-    <g class="branch-leaf" transform="translate(89 133) rotate(34)"><path d="M0 0 Q11 -9 22 0 Q11 9 0 0Z" /></g>
-    <g class="branch-leaf" transform="translate(137 97) rotate(205)"><path d="M0 0 Q12 -10 24 0 Q12 10 0 0Z" /></g>
-    <g class="branch-leaf" transform="translate(184 65) rotate(38)"><path d="M0 0 Q11 -9 22 0 Q11 9 0 0Z" /></g>
-    <g class="branch-leaf" transform="translate(244 30) rotate(205)"><path d="M0 0 Q10 -8 20 0 Q10 8 0 0Z" /></g>
+  <svg viewBox="0 0 240 240" fill="none">
+    <path class="branch-line" d="M228 12 Q150 38 128 100 Q112 148 60 168 Q28 180 16 220 M128 100 Q150 118 178 128 M60 168 Q40 158 18 160 M151 65 Q166 42 190 39" />
+    <g class="branch-leaf" transform="translate(190 39) rotate(205)"><path d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" /></g>
+    <g class="branch-leaf" transform="translate(164 52) rotate(28)"><path d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" /></g>
+    <g class="branch-leaf" transform="translate(137 83) rotate(205)"><path d="M0 0 Q8 -5 16 0 Q8 5 0 0Z" /></g>
+    <g class="branch-leaf" transform="translate(112 120) rotate(28)"><path d="M0 0 Q9 -6 18 0 Q9 6 0 0Z" /></g>
+    <g class="branch-leaf" transform="translate(75 162) rotate(210)"><path d="M0 0 Q8 -5 16 0 Q8 5 0 0Z" /></g>
+    <g class="branch-leaf" transform="translate(40 179) rotate(26)"><path d="M0 0 Q8 -5 16 0 Q8 5 0 0Z" /></g>
+    {{ range (slice "178 128" "36 162" "190 39") }}
+    {{ $position := split . " " }}
+    <g class="branch-blossom" transform="translate({{ index $position 0 }} {{ index $position 1 }})">
+      <ellipse class="branch-blossom-petal" cx="0" cy="-4" rx="2.5" ry="4" />
+      <ellipse class="branch-blossom-petal" cx="3.8" cy="-1.2" rx="2.5" ry="4" transform="rotate(72 3.8 -1.2)" />
+      <ellipse class="branch-blossom-petal" cx="2.4" cy="3.2" rx="2.5" ry="4" transform="rotate(144 2.4 3.2)" />
+      <ellipse class="branch-blossom-petal" cx="-2.4" cy="3.2" rx="2.5" ry="4" transform="rotate(216 -2.4 3.2)" />
+      <ellipse class="branch-blossom-petal" cx="-3.8" cy="-1.2" rx="2.5" ry="4" transform="rotate(288 -3.8 -1.2)" />
+      <circle class="branch-blossom-center" r="1.4" />
+    </g>
+    {{ end }}
   </svg>
 </div>

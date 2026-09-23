@@ -69,10 +69,8 @@
     <p class="eyebrow">{{ $home.newsletter.eyebrow }}</p>
     <h2>{{ $home.newsletter.title }}</h2>
     <p>{{ $home.newsletter.copy }}</p>
-    {{ with $home.newsletter.url }}
-    <a class="newsletter-note" href="{{ . }}" target="_blank" rel="noopener noreferrer">Subscribe to my newsletter ↗</a>
-    {{ else }}
-    <span class="newsletter-note">{{ $home.newsletter.note }}</span>
+    {{ with $home.newsletter.embed_url }}
+    <iframe class="substack-embed" src="{{ . }}" width="480" height="320" title="Subscribe to Between Things on Substack" frameborder="0" scrolling="no" loading="lazy"></iframe>
     {{ end }}
   </section>
 </div>

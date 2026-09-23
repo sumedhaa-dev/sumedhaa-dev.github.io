@@ -46,7 +46,6 @@ writing:
       url: travel/
 newsletter:
   eyebrow: A Letter Now and Then
-  title: Notes from my corner
-  copy: I’m planning occasional notes on engineering, dance, travel, and the things I’m learning. The subscription link will be here soon.
-  note: Newsletter coming soon
-  url: ""
+  title: Between Things
+  copy: Notes on engineering, dance, travel, and the curious things in between.
+  embed_url: https://sumedhaa.substack.com/embed

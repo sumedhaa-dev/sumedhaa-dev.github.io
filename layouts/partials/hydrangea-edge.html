@@ -1,22 +1,22 @@
 {{/* A compact mophead hydrangea: tightly packed four sepal florets form a rounded head. */}}
 {{ $florets := slice
-  (dict "x" 35 "y" 10 "tone" "light") (dict "x" 47 "y" 11 "tone" "mid")
-  (dict "x" 24 "y" 16 "tone" "mid") (dict "x" 36 "y" 20 "tone" "deep") (dict "x" 49 "y" 21 "tone" "light") (dict "x" 61 "y" 17 "tone" "mid")
-  (dict "x" 17 "y" 28 "tone" "light") (dict "x" 29 "y" 31 "tone" "mid") (dict "x" 42 "y" 32 "tone" "light") (dict "x" 55 "y" 31 "tone" "deep") (dict "x" 67 "y" 27 "tone" "light")
-  (dict "x" 20 "y" 41 "tone" "deep") (dict "x" 33 "y" 43 "tone" "light") (dict "x" 46 "y" 44 "tone" "mid") (dict "x" 59 "y" 41 "tone" "light")
-  (dict "x" 28 "y" 54 "tone" "mid") (dict "x" 41 "y" 56 "tone" "deep") (dict "x" 53 "y" 53 "tone" "mid")
+  (dict "x" 35 "y" 9 "tone" "light") (dict "x" 49 "y" 12 "tone" "mid")
+  (dict "x" 24 "y" 15 "tone" "mid") (dict "x" 39 "y" 18 "tone" "deep") (dict "x" 55 "y" 18 "tone" "light") (dict "x" 63 "y" 23 "tone" "mid")
+  (dict "x" 17 "y" 27 "tone" "light") (dict "x" 30 "y" 28 "tone" "mid") (dict "x" 44 "y" 29 "tone" "light") (dict "x" 58 "y" 31 "tone" "deep") (dict "x" 68 "y" 35 "tone" "light")
+  (dict "x" 19 "y" 40 "tone" "deep") (dict "x" 33 "y" 42 "tone" "light") (dict "x" 47 "y" 41 "tone" "mid") (dict "x" 61 "y" 44 "tone" "light")
+  (dict "x" 27 "y" 52 "tone" "mid") (dict "x" 41 "y" 56 "tone" "deep") (dict "x" 54 "y" 52 "tone" "mid")
 }}
 <svg class="hydrangea-corner" viewBox="0 0 84 76" fill="none" aria-hidden="true">
-  <path class="hydrangea-stem" d="M41 47 C41 57 36 65 29 72 M44 49 C50 58 58 64 67 68" />
+  <path class="hydrangea-stem" d="M41 57 C41 63 36 68 29 73 M43 57 C49 63 58 67 68 70" />
   <path class="hydrangea-leaf" d="M29 70 C20 62 13 64 11 69 C16 75 24 76 29 70Z" />
   <path class="hydrangea-leaf" d="M58 64 C59 55 67 52 71 55 C71 62 66 67 58 64Z" />
   {{ range $florets }}
   <g class="hydrangea-floret hydrangea-floret-{{ .tone }}" transform="translate({{ .x }} {{ .y }})">
-    <ellipse cx="0" cy="-1.7" rx="1.55" ry="2.15" />
-    <ellipse cx="1.7" cy="0" rx="1.55" ry="2.15" transform="rotate(90 1.7 0)" />
-    <ellipse cx="0" cy="1.7" rx="1.55" ry="2.15" />
-    <ellipse cx="-1.7" cy="0" rx="1.55" ry="2.15" transform="rotate(90 -1.7 0)" />
-    <circle class="hydrangea-center" r=".48" />
+    <path d="M0 0 C-1.2 -1.8 -3.8 -4.4 -2.3 -6.4 C-1.4 -7.8 1.4 -7.8 2.3 -6.4 C3.8 -4.4 1.2 -1.8 0 0Z" />
+    <path d="M0 0 C-1.2 -1.8 -3.8 -4.4 -2.3 -6.4 C-1.4 -7.8 1.4 -7.8 2.3 -6.4 C3.8 -4.4 1.2 -1.8 0 0Z" transform="rotate(90)" />
+    <path d="M0 0 C-1.2 -1.8 -3.8 -4.4 -2.3 -6.4 C-1.4 -7.8 1.4 -7.8 2.3 -6.4 C3.8 -4.4 1.2 -1.8 0 0Z" transform="rotate(180)" />
+    <path d="M0 0 C-1.2 -1.8 -3.8 -4.4 -2.3 -6.4 C-1.4 -7.8 1.4 -7.8 2.3 -6.4 C3.8 -4.4 1.2 -1.8 0 0Z" transform="rotate(270)" />
+    <circle class="hydrangea-center" r=".65" />
   </g>
   {{ end }}
 </svg>
