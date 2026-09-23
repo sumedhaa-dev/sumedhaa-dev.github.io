@@ -48,4 +48,5 @@ newsletter:
   eyebrow: A Letter Now and Then
   title: Between Things
   copy: Notes on engineering, dance, travel, and the curious things in between.
-  embed_url: https://sumedhaa.substack.com/embed
+  url: https://sumedhaa.substack.com/
+  action_label: Subscribe

@@ -549,6 +549,35 @@ a:hover {
   font-size:13px;
 }
 
+.footer-quote {
+  flex:1;
+  max-width:520px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.footer-quote p {
+  margin:0;
+  color:#5f544c;
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;
+  font-style:italic;
+  line-height:1.35;
+}
+
+.footer-quote cite {
+  display:block;
+  margin-top:6px;
+  font-size:10px;
+  font-style:normal;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.footer-quote cite a {
+  color:inherit;
+}
+
 .portfolio-footer a {
   text-decoration:none;
 }
@@ -709,6 +738,10 @@ a:hover {
   color:#c9bfb4;
 }
 
+.dark .footer-quote p {
+  color:#d7c8bd;
+}
+
 .dark .portfolio-footer {
   border-color:#514840;
 }
@@ -769,6 +802,15 @@ a:hover {
 
   .portfolio-footer {
     flex-wrap:wrap;
+  }
+
+  .portfolio-footer .footer-quote {
+    order:3;
+    flex-basis:100%;
+  }
+
+  .portfolio-footer>a {
+    order:2;
   }
 
   .newsletter-section {
@@ -1166,15 +1208,41 @@ a:hover {
 }
 
 .hero-socials {
+  max-width:100%;
+  flex-wrap:wrap;
+  align-items:center;
+  column-gap:24px;
+  row-gap:12px;
   margin-top:22px;
 }
 
+.hero-socials a {
+  white-space:nowrap;
+}
+
 .home-note {
-  margin:56px auto 62px;
+  margin:72px auto 82px;
 }
 
 .home-note>p:not(.eyebrow) {
-  max-width:720px;
+  max-width:62ch;
+  text-wrap:pretty;
+}
+
+.home-simple .hero-copy,.home-role>p:last-child,.home-newsletter>p:not(.eyebrow) {
+  text-wrap:pretty;
+}
+
+.home-simple h1,.home-simple h2,.home-simple h3 {
+  text-wrap:balance;
+  word-break:normal;
+  overflow-wrap:normal;
+}
+
+.home-simple p:not(.eyebrow),.home-simple a {
+  word-break:normal;
+  overflow-wrap:normal;
+  hyphens:none;
 }
 
 .home-chapters {
@@ -1233,15 +1301,11 @@ a:hover {
   max-width:560px;
 }
 
-.substack-embed {
-  display:block;
-  width:min(480px,100%);
-  height:320px;
-  margin:28px auto 0;
-  border:1px solid #eadfe0;
-  border-radius:8px;
-  background:#fff;
-  box-shadow:0 12px 32px rgba(76,51,58,.08);
+.newsletter-subscribe {
+  margin-top:4px;
+  padding:14px 40px;
+  font-size:15px;
+  letter-spacing:.03em;
 }
 
 .newsletter-note {
@@ -2105,12 +2169,12 @@ a:hover,.nav-links>a:hover {
   stroke:#9a7473;
 }
 
-.home-simple .side-bloom-leaf.leaf-rose {
-  fill:#df9ca8;
+.home-simple .side-bloom-leaf.leaf-sage {
+  fill:#a2b286;
 }
 
-.home-simple .side-bloom-leaf.leaf-lilac {
-  fill:#b99acb;
+.home-simple .side-bloom-leaf.leaf-moss {
+  fill:#82986e;
 }
 
 .home-simple .side-bloom-flower {
@@ -2125,12 +2189,12 @@ a:hover,.nav-links>a:hover {
   stroke-linejoin:round;
 }
 
-.side-bloom-leaf.leaf-rose {
-  fill:var(--blossom-pink);
+.side-bloom-leaf.leaf-sage {
+  fill:#a2b286;
 }
 
-.side-bloom-leaf.leaf-lilac {
-  fill:var(--blossom-lilac);
+.side-bloom-leaf.leaf-moss {
+  fill:#82986e;
 }
 
 .side-bloom-flower {
@@ -2206,12 +2270,12 @@ a:hover,.nav-links>a:hover {
   stroke:#b68d84;
 }
 
-.dark .side-bloom-leaf.leaf-rose {
-  fill:#dc98a3;
+.dark .home-simple .side-bloom-leaf.leaf-sage {
+  fill:#9aad7e;
 }
 
-.dark .side-bloom-leaf.leaf-lilac {
-  fill:#bf9bc4;
+.dark .home-simple .side-bloom-leaf.leaf-moss {
+  fill:#7f946e;
 }
 
 .dark .side-bloom-flower {

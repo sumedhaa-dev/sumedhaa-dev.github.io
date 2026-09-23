@@ -1,6 +1,9 @@
 <footer class="portfolio-footer">
   <span>© {{ now.Format "2006" }} {{ .Site.Data.profile.name }}</span>
-  <a href="mailto:{{ .Site.Data.profile.email }}">{{ .Site.Data.profile.email }}</a>
+  <blockquote class="footer-quote">
+    <p>“{{ .Site.Data.footer.stoic_quote.text }}”</p>
+    <cite><a href="{{ .Site.Data.footer.stoic_quote.source }}" target="_blank" rel="noopener noreferrer">{{ .Site.Data.footer.stoic_quote.attribution }}</a></cite>
+  </blockquote>
   <a href="#top">Back to top ↑</a>
 </footer>
 <script>
