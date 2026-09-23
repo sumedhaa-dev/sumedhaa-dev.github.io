@@ -9,4 +9,38 @@
     const isDark = document.body.classList.toggle('dark');
     localStorage.setItem('pref-theme', isDark ? 'dark' : 'light');
   });
+
+  (() => {
+    const dividers = [...document.querySelectorAll('[data-botanical-divider]')];
+    if (!dividers.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let pointerX = innerWidth / 2;
+    let pointerY = innerHeight / 2;
+    let frame = 0;
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+    const update = () => {
+      frame = 0;
+      for (const divider of dividers) {
+        const rect = divider.getBoundingClientRect();
+        const dx = (pointerX - (rect.left + rect.width / 2)) / innerWidth;
+        const dy = (pointerY - (rect.top + rect.height / 2)) / innerHeight;
+        const scrollDrift = clamp((rect.top + rect.height / 2 - innerHeight / 2) * -0.035, -12, 12);
+        divider.style.setProperty('--drift-x', `${clamp(dx * 30, -16, 16)}px`);
+        divider.style.setProperty('--drift-y', `${clamp(dy * 18 + scrollDrift, -16, 16)}px`);
+        divider.style.setProperty('--drift-tilt', `${clamp(dx * 10, -5, 5)}deg`);
+      }
+    };
+    const requestUpdate = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    addEventListener('pointermove', event => {
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      requestUpdate();
+    }, { passive: true });
+    addEventListener('scroll', requestUpdate, { passive: true });
+    addEventListener('resize', requestUpdate, { passive: true });
+    requestUpdate();
+  })();
 </script>
