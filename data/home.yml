@@ -4,7 +4,7 @@ hero:
   resume_label: View my résumé
 story:
   eyebrow: The Story So Far
-  copy: I build systems that make complexity feel simple, so people can focus on what matters.
+  copy: Somewhere between building systems, learning stories through movement, and finding beauty in the everyday, I'm making a life of my own.
   link_label: A little more about me
 chapters:
   eyebrow: The Chapters
@@ -12,19 +12,19 @@ chapters:
   roles:
     - meta: JAN 2026 TO PRESENT · FACTSET
       title: Senior Software Engineer
-      summary: I built an MCP server and agent workflows that help financial professionals find data, run queries, and uncover insights.
+      summary: Today, I shape Data Navigator’s MCP server and agent workflows, helping financial professionals discover data, run queries, and surface insights.
     - meta: APR 2023 TO JAN 2026 · FACTSET
       title: Software Engineer III
-      summary: I built data feeds used by more than 4,000 clients and made file transfers and Kubernetes upgrades more dependable.
+      summary: I built 30+ banking, insurance, and oil and gas data feeds for a platform serving 4,000+ clients, then improved its infrastructure with Crossplane and zero-downtime EKS upgrades.
     - meta: APR 2022 TO APR 2023 · FACTSET
       title: Software Engineer II
-      summary: I simplified Airflow pipelines, built a PySpark rules engine, and helped move Standard Data Feeds to Snowflake.
+      summary: I made data delivery more efficient by redesigning seven Airflow pipelines, creating an AWS PySpark rules engine, and moving Standard Data Feeds to Snowflake.
     - meta: DEC 2020 TO APR 2022 · FACTSET
       title: Software Engineer I
-      summary: I built serverless AWS APIs and data services that supported feeds from three providers.
-    - meta: SEP 2020 TO DEC 2020 · DELOX
+      summary: I laid the groundwork for scalable feeds with 13 serverless AWS API endpoints, Elasticsearch caching, and integrations for three data providers.
+    - meta: SEP 2020 TO DEC 2020 · DEXLOCK
       title: Software Engineer
-      summary: I helped build a metro ticket booking system and a location tracking app for field workers.
+      summary: At Dexlock, I contributed to a metro ticketing platform and a field-worker location app, working across Java APIs and responsive interfaces.
   resume_label: Full experience and credentials
 beyond_work:
   eyebrow: Beyond the Work
