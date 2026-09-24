@@ -122,31 +122,17 @@ journey:
     index: 1
   - kind: experience
     index: 2
-  - kind: chapter
-    anchor: recognition
-    eyebrow: Along the way
-    title: Recognition
-  - kind: recognition
-    index: 0
-  - kind: recognition
-    index: 1
   - kind: experience
     index: 3
   - kind: experience
     index: 4
-  - kind: recognition
-    index: 2
   - kind: chapter
     anchor: education
     eyebrow: The foundations
     title: Education
   - kind: education
     index: 0
-  - kind: recognition
-    index: 3
   - kind: education
     index: 1
-  - kind: recognition
-    index: 4
   - kind: education
     index: 2

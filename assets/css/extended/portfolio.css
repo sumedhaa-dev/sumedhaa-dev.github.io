@@ -3122,11 +3122,63 @@ body {
 .dark .resume-recognition-entry .resume-card-kicker { color:#d5afb2; }
 .dark .resume-recognition-detail { color:#d3c9bf; }
 .dark .resume-timeline-item--recognition .resume-timeline-marker { border-color:#ddbd92; background:#4b3e37; box-shadow:0 0 0 4px #403438; }
+.resume-timeline-sprig {
+  position:absolute;
+  z-index:2;
+  top:-2px;
+  left:96px;
+  width:86px;
+  height:48px;
+  pointer-events:none;
+}
+.resume-timeline-sprig svg { display:block; width:100%; height:100%; overflow:visible; }
+.resume-sprig-stem { fill:none; stroke:#9b9b78; stroke-width:1.35; stroke-linecap:round; }
+.resume-sprig-leaf { fill:#a8ad8d; stroke:#8f9b77; stroke-width:.55; }
+.resume-sprig-flower { fill:#e9c3cc; stroke:#c995a2; stroke-width:.55; }
+.resume-sprig-flower circle { fill:#ba8968; stroke:none; }
+.resume-traveling-bloom { transition:transform .32s cubic-bezier(.2,.65,.3,1); }
+.resume-timeline-item .resume-role-card { transition:background-color .25s ease,border-color .25s ease,box-shadow .25s ease; }
+.resume-timeline-item.is-current .resume-role-card {
+  border-color:#d9aab0;
+  background:#fff8f7;
+  box-shadow:0 8px 26px rgba(154,99,110,.09);
+}
+.resume-timeline-item.is-current .resume-timeline-marker {
+  border-color:#b86e7c;
+  background:#f4dce0;
+  box-shadow:0 0 0 6px rgba(232,190,198,.28);
+  transform:scale(1.12);
+}
+.dark .resume-sprig-stem { stroke:#9ba685; }
+.dark .resume-sprig-leaf { fill:#849176; stroke:#a6b08f; }
+.dark .resume-sprig-flower { fill:#c7a5b0; stroke:#e0bdc6; }
+.dark .resume-sprig-flower circle { fill:#e0bd91; }
+.dark .resume-timeline-item.is-current .resume-role-card { border-color:#926d71; background:#3b3033; box-shadow:0 8px 26px rgba(0,0,0,.14); }
+.dark .resume-timeline-item.is-current .resume-timeline-marker { border-color:#e3aeb8; background:#69464e; box-shadow:0 0 0 6px rgba(203,151,164,.15); }
+.resume-header {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  grid-template-areas:"eyebrow action" "title action" "lead action";
+  column-gap:36px;
+  align-items:start;
+}
+.resume-header>.eyebrow { grid-area:eyebrow; }
+.resume-header>h1 { grid-area:title; }
+.resume-header>.resume-lead { grid-area:lead; }
+.resume-header>.resume-download { grid-area:action; align-self:center; white-space:nowrap; }
 @media(max-width:720px) {
+  .resume-header {
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:"eyebrow" "title" "lead" "action";
+    row-gap:0;
+  }
+  .resume-header>.resume-download { justify-self:start; margin-top:3px; }
   .resume-skill-row { grid-template-columns:1fr; gap:3px; padding:13px 3px; }
   .resume-skill-row dt { font-size:20px; }
+  .resume-timeline-sprig { display:none; }
 }
 @media print {
   .resume-skill-list,.resume-skill-row { border-color:#aaa; }
   .resume-recognition-entry { border-color:#bbb; background:transparent!important; }
+  .resume-timeline-item.is-current .resume-role-card { border-color:#bbb; background:white; box-shadow:none; }
 }

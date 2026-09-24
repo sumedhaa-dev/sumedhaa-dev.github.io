@@ -8,7 +8,7 @@ This site is built with Hugo using a customized copy of the `charlolamode` theme
 - `data/home.yml` — homepage text, experience highlights, writing cards, and newsletter note.
 - `data/navigation.yml` — visible navigation links.
 - `data/travel.yml` — travel journal categories. Each travel post’s `travelCategory` must exactly match a category title here.
-- `data/resume.yml` — résumé roles, skills, certifications, education, recognition, and volunteering.
+- `data/resume.yml` — résumé roles, skills, certifications, education, recognition, and volunteering. The `journey` list controls the order of experience and education entries on the shared timeline.
 - `content/resume/_index.md` — résumé page title, introduction, and PDF link.
 - `content/about/_index.md` — About page text and search description.
 - `content/blog/_index.md` — blog title and introduction.
