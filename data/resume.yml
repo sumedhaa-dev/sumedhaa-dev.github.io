@@ -12,36 +12,47 @@ experience:
     dates: Apr 2023 – Jan 2026
     location: Hyderabad, India
     highlights:
-      - Built 30+ data feeds across banking, insurance, and oil and gas, and curated Standard Data Feeds used by 4,000+ clients.
-      - Designed a bulk-transfer pipeline for 500K+ files, reducing storage costs by 20%.
-      - Packaged and productionized Crossplane compositions through CI and AWS ECR, creating reusable infrastructure patterns and cutting manual configuration by 30%.
-      - Planned and delivered EKS upgrades across environments with zero downtime.
+      - Designed a complex data pipeline to bulk transfer over 500k+ files to unify the archive and retrieval mechanisms, decreasing  storage cost by 20%.
+      - Played a key role in FactSet's flagship product, SDF (Standard Data Feeds), by managing the curation of data from diverse sources within the FactSet ecosystem. Executed complex data transformations, ensuring a seamless client experience for a substantial customer base exceeding 4,000 across data feeds.
+      - In a high-performance agile team, developed 30+ data feeds for the Banking, Insurance, Oil and Gas (Deep Sector) using Airflow, performing intricate data transformations within a set deadline.
+      - Led the successful Proof-of-Concept and rollout of Crossplane, packaging, versioning, and validating compositions in CI, and publishing to AWS ECR; enabled reusable infrastructure patterns that supported the SQS Service Catalog module, reducing manual configuration effort by over 30%.
+      - Planned and executed EKS Service Catalog backend upgrades from version 1.29 to 1.32 across Dev, UAT, and Prod, performing add-on compatibility checks and migrating to Amazon Linux 2023 and improved security posture with zero downtime.
+      - Improved cluster efficiency for the Service Catalog backend by implementing native kubelet garbage collection through custom launch templates and user data, and retiring the Cache DaemonSet, leading to reduced disk pressure and alert noise.
+      - Developed data pipelines to integrate Concordance API with Scripts Asia dataset, consisting of text data from Asian languages.
   - company: FactSet
     role: Software Engineer II
     dates: Apr 2022 – Apr 2023
     location: Hyderabad, India
     highlights:
-      - Redesigned seven Airflow pipelines, reducing costs by 80% and improving efficiency by 20%.
-      - Built a configurable PySpark rules engine on AWS and explored Snowflake for data warehousing.
-      - Developed event-driven serverless ETL pipelines for three data providers and automated blue-green deployments for four projects with Terraform.
+      - Developed a scalable and serverless PySpark Rules Engine in AWS, equipped with configurable rules, that enables the internal teams and clients to process any CSV/PSV data through low code ETL processes, thereby reducing time to market, increasing revenue and sales, while allowing for automated deployments.
+      - Migrated Standard Data Feeds, a legacy system to the Snowflake Data Cloud.
+      - Designed and developed customised ETL pipelines with event-driven serverless infrastructure for 3 data providers orchestrated using Airflow.
+      - Implemented automation of data delivery pipelines and redesigned the architecture for 7 data pipelines into 2 distinct projects (ingestion and delivery) in Airflow, resulting in an 80% decrease in costs and a 20% increase in efficiency, as measured by reduced resource utilization.
+      - Streamlined and automated blue-green deployment for 4 projects utilizing Terraform, an Infrastructure as Code tool.
+      - Mentored and guided junior engineers to develop customized data pipelines.
   - company: FactSet
     role: Software Engineer I
     dates: Dec 2020 – Apr 2022
     location: Hyderabad, India
     highlights:
-      - Developed 13 endpoints for a centralized serverless AWS API serving three data providers.
-      - Built an Elasticsearch cache with Airflow-orchestrated blue-green refreshes and supported production data integrations.
+      - Designed and implemented an elastic search cache, providing a blue-green database refresh using Airflow.
+      - Developed and implemented 13 endpoints within a centralized serverless API in AWS to accommodate three distinct feeds/providers, facilitating the delivery of a variety of document types.
+      - Collaborated with cross-functional teams to design, develop, and maintain high-quality, performant, and resilient pipelines, while adhering to agile methodologies.
+      - Addressed queries and provided support for high-priority bugs in the integration, concordance, and feed distribution technologies developed by the team.
+
   - company: Dexlock
     role: Software Engineer
     dates: Sep 2020 – Dec 2020
     location: Kochi, India
     highlights:
-      - Built a metro ticket-booking system with React, MongoDB, and Java REST APIs.
-      - Developed a responsive field-worker location-tracking app from UX wireframes.
+      - Developed a metro ticket booking system, using ReactJS and MongoDB, along with RESTful APIs developed in Java.
+      - Designed and developed a feature-rich responsive web application to track the live location of field workers.
+      - Translated the design team's UX wireframes into interactive features, using HTML/CSS and ReactJS.
+
 
 skills:
   - name: AI engineering
-    items: [MCP, AI agents, LangGraph, multi-agent systems, retrieval-augmented generation]
+    items: [MCP, AI agents, LangGraph, Multi-agent Systems, Retrieval-Augmented Generation]
   - name: Data engineering
     items: [Apache Airflow, Spark / PySpark, Snowflake, AWS Glue, Athena]
   - name: Cloud & DevOps
@@ -49,7 +60,7 @@ skills:
   - name: Databases
     items: [PostgreSQL, MySQL, SQL Server, Elasticsearch, MongoDB, Redis]
   - name: Languages & frameworks
-    items: [Python, Java, JavaScript, SQL, Bash, Flask, Django, Spring Boot, React, "Exploring Go"]
+    items: [Python, Java, JavaScript, SQL, Bash, Flask, Django, Spring Boot, React]
 
 certifications:
   - name: Kubernetes and Cloud Native Associate
