@@ -55,13 +55,24 @@
 
     const entries = [...timeline.querySelectorAll('.resume-timeline-item')];
     const canopyOrigin = document.querySelector('.resume-canopy-origin');
+    let pointerX = innerWidth / 2;
     let frame = 0;
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
     const updateBloom = () => {
       frame = 0;
       if (!entries.length) return;
       const focusLine = innerHeight * 0.46;
-      const timelineTop = timeline.getBoundingClientRect().top;
-      const waitingAtBranch = window.scrollY <= 1 || timelineTop >= innerHeight * 0.8;
+      const scrollY = window.scrollY;
+      const timelineBounds = timeline.getBoundingClientRect();
+      const originBounds = canopyOrigin?.getBoundingClientRect();
+      const firstMarker = entries[0].querySelector('.resume-timeline-marker').getBoundingClientRect();
+      const originY = originBounds ? originBounds.top + originBounds.height / 2 + scrollY : 0;
+      const landingY = firstMarker.top + firstMarker.height / 2 + scrollY;
+      const fallDistance = Math.max(1, landingY - originY);
+      const fallProgress = originBounds ? clamp(scrollY / fallDistance, 0, 1) : 1;
+      const atCanopy = Boolean(originBounds && scrollY <= 1);
+      const isFalling = Boolean(originBounds && scrollY > 1 && fallProgress < 1);
+      const timelineActive = !atCanopy && !isFalling;
       let activeEntry = entries[0];
       const markerCenter = entry => {
         const markerBounds = entry.querySelector('.resume-timeline-marker').getBoundingClientRect();
@@ -70,7 +81,7 @@
       let activeCenter = markerCenter(activeEntry);
       let closestDistance = Math.abs(activeCenter - focusLine);
 
-      for (const entry of (waitingAtBranch ? [] : entries.slice(1))) {
+      for (const entry of (timelineActive ? entries.slice(1) : [])) {
         const center = markerCenter(entry);
         const distance = Math.abs(center - focusLine);
         if (distance < closestDistance) {
@@ -80,17 +91,36 @@
         }
       }
 
-      entries.forEach(entry => entry.classList.toggle('is-current', !waitingAtBranch && entry === activeEntry));
-      if (waitingAtBranch && canopyOrigin) {
-        const origin = canopyOrigin.getBoundingClientRect();
-        const timelineBounds = timeline.getBoundingClientRect();
-        bloom.style.left = `${origin.left + origin.width / 2 - timelineBounds.left - bloom.offsetWidth / 2}px`;
-        bloom.style.transform = `translateY(${origin.top + origin.height / 2 - timelineBounds.top - bloom.offsetHeight / 2}px)`;
+      entries.forEach(entry => entry.classList.toggle('is-current', timelineActive && entry === activeEntry));
+      bloom.classList.toggle('is-falling', isFalling);
+      let swayX = 0;
+      let swayRotation = 0;
+
+      if (atCanopy) {
+        bloom.style.left = `${originBounds.left + originBounds.width / 2 - timelineBounds.left - bloom.offsetWidth / 2}px`;
+        bloom.style.transform = `translateY(${originBounds.top + originBounds.height / 2 - timelineBounds.top - bloom.offsetHeight / 2}px)`;
+      } else if (isFalling) {
+        const progress = fallProgress;
+        const originX = originBounds.left + originBounds.width / 2 + window.scrollX;
+        const landingX = firstMarker.left + firstMarker.width / 2 + window.scrollX;
+        const envelope = Math.sin(progress * Math.PI);
+        const wind = Math.sin(progress * Math.PI * 3.5) * 20 * envelope;
+        const cursor = clamp((pointerX - (originX + (landingX - originX) * progress - window.scrollX)) * .025, -9, 9) * envelope;
+        swayX = wind + cursor;
+        swayRotation = Math.sin(progress * Math.PI * 3.5 - .45) * 17 * envelope;
+        const desiredX = originX + (landingX - originX) * progress - window.scrollX;
+        const desiredY = originY + (landingY - originY) * progress - scrollY;
+        bloom.style.left = `${desiredX - timelineBounds.left - bloom.offsetWidth / 2}px`;
+        bloom.style.transform = `translateY(${desiredY - timelineBounds.top - bloom.offsetHeight / 2}px)`;
       } else {
         const marker = activeEntry.querySelector('.resume-timeline-marker').getBoundingClientRect();
-        bloom.style.left = `${marker.left + marker.width / 2 - timeline.getBoundingClientRect().left - bloom.offsetWidth / 2}px`;
-        bloom.style.transform = `translateY(${activeCenter - timelineTop - bloom.offsetHeight / 2}px)`;
+        const cursorOffset = clamp((pointerX - (marker.left + marker.width / 2)) * .035, -12, 12);
+        swayRotation = clamp((pointerX - (marker.left + marker.width / 2)) * .035, -8, 8);
+        bloom.style.left = `${marker.left + marker.width / 2 - timelineBounds.left - bloom.offsetWidth / 2 + cursorOffset}px`;
+        bloom.style.transform = `translateY(${activeCenter - timelineBounds.top - bloom.offsetHeight / 2}px)`;
       }
+      bloom.style.setProperty('--bloom-sway-x', `${swayX}px`);
+      bloom.style.setProperty('--bloom-sway-rotation', `${swayRotation}deg`);
     };
     const scheduleUpdate = () => {
       if (!frame) frame = requestAnimationFrame(updateBloom);
@@ -98,6 +128,10 @@
 
     addEventListener('scroll', scheduleUpdate, { passive: true });
     addEventListener('resize', scheduleUpdate, { passive: true });
+    addEventListener('pointermove', event => {
+      pointerX = event.clientX;
+      scheduleUpdate();
+    }, { passive: true });
     scheduleUpdate();
   })();
 </script>

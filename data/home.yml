@@ -29,7 +29,9 @@ chapters:
 beyond_work:
   eyebrow: Beyond the Work
   dance: Dance asks for discipline, but gives me freedom in return. There is something about it that feels both graceful and deeply transcendent.
-  dance_note: More from my dance journey is coming soon.
+  dance_instagram:
+    label: A little more of my dance life
+    url: https://www.instagram.com/bnatstudio/
 writing:
   eyebrow: Field Notes
   title: Writing & travel

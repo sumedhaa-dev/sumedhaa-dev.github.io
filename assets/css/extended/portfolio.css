@@ -2018,6 +2018,45 @@ a:hover {
   line-height:1.5;
 }
 
+.about-page p,.about-page h1,.about-page h2 {
+  min-width:0;
+  white-space:normal;
+  word-break:normal;
+  overflow-wrap:normal;
+  hyphens:none;
+}
+
+.about-story {
+  max-width:720px;
+  margin:0 auto;
+  color:#62584f;
+}
+
+.about-story h2 {
+  margin:0 0 14px;
+  color:#4d4039;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(30px,4vw,38px);
+  font-weight:500;
+  line-height:1.2;
+}
+
+.about-story h2:not(:first-child) {
+  margin-top:48px;
+}
+
+.about-story p {
+  margin:0 0 17px;
+  font-size:16px;
+  line-height:1.85;
+  text-wrap:pretty;
+}
+
+.about-links {
+  max-width:720px;
+  margin:34px auto 20px;
+}
+
 .about-page>.botanical-divider {
   margin:42px auto 58px;
 }
@@ -2095,9 +2134,11 @@ a:hover {
   margin-top:23px;
 }
 
-.dark .about-lead,.dark .about-section>p:not(.eyebrow) {
+.dark .about-lead,.dark .about-section>p:not(.eyebrow),.dark .about-story {
   color:#c9bfb4;
 }
+
+.dark .about-story h2 { color:#f1e8dd; }
 
 .dark .about-curiosities {
   background:#3a302d;
@@ -2912,7 +2953,7 @@ a:hover,.nav-links>a:hover {
 /* Keep ordinary words intact while allowing narrow layouts to shrink and wrap. */
 body {
   word-break:normal;
-  overflow-wrap:break-word;
+  overflow-wrap:normal;
   hyphens:none;
 }
 
@@ -2966,9 +3007,7 @@ body {
   pointer-events:none;
   will-change:transform;
 }
-.resume-traveling-bloom svg { width:29px; height:29px; overflow:visible; filter:drop-shadow(0 2px 2px rgba(99,60,68,.14)); }
-.resume-bloom-petals { fill:#e8b7c2; stroke:#cb8e9c; stroke-width:.65; }
-.resume-bloom-center { fill:#ba805c; stroke:#fff5e9; stroke-width:1; }
+.resume-traveling-bloom svg { width:24px; height:24px; overflow:visible; filter:drop-shadow(0 2px 2px rgba(99,60,68,.14)); }
 .resume-education-card .resume-card-kicker {
   margin:0 0 4px;
   color:#8a716b;
@@ -2977,15 +3016,13 @@ body {
 }
 .resume-education-card .resume-card-detail { margin:7px 0 0; color:#98646a; font-size:13px; font-weight:500; }
 .dark .resume-header { border-color:#59463f; background:transparent; box-shadow:none; }
-.dark .resume-bloom-petals { fill:#c7a3b0; stroke:#e2b5c0; }
-.dark .resume-bloom-center { fill:#e0bc89; stroke:#473a3c; }
 .dark .resume-education-card .resume-card-kicker { color:#c9bfb4; }
 @media(max-width:720px) {
   .resume-header { margin-bottom:38px; padding:20px 0 26px; }
   .resume-section-nav { margin:0 0 52px; }
   .resume-timeline::before { left:5px; }
   .resume-traveling-bloom { left:-13px; width:30px; height:30px; }
-  .resume-traveling-bloom svg { width:25px; height:25px; }
+  .resume-traveling-bloom svg { width:19px; height:19px; }
   .resume-education-card .resume-card-kicker { font-size:11px; }
 }
 @media(prefers-reduced-motion:reduce) {
@@ -3057,10 +3094,6 @@ body {
   height:20px;
   filter:drop-shadow(0 1px 1px rgba(99,60,68,.12));
 }
-.resume-bloom-petals { fill:#f0d1d7; stroke:#d5a1ac; stroke-width:.8; }
-.resume-bloom-center { fill:#bd8a67; stroke:#fff8f0; stroke-width:1.2; }
-.dark .resume-bloom-petals { fill:#d6b3bf; stroke:#ebc6ce; }
-.dark .resume-bloom-center { fill:#e3c39c; stroke:#403438; }
 @media(max-width:720px) {
   .resume-traveling-bloom { left:-8px; width:26px; height:26px; }
   .resume-traveling-bloom svg { width:18px; height:18px; }
@@ -3107,7 +3140,16 @@ body {
 .resume-sprig-leaf { fill:#a8ad8d; stroke:#8f9b77; stroke-width:.55; }
 .resume-sprig-flower { fill:#e9c3cc; stroke:#c995a2; stroke-width:.55; }
 .resume-sprig-flower circle { fill:#ba8968; stroke:none; }
-.resume-traveling-bloom { transition:left .42s cubic-bezier(.2,.65,.3,1),transform .42s cubic-bezier(.2,.65,.3,1); }
+.resume-traveling-bloom {
+  --resume-bloom-flight:1.15s;
+  transition:left var(--resume-bloom-flight) cubic-bezier(.22,.61,.36,1),transform var(--resume-bloom-flight) cubic-bezier(.22,.61,.36,1);
+}
+.resume-traveling-bloom.is-falling { transition:none; }
+.resume-traveling-bloom svg {
+  transform-origin:center;
+  transform-box:fill-box;
+  transform:translateX(var(--bloom-sway-x,0px)) rotate(var(--bloom-sway-rotation,0deg));
+}
 .resume-timeline-item .resume-role-card { transition:background-color .25s ease,border-color .25s ease,box-shadow .25s ease; }
 .resume-timeline-item.is-current .resume-role-card {
   border-color:#d9aab0;
@@ -3306,16 +3348,23 @@ body {
   line-height:1.85;
   text-wrap:pretty;
 }
-.home-life-note p.home-life-coming-soon {
+.home-life-note p.home-life-social-link {
   margin-top:12px;
   color:#a06d78;
   font-family:'Cormorant Garamond',serif;
   font-size:17px;
   font-style:italic;
 }
+.home-life-note .home-life-social-link a {
+  color:inherit;
+  text-decoration-color:rgba(160,109,120,.48);
+  text-underline-offset:4px;
+}
+.home-life-note .home-life-social-link a:hover { color:#8f5360; }
 .dark .home-life-note h2 { color:#f1e8dd; }
 .dark .home-life-note p { color:#c9bfb4; }
-.dark .home-life-note p.home-life-coming-soon { color:#d7a7b2; }
+.dark .home-life-note p.home-life-social-link { color:#d7a7b2; }
+.dark .home-life-note .home-life-social-link a:hover { color:#f0c0c6; }
 @media(max-width:640px) {
   .home-life-note h2 { font-size:26px; }
   .home-life-note p { font-size:16px; }

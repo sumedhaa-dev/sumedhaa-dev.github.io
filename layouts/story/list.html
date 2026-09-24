@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article class="portfolio-shell section-page about-page">
+  <header class="about-hero">
+    <p class="eyebrow">{{ .Params.eyebrow }}</p>
+    <h1>A little about me</h1>
+    <p class="about-lead">{{ .Params.lead }}</p>
+  </header>
+
+  {{ partial "botanical-divider.html" . }}
+
+  <div class="about-story">{{ .Content }}</div>
+
+  <nav class="about-links" aria-label="More to explore">
+    <a class="text-link" href="{{ "travel/" | relURL }}">Visit my travel journal <span aria-hidden="true">→</span></a>
+    <a class="text-link" href="{{ "resume/" | relURL }}">View my résumé <span aria-hidden="true">↗</span></a>
+  </nav>
+</article>
+{{ end }}

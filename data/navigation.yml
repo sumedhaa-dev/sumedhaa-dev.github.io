@@ -1,6 +1,6 @@
 main:
   - label: Story
-    url: /#story
+    url: /story/
   - label: Résumé
     url: /resume/
   - label: Writing

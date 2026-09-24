@@ -10,7 +10,7 @@ This site is built with Hugo using a customized copy of the `charlolamode` theme
 - `data/travel.yml` — travel journal categories. Each travel post’s `travelCategory` must exactly match a category title here.
 - `data/resume.yml` — résumé roles, skills, certifications, education, recognition, and volunteering. The `journey` list controls the order of experience and education entries on the shared timeline.
 - `content/resume/_index.md` — résumé page title, introduction, and PDF link.
-- `content/about/_index.md` — About page text and search description.
+- `content/story/_index.md` — Story page text and search description.
 - `content/blog/_index.md` — blog title and introduction.
 - `content/blog/` and `content/travel/` — individual articles. Set `draft: false` when a post is ready to publish.
 - `data/home.yml` → `newsletter.url` — add a Substack URL when subscriptions are ready; the placeholder automatically becomes a subscription link.
