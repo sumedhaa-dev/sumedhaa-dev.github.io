@@ -3206,6 +3206,130 @@ body {
   .resume-section#experience .resume-section-heading { margin-bottom:28px; }
   .resume-role-card { background:white!important; -webkit-backdrop-filter:none; backdrop-filter:none; }
 }
+
+/* A flowering cherry bough frames the point where the résumé timeline begins. */
+.resume-section#experience { --resume-canopy-height:clamp(110px, 11.25vw, 230px); }
+.resume-section#experience .resume-section-heading {
+  margin-bottom:calc(var(--resume-canopy-height) + 16px);
+}
+.resume-timeline-sprig {
+  top:0;
+  height:var(--resume-canopy-height);
+  transform:translateY(-100%);
+}
+.resume-sprig-stem {
+  fill:none;
+  stroke:#856b5d;
+  stroke-width:2.1;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.resume-sprig-fine {
+  fill:none;
+  stroke:#9b806f;
+  stroke-width:1.25;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.resume-sprig-finer {
+  stroke:#aa927e;
+  stroke-width:.85;
+}
+.resume-sprig-buds {
+  fill:#c49a9b;
+  stroke:#9b7569;
+  stroke-width:.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.resume-sakura-petals path {
+  fill:#f2d2d8;
+  stroke:#c98f9b;
+  stroke-width:.65;
+  stroke-linejoin:round;
+}
+.resume-sakura-petals path:nth-child(even) { fill:#f8e3e5; }
+.resume-sakura-stamens {
+  fill:none;
+  stroke:#b77978;
+  stroke-width:.65;
+  stroke-linecap:round;
+}
+.resume-sakura-stamens circle { fill:#c49a66; stroke:none; }
+.resume-sakura-center { fill:#d7a878; stroke:#fff4e9; stroke-width:.7; }
+.resume-traveling-bloom { --bloom-rest-offset:-56px; }
+@media(min-width:1800px) {
+  .resume-traveling-bloom { --bloom-rest-offset:-78px; }
+}
+.dark .resume-sprig-stem { stroke:#c1a28c; }
+.dark .resume-sprig-fine { stroke:#ac927f; }
+.dark .resume-sprig-finer { stroke:#9d8777; }
+.dark .resume-sprig-buds { fill:#b8949a; stroke:#d0ac9e; }
+.dark .resume-sakura-petals path { fill:#d8aeb9; stroke:#e4c0c7; }
+.dark .resume-sakura-petals path:nth-child(even) { fill:#e9c9cf; }
+.dark .resume-sakura-stamens { stroke:#e4bdad; }
+.dark .resume-sakura-stamens circle { fill:#edce98; }
+.dark .resume-sakura-center { fill:#e5bd89; stroke:#4a3738; }
+@media(max-width:720px) {
+  .resume-section#experience { --resume-canopy-height:0px; }
+  .resume-section#experience .resume-section-heading { margin-bottom:28px; }
+  .resume-traveling-bloom { --bloom-rest-offset:0px; }
+}
+@media print {
+  .resume-section#experience .resume-section-heading { margin-bottom:28px; }
+}
+
+/* Give dance and travel distinct, balanced spaces in the home page closing notes. */
+.home-life {
+  max-width:900px;
+  text-align:center;
+}
+.home-life>.eyebrow { margin-bottom:28px; }
+.home-life-grid {
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:clamp(28px, 5vw, 64px);
+  text-align:left;
+}
+.home-life-note { min-width:0; }
+.home-life-note+ .home-life-note {
+  padding-left:clamp(24px, 4vw, 48px);
+  border-left:1px solid #e5d7d0;
+}
+.home-life-note h2 {
+  margin:0 0 10px;
+  color:#4d4039;
+  font-family:'Cormorant Garamond',serif;
+  font-size:27px;
+  font-weight:500;
+  line-height:1.2;
+}
+.home-life-note p {
+  margin:0;
+  color:#756b62;
+  font-size:16px;
+  line-height:1.8;
+  text-wrap:pretty;
+}
+.home-life-note .text-link {
+  display:inline-block;
+  margin-top:13px;
+  font-size:14px;
+}
+.dark .home-life-note+ .home-life-note { border-color:#594b46; }
+.dark .home-life-note h2 { color:#f1e8dd; }
+.dark .home-life-note p { color:#c9bfb4; }
+@media(max-width:640px) {
+  .home-life-grid { grid-template-columns:1fr; gap:24px; }
+  .home-life-note+ .home-life-note {
+    padding:22px 0 0;
+    border-top:1px solid #e5d7d0;
+    border-left:0;
+  }
+  .dark .home-life-note+ .home-life-note { border-color:#594b46; }
+  .home-life-note h2 { font-size:25px; }
+  .home-life-note p { font-size:15px; }
+}
 .resume-recognition-list {
   margin:0;
   padding:0;

@@ -48,8 +48,17 @@
 
   <section class="home-note home-life" id="life">
     <p class="eyebrow">{{ $home.beyond_work.eyebrow }}</p>
-    <p>{{ $home.beyond_work.copy }}</p>
-    <a class="text-link" href="{{ "travel/" | relURL }}">{{ $home.beyond_work.link_label }} <span aria-hidden="true">→</span></a>
+    <div class="home-life-grid">
+      <article class="home-life-note">
+        <h2>Dance</h2>
+        <p>{{ $home.beyond_work.dance }}</p>
+      </article>
+      <article class="home-life-note">
+        <h2>Travel</h2>
+        <p>{{ $home.beyond_work.travel }}</p>
+        <a class="text-link" href="{{ "travel/" | relURL }}">{{ $home.beyond_work.link_label }} <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
   </section>
 
   <section class="writing-section home-writing" id="writing">
