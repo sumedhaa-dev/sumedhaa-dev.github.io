@@ -551,7 +551,7 @@ a:hover {
 
 .footer-quote {
   flex:1;
-  max-width:520px;
+  max-width:440px;
   margin:0 auto;
   text-align:center;
 }
@@ -560,15 +560,15 @@ a:hover {
   margin:0;
   color:#5f544c;
   font-family:'Cormorant Garamond',serif;
-  font-size:19px;
+  font-size:15px;
   font-style:italic;
-  line-height:1.35;
+  line-height:1.4;
 }
 
 .footer-quote cite {
   display:block;
-  margin-top:6px;
-  font-size:10px;
+  margin-top:4px;
+  font-size:9px;
   font-style:normal;
   letter-spacing:.08em;
   text-transform:uppercase;
@@ -2346,7 +2346,19 @@ a:hover,.nav-links>a:hover {
   bottom:-12px;
   opacity:.3;
   pointer-events:none;
-  transition:opacity .2s ease;
+  transform-origin:80% 80%;
+  transition:opacity .35s ease,transform .35s ease,filter .35s ease;
+  animation:hydrangea-sway 7s ease-in-out infinite alternate;
+}
+
+@keyframes hydrangea-sway {
+  from {
+    rotate:-.7deg;
+  }
+
+  to {
+    rotate:.7deg;
+  }
 }
 
 .hydrangea-stem {
@@ -2384,8 +2396,16 @@ a:hover,.nav-links>a:hover {
   stroke:none;
 }
 
-.travel-page .writing-card:hover .hydrangea-corner {
-  opacity:.4;
+.travel-page .writing-card:is(:hover,:focus-visible) .hydrangea-corner {
+  opacity:.48;
+  filter:saturate(1.2);
+  transform:translate(-2px,-2px) scale(1.05);
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .hydrangea-corner {
+    animation:none;
+  }
 }
 
 .dark .hydrangea-stem {
