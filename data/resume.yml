@@ -4,19 +4,19 @@ experience:
     dates: Jan 2026 – Present
     location: Hyderabad, India
     highlights:
-      - Architected an MCP server that exposes FactSet’s data catalog and query execution as LLM-callable tools.
-      - Designed agentic Data Navigator workflows for data discovery, query execution, and insight generation.
-      - Built Elasticsearch-driven search to surface relevant results across Data Navigator.
+      - Architected an MCP server that exposed FactSet's data catalog and query execution capabilities as LLM-callable tools, enabling AI-assisted data discovery and analysis.
+      - Designed and implemented agentic workflows for Data Navigator, orchestrating data discovery, query execution, and insight generation across data services.
+      - Developed Elasticsearch-based search capabilities for Data Navigator to improve retrieval of relevant data assets and search results.
   - company: FactSet
     role: Software Engineer III
     dates: Apr 2023 – Jan 2026
     location: Hyderabad, India
     highlights:
-      - Designed a complex data pipeline to bulk transfer over 500k+ files to unify the archive and retrieval mechanisms, decreasing  storage cost by 20%.
+      - Designed and implemented a data pipeline to bulk transfer 500K+ files, unifying archive and retrieval mechanisms and reducing storage costs by 20%.
       - Played a key role in FactSet's flagship product, SDF (Standard Data Feeds), by managing the curation of data from diverse sources within the FactSet ecosystem. Executed complex data transformations, ensuring a seamless client experience for a substantial customer base exceeding 4,000 across data feeds.
       - In a high-performance agile team, developed 30+ data feeds for the Banking, Insurance, Oil and Gas (Deep Sector) using Airflow, performing intricate data transformations within a set deadline.
       - Led the successful Proof-of-Concept and rollout of Crossplane, packaging, versioning, and validating compositions in CI, and publishing to AWS ECR; enabled reusable infrastructure patterns that supported the SQS Service Catalog module, reducing manual configuration effort by over 30%.
-      - Planned and executed EKS Service Catalog backend upgrades from version 1.29 to 1.32 across Dev, UAT, and Prod, performing add-on compatibility checks and migrating to Amazon Linux 2023 and improved security posture with zero downtime.
+      - Planned and executed EKS Service Catalog backend upgrades from Kubernetes 1.29 to 1.32 across environments, validating add-on compatibility, migrating worker nodes to Amazon Linux 2023, and strengthening security posture with zero downtime.
       - Improved cluster efficiency for the Service Catalog backend by implementing native kubelet garbage collection through custom launch templates and user data, and retiring the Cache DaemonSet, leading to reduced disk pressure and alert noise.
       - Developed data pipelines to integrate Concordance API with Scripts Asia dataset, consisting of text data from Asian languages.
   - company: FactSet
