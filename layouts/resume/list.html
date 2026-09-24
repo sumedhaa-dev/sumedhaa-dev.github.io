@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ $profile := .Site.Data.profile }}
+{{ $resume := .Site.Data.resume }}
 <article class="portfolio-shell section-page resume-page">
   <header class="resume-header">
     <p class="eyebrow">Experience · Data · Cloud</p>
@@ -9,7 +10,7 @@
       <span>Hyderabad, India</span>
       <a href="mailto:{{ $profile.email }}">{{ $profile.email }}</a>
       {{ range $profile.socials }}
-      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }}</a>
+      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }} <span aria-hidden="true">↗</span></a>
       {{ end }}
     </div>
     {{ with .Params.pdf }}
@@ -18,14 +19,73 @@
   </header>
 
   <nav class="resume-section-nav" aria-label="Résumé sections">
-    <a href="#experience">Experience</a>
-    <a href="#technical-skills">Skills</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#education">Education</a>
-    <a href="#recognition">Recognition</a>
-    <a href="#volunteering">Volunteering</a>
+    <a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#certifications">Certifications</a>
+    <a href="#education">Education</a><a href="#recognition">Recognition</a><a href="#volunteering">Volunteering</a>
   </nav>
 
-  <div class="resume-content page-prose">{{ .Content }}</div>
+  <div class="resume-content">
+    <section class="resume-section" id="experience" aria-labelledby="experience-heading">
+      <header class="resume-section-heading"><p class="eyebrow">The work</p><h2 id="experience-heading">Experience</h2><p>A path through data, cloud infrastructure, and tools for working with information.</p></header>
+      <div class="resume-timeline">
+        {{ range $resume.experience }}
+        <article class="resume-timeline-item">
+          <div class="resume-timeline-date"><time>{{ .dates }}</time><span>{{ .location }}</span></div>
+          <div class="resume-timeline-marker" aria-hidden="true"></div>
+          <div class="resume-role-card">
+            <p class="resume-company">{{ .company }}</p>
+            <h3>{{ .role }}</h3>
+            <p class="resume-role-mobile-date">{{ .dates }} · {{ .location }}</p>
+            <ul>{{ range .highlights }}<li>{{ . }}</li>{{ end }}</ul>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="resume-section" id="skills" aria-labelledby="skills-heading">
+      <header class="resume-section-heading"><p class="eyebrow">The toolkit</p><h2 id="skills-heading">Technical skills</h2></header>
+      <div class="resume-skill-grid">
+        {{ range $resume.skills }}
+        <article class="resume-skill-card"><h3>{{ .name }}</h3><ul class="resume-tags">{{ range .items }}<li>{{ . }}</li>{{ end }}</ul></article>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="resume-section" id="certifications" aria-labelledby="certifications-heading">
+      <header class="resume-section-heading"><p class="eyebrow">Continuing to learn</p><h2 id="certifications-heading">Certifications</h2></header>
+      <ul class="resume-cert-list">
+        {{ range $resume.certifications }}<li><span>{{ .name }}</span><time>{{ .date }}</time></li>{{ end }}
+      </ul>
+    </section>
+
+    <section class="resume-section" id="education" aria-labelledby="education-heading">
+      <header class="resume-section-heading"><p class="eyebrow">Foundations</p><h2 id="education-heading">Education</h2></header>
+      <div class="resume-card-grid resume-education-grid">
+        {{ range $resume.education }}
+        <article class="resume-info-card">
+          <div class="resume-card-topline"><p>{{ .location }}</p><time>{{ .year }}</time></div>
+          <h3>{{ .institution }}</h3><p>{{ .qualification }}</p><p class="resume-card-detail">{{ .detail }}</p>
+          {{ with .coursework }}<details class="resume-coursework"><summary>Relevant coursework</summary><p>{{ . }}</p></details>{{ end }}
+        </article>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="resume-section" id="recognition" aria-labelledby="recognition-heading">
+      <header class="resume-section-heading"><p class="eyebrow">Milestones</p><h2 id="recognition-heading">Recognition</h2></header>
+      <div class="resume-card-grid">
+        {{ range $resume.recognition }}<article class="resume-info-card resume-recognition-card"><div class="resume-card-topline"><p>{{ .organization }}</p><time>{{ .date }}</time></div><h3>{{ .title }}</h3><p>{{ .detail }}</p></article>{{ end }}
+      </div>
+    </section>
+
+    <section class="resume-section" id="volunteering" aria-labelledby="volunteering-heading">
+      <header class="resume-section-heading"><p class="eyebrow">Community</p><h2 id="volunteering-heading">Volunteering</h2></header>
+      <div class="resume-volunteer-list">
+        {{ range $resume.volunteering }}
+        <article class="resume-volunteer-card"><div class="resume-card-topline"><p>{{ .organization }} · {{ .location }}</p><time>{{ .dates }}</time></div><h3>{{ .role }}</h3><p>{{ if .url }}{{ .detail | replaceRE "DEFUSE" (printf "[DEFUSE](%s)" .url) | markdownify }}{{ else }}{{ .detail }}{{ end }}</p></article>
+        {{ end }}
+      </div>
+    </section>
+  </div>
 </article>
 {{ end }}

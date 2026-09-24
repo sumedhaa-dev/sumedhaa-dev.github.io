@@ -1200,6 +1200,201 @@ a:hover {
   }
 }
 
+/* Résumé: editorial timeline with compact, easy-to-scan supporting sections. */
+.resume-page { max-width: 1040px; }
+.resume-header {
+  max-width: 900px;
+  padding: clamp(30px, 6vw, 64px);
+  border-radius: 18px;
+  box-shadow: 0 18px 55px rgba(91, 61, 59, .07);
+}
+.resume-header .eyebrow,.resume-section-heading .eyebrow {
+  margin: 0 0 8px;
+  color: #a36370;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.resume-header h1 { letter-spacing: -.035em; }
+.resume-contact { row-gap: 10px; }
+.resume-section-nav {
+  position: sticky;
+  z-index: 5;
+  top: 12px;
+  width: fit-content;
+  max-width: 100%;
+  margin: -24px auto 76px;
+  padding: 10px 18px;
+  border: 1px solid #eadbd4;
+  border-radius: 999px;
+  background: rgba(255, 250, 245, .94);
+  box-shadow: 0 7px 25px rgba(65, 49, 41, .07);
+  backdrop-filter: blur(12px);
+}
+.resume-section-nav a { white-space: nowrap; }
+.resume-content { max-width: 920px; }
+.resume-section { margin: 0 0 84px; scroll-margin-top: 90px; }
+.resume-section-heading { margin: 0 0 28px; }
+.resume-section-heading h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #403631;
+  font-family: 'Cormorant Garamond',serif;
+  font-size: clamp(34px, 5vw, 46px);
+  font-weight: 500;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  text-transform: none;
+}
+.resume-section-heading>p:last-child:not(.eyebrow) {
+  margin: 8px 0 0;
+  color: #756b62;
+  font-size: 15px;
+}
+.resume-timeline { position: relative; }
+.resume-timeline::before {
+  position: absolute;
+  top: 8px;
+  bottom: 28px;
+  left: 180px;
+  width: 1px;
+  background: linear-gradient(#d9aab0, #eadbd4 86%, transparent);
+  content: '';
+}
+.resume-timeline-item {
+  display: grid;
+  grid-template-columns: 156px 48px minmax(0,1fr);
+  align-items: start;
+  margin: 0 0 20px;
+}
+.resume-timeline-date { padding: 20px 12px 0 0; text-align: right; }
+.resume-timeline-date time,.resume-card-topline time {
+  display: block;
+  color: #98646a;
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.resume-timeline-date span { display:block; margin-top:5px; color:#91847a; font-size:11px; }
+.resume-timeline-marker {
+  position: relative;
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  margin: 23px auto 0;
+  border: 2px solid #a96573;
+  border-radius: 50%;
+  background: #fffaf5;
+  box-shadow: 0 0 0 5px #f8eeeb;
+}
+.resume-role-card,.resume-info-card,.resume-volunteer-card,.resume-skill-card {
+  min-width: 0;
+  border: 1px solid #eadfd7;
+  border-radius: 10px;
+  background: #fffdfa;
+  box-shadow: 0 8px 24px rgba(65, 49, 41, .035);
+}
+.resume-role-card { padding: 20px 24px 18px; }
+.resume-company { margin:0 0 3px; color:#98646a; font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; }
+.resume-role-card h3,.resume-info-card h3,.resume-volunteer-card h3,.resume-skill-card h3 {
+  margin:0;
+  padding:0;
+  border:0;
+  background:none;
+  color:#403631;
+  font-family:'Outfit',sans-serif;
+  font-size:18px;
+  font-weight:550;
+  line-height:1.35;
+}
+.resume-content .resume-role-card h3+.resume-role-mobile-date,
+.resume-content .resume-info-card h3+p,
+.resume-content .resume-volunteer-card h3+p {
+  margin:5px 0 0;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:none;
+  color:#8a716b;
+  font-size:12px;
+  line-height:1.55;
+}
+.resume-content .resume-role-card h3+.resume-role-mobile-date+ul {
+  margin:12px 0 0;
+  padding:0 0 0 19px;
+  border:0;
+  border-radius:0;
+  background:none;
+  font-size:14px;
+  line-height:1.65;
+}
+.resume-role-mobile-date { display:none; }
+.resume-role-card ul { margin:12px 0 0; padding-left:19px; color:#625951; font-size:14px; line-height:1.65; }
+.resume-role-card li+li { margin-top:5px; }
+.resume-role-card li::marker { color:#b17882; }
+.resume-skill-grid,.resume-card-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.resume-skill-card { padding:20px; }
+.resume-skill-card h3 { margin-bottom:13px; font-size:16px; }
+.resume-tags { display:flex; flex-wrap:wrap; gap:7px; margin:0; padding:0; list-style:none; }
+.resume-tags li { padding:5px 9px; border:1px solid #eadbd4; border-radius:999px; background:#fcf4ef; color:#665650; font-size:12px; line-height:1.3; }
+.resume-cert-list { margin:0; padding:0; border-top:1px solid #eadfd7; list-style:none; }
+.resume-cert-list li { display:flex; justify-content:space-between; gap:18px; padding:15px 3px; border-bottom:1px solid #eadfd7; color:#514740; font-size:14px; }
+.resume-cert-list time { flex:none; color:#98646a; font-size:12px; font-variant-numeric:tabular-nums; }
+.resume-info-card { padding:20px; }
+.resume-card-topline { display:flex; justify-content:space-between; align-items:start; gap:12px; margin:0 0 10px; }
+.resume-card-topline p { margin:0; color:#8a716b; font-size:11px; line-height:1.5; }
+.resume-info-card>p,.resume-volunteer-card>p { margin:7px 0 0; color:#625951; font-size:13px; line-height:1.65; }
+.resume-info-card .resume-card-detail { color:#98646a; font-weight:600; }
+.resume-coursework { margin-top:13px; padding-top:11px; border-top:1px solid #eee5df; }
+.resume-coursework summary { color:#98646a; cursor:pointer; font-size:12px; font-weight:600; }
+.resume-coursework p { margin:8px 0 0; color:#756b62; font-size:12px; line-height:1.6; }
+.resume-volunteer-list { display:grid; gap:14px; }
+.resume-volunteer-card { padding:20px 22px; }
+.resume-volunteer-card a { color:#8d5d54; }
+.dark .resume-section-nav { border-color:#59463f; background:rgba(53,46,44,.94); }
+.dark .resume-section-heading h2,.dark .resume-role-card h3,.dark .resume-info-card h3,.dark .resume-volunteer-card h3,.dark .resume-skill-card h3 { color:#f1e8dd; }
+.dark .resume-section-heading .eyebrow,.dark .resume-header .eyebrow { color:#e7aeb7; }
+.dark .resume-section-heading>p:last-child:not(.eyebrow),.dark .resume-timeline-date span { color:#c9bfb4; }
+.dark .resume-timeline::before { background:linear-gradient(#9b6874,#59463f 86%,transparent); }
+.dark .resume-timeline-marker { background:#352e2c; border-color:#e2a6b0; box-shadow:0 0 0 5px #403438; }
+.dark .resume-role-card,.dark .resume-info-card,.dark .resume-volunteer-card,.dark .resume-skill-card { border-color:#59463f; background:#352e2c; }
+.dark .resume-role-card ul,.dark .resume-info-card>p,.dark .resume-volunteer-card>p { color:#d3c9bf; }
+.dark .resume-content .resume-role-card h3+.resume-role-mobile-date,
+.dark .resume-content .resume-info-card h3+p,.dark .resume-content .resume-volunteer-card h3+p { color:#c9bfb4; }
+.dark .resume-tags li { border-color:#59463f; background:#403438; color:#e6d8d1; }
+.dark .resume-cert-list,.dark .resume-cert-list li,.dark .resume-coursework { border-color:#59463f; }
+.dark .resume-cert-list li { color:#e6d8d1; }
+.dark .resume-card-topline p,.dark .resume-coursework p { color:#c9bfb4; }
+.dark .resume-volunteer-card a { color:#efb2bd; }
+@media(max-width:720px) {
+  .resume-section-nav { position:static; width:auto; justify-content:flex-start; overflow-x:auto; flex-wrap:nowrap; margin: -18px 0 56px; border-radius:12px; }
+  .resume-section-nav a { flex:none; }
+  .resume-timeline::before { left:5px; }
+  .resume-timeline-item { grid-template-columns:14px minmax(0,1fr); gap:12px; margin-bottom:15px; }
+  .resume-timeline-date { display:none; }
+  .resume-timeline-marker { grid-column:1; grid-row:1; margin:20px 0 0; }
+  .resume-role-card { grid-column:2; padding:18px; }
+  .resume-role-mobile-date { display:block; margin:5px 0 0; color:#8a716b; font-size:12px; }
+  .resume-skill-grid,.resume-card-grid { grid-template-columns:1fr; }
+  .resume-section { margin-bottom:62px; }
+}
+@media(max-width:430px) {
+  .resume-header { padding:28px 18px; }
+  .resume-cert-list li { align-items:flex-start; font-size:13px; }
+  .resume-card-topline { flex-direction:column; gap:4px; }
+}
+@media print {
+  .resume-section-nav { display:none!important; }
+  .resume-page,.resume-content { max-width:none; }
+  .resume-header { box-shadow:none; }
+  .resume-section { margin-bottom:28px; break-inside:auto; }
+  .resume-timeline::before { background:#aaa; }
+  .resume-role-card,.resume-info-card,.resume-volunteer-card,.resume-skill-card { box-shadow:none; background:white!important; break-inside:avoid; }
+  .resume-timeline-item { break-inside:avoid; }
+  .resume-skill-grid,.resume-card-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+
 .dark .impact-list,.dark .skill-categories p,.dark .credential-card p {
   color:#c9bfb4;
 }

@@ -1,0 +1,115 @@
+experience:
+  - company: FactSet
+    role: Senior Software Engineer
+    dates: Jan 2026 – Present
+    location: Hyderabad, India
+    highlights:
+      - Architected an MCP server that exposes FactSet’s data catalog and query execution as LLM-callable tools.
+      - Designed agentic Data Navigator workflows for data discovery, query execution, and insight generation.
+      - Built Elasticsearch-driven search to surface relevant results across Data Navigator.
+  - company: FactSet
+    role: Software Engineer III
+    dates: Apr 2023 – Jan 2026
+    location: Hyderabad, India
+    highlights:
+      - Built 30+ data feeds across banking, insurance, and oil and gas, and curated Standard Data Feeds used by 4,000+ clients.
+      - Designed a bulk-transfer pipeline for 500K+ files, reducing storage costs by 20%.
+      - Packaged and productionized Crossplane compositions through CI and AWS ECR, creating reusable infrastructure patterns and cutting manual configuration by 30%.
+      - Planned and delivered EKS upgrades across environments with zero downtime.
+  - company: FactSet
+    role: Software Engineer II
+    dates: Apr 2022 – Apr 2023
+    location: Hyderabad, India
+    highlights:
+      - Redesigned seven Airflow pipelines, reducing costs by 80% and improving efficiency by 20%.
+      - Built a configurable PySpark rules engine on AWS and explored Snowflake for data warehousing.
+      - Developed event-driven serverless ETL pipelines for three data providers and automated blue-green deployments for four projects with Terraform.
+  - company: FactSet
+    role: Software Engineer I
+    dates: Dec 2020 – Apr 2022
+    location: Hyderabad, India
+    highlights:
+      - Developed 13 endpoints for a centralized serverless AWS API serving three data providers.
+      - Built an Elasticsearch cache with Airflow-orchestrated blue-green refreshes and supported production data integrations.
+  - company: Dexlock
+    role: Software Engineer
+    dates: Sep 2020 – Dec 2020
+    location: Kochi, India
+    highlights:
+      - Built a metro ticket-booking system with React, MongoDB, and Java REST APIs.
+      - Developed a responsive field-worker location-tracking app from UX wireframes.
+
+skills:
+  - name: AI engineering
+    items: [MCP, AI agents, LangGraph, multi-agent systems, retrieval-augmented generation]
+  - name: Data engineering
+    items: [Apache Airflow, Spark / PySpark, Snowflake, AWS Glue, Athena]
+  - name: Cloud & DevOps
+    items: [AWS, Kubernetes, Crossplane, Terraform, Docker, GitHub Actions]
+  - name: Databases
+    items: [PostgreSQL, MySQL, SQL Server, Elasticsearch, MongoDB, Redis]
+  - name: Languages & frameworks
+    items: [Python, Java, JavaScript, SQL, Bash, Flask, Django, Spring Boot, React, "Exploring Go"]
+
+certifications:
+  - name: Kubernetes and Cloud Native Associate
+    date: Jul 2026
+  - name: HashiCorp Certified: Terraform Associate (003)
+    date: Jun 2023
+  - name: AWS Certified Data Analytics – Specialty
+    date: Dec 2022
+  - name: AWS Certified Developer – Associate
+    date: Aug 2022
+
+education:
+  - institution: Govt. Model Engineering College
+    year: 2020
+    location: Thrikkakara, Kerala
+    qualification: Bachelor of Technology in Electronics and Communication Engineering, APJ Abdul Kalam Technological University
+    detail: CGPA 8.73/10
+    coursework: Calculus, Differential Equations, Probability, Linear Algebra and Complex Analysis, Real-Time Operating Systems, Pattern Recognition, Soft Computing, Data Structures, Object-Oriented Programming, Computer Organization, Secure Communication, Computer Communications, Information Theory and Coding, Microcontrollers and Microprocessors, Embedded Systems.
+  - institution: Saraswathy Vidya Niketan Public School
+    year: 2016
+    location: Perandoor, Kerala
+    qualification: Class XII, Central Board of Secondary Education
+    detail: 95.2%
+  - institution: Bhavan’s Vidya Mandir
+    year: 2014
+    location: Elamakkara, Kerala
+    qualification: Class X, Central Board of Secondary Education
+    detail: 95.0%
+
+recognition:
+  - title: Blue Ribbon Award
+    organization: FactSet Research Systems Inc.
+    date: 2022
+    detail: Received the award for exceptional contributions in Q4 2021, Q2 2022, and Q4 2022. With a 5% recognition rate, it highlights a strong commitment to excellence.
+  - title: All Builders Welcome Grant
+    organization: Amazon Web Services, Inc.
+    date: 2022
+    detail: Received the grant to attend AWS re:Invent in person in Las Vegas.
+  - title: Internal Hackathon
+    organization: Dexlock
+    date: 2020
+    detail: Led a five-person team to win first prize among 50 teams for creating a full-stack web application.
+  - title: National Topper in Computer Science
+    organization: Central Board of Secondary Education
+    date: 2016
+    detail: Earned 100% in Computer Science in the All India Senior School Certificate Examination, ranking among the top 0.1% of candidates.
+  - title: Regional Mathematics Olympiad
+    organization: National Board for Higher Mathematics, Department of Atomic Energy
+    date: 2015
+    detail: Qualified for the Indian National Mathematical Olympiad as one of 20 students from Kerala, competing in algebra, combinatorics, geometry, and number theory.
+
+volunteering:
+  - role: Social Media Manager
+    organization: Women in Technology International (WITI)
+    dates: Apr 2021 – Jun 2021
+    location: India
+    detail: Organised WITI’s first Asia Pacific Track, “Stories of Resilience,” at its 27th Annual Global Summit. Led social media strategy and promotion, reaching 50K+ impressions and 1,088 registrations.
+  - role: Event Manager
+    organization: Government Model Engineering College
+    dates: Oct 2019 – Nov 2019
+    location: India
+    detail: Organised and ran DEFUSE, a digital electronics event at Excel 2019, managing 100 teams through five technical rounds.
+    url: https://2019.excelmec.org/#/competitions/defuse
