@@ -54,7 +54,7 @@ skills:
 certifications:
   - name: Kubernetes and Cloud Native Associate
     date: Jul 2026
-  - name: HashiCorp Certified: Terraform Associate (003)
+  - name: "HashiCorp Certified: Terraform Associate (003)"
     date: Jun 2023
   - name: AWS Certified Data Analytics – Specialty
     date: Dec 2022
