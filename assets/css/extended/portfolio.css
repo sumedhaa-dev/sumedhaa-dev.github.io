@@ -3107,7 +3107,7 @@ body {
 .resume-sprig-leaf { fill:#a8ad8d; stroke:#8f9b77; stroke-width:.55; }
 .resume-sprig-flower { fill:#e9c3cc; stroke:#c995a2; stroke-width:.55; }
 .resume-sprig-flower circle { fill:#ba8968; stroke:none; }
-.resume-traveling-bloom { transition:transform .32s cubic-bezier(.2,.65,.3,1); }
+.resume-traveling-bloom { transition:left .42s cubic-bezier(.2,.65,.3,1),transform .42s cubic-bezier(.2,.65,.3,1); }
 .resume-timeline-item .resume-role-card { transition:background-color .25s ease,border-color .25s ease,box-shadow .25s ease; }
 .resume-timeline-item.is-current .resume-role-card {
   border-color:#d9aab0;
@@ -3217,6 +3217,7 @@ body {
   height:var(--resume-canopy-height);
   transform:translateY(-100%);
 }
+.resume-timeline-sprig svg { overflow:hidden; }
 .resume-sprig-stem {
   fill:none;
   stroke:#856b5d;
@@ -3279,56 +3280,132 @@ body {
   .resume-section#experience .resume-section-heading { margin-bottom:28px; }
 }
 
-/* Give dance and travel distinct, balanced spaces in the home page closing notes. */
+/* A quiet, centered note for the part of life beyond engineering. */
 .home-life {
-  max-width:900px;
+  max-width:820px;
   text-align:center;
 }
-.home-life>.eyebrow { margin-bottom:28px; }
+.home-life>.eyebrow { margin-bottom:24px; }
 .home-life-grid {
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:clamp(28px, 5vw, 64px);
-  text-align:left;
+  max-width:680px;
+  margin:0 auto;
 }
 .home-life-note { min-width:0; }
-.home-life-note+ .home-life-note {
-  padding-left:clamp(24px, 4vw, 48px);
-  border-left:1px solid #e5d7d0;
-}
 .home-life-note h2 {
-  margin:0 0 10px;
+  margin:0 0 12px;
   color:#4d4039;
   font-family:'Cormorant Garamond',serif;
-  font-size:27px;
-  font-weight:500;
+  font-size:29px;
+  font-weight:400;
   line-height:1.2;
 }
 .home-life-note p {
   margin:0;
   color:#756b62;
-  font-size:16px;
-  line-height:1.8;
+  font-size:17px;
+  line-height:1.85;
   text-wrap:pretty;
 }
-.home-life-note .text-link {
-  display:inline-block;
-  margin-top:13px;
-  font-size:14px;
+.home-life-note p.home-life-coming-soon {
+  margin-top:12px;
+  color:#a06d78;
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;
+  font-style:italic;
 }
-.dark .home-life-note+ .home-life-note { border-color:#594b46; }
 .dark .home-life-note h2 { color:#f1e8dd; }
 .dark .home-life-note p { color:#c9bfb4; }
+.dark .home-life-note p.home-life-coming-soon { color:#d7a7b2; }
 @media(max-width:640px) {
-  .home-life-grid { grid-template-columns:1fr; gap:24px; }
-  .home-life-note+ .home-life-note {
-    padding:22px 0 0;
-    border-top:1px solid #e5d7d0;
-    border-left:0;
-  }
-  .dark .home-life-note+ .home-life-note { border-color:#594b46; }
-  .home-life-note h2 { font-size:25px; }
-  .home-life-note p { font-size:15px; }
+  .home-life-note h2 { font-size:26px; }
+  .home-life-note p { font-size:16px; }
+}
+
+/* Let the blossom bough crown the résumé, then give the timeline its own space. */
+.resume-canopy-slot {
+  position:relative;
+  width:100%;
+  height:clamp(105px, 16vw, 220px);
+  margin:0 auto 12px;
+}
+.resume-canopy-slot .resume-timeline-sprig {
+  top:50%;
+  left:50%;
+  display:block;
+  width:min(1500px, calc(100vw - 80px), 100%);
+  height:auto;
+  transform:translate(-50%, -50%);
+}
+.resume-canopy-slot .resume-timeline-sprig svg { height:auto; overflow:hidden; }
+.resume-canopy-origin { pointer-events:none; }
+.resume-canopy-wide-flowers { display:none; }
+@media(min-width:1100px) {
+  .resume-canopy-wide-flowers { display:inline; }
+}
+.resume-side-branch-stem { fill:none; stroke:#765d51; stroke-width:2.1; stroke-linecap:round; stroke-linejoin:round; }
+.resume-side-branch-twig { fill:none; stroke:#8d7164; stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round; }
+.resume-side-branch-leaf { fill:#9ba783; stroke:#7e8e6d; stroke-width:.6; }
+.resume-sakura-petals path { fill:#efc6ce; stroke:#ca929d; stroke-width:.55; stroke-linejoin:round; }
+.resume-sakura-petals path:nth-child(even) { fill:#f7e0e3; }
+.resume-sakura-stamens { fill:none; stroke:#b77978; stroke-width:.65; stroke-linecap:round; }
+.resume-sakura-stamens circle { fill:#c49a66; stroke:none; }
+.resume-sakura-center { fill:#d7a878; stroke:#fff4e9; stroke-width:.7; }
+.resume-falling-petal { fill:#efc6ce; stroke:#ca929d; stroke-width:.45; opacity:.78; }
+.resume-canopy-petals use { transform-box:fill-box; transform-origin:center; animation:resume-petal-drift 5.8s ease-in-out infinite; }
+.resume-canopy-petals use:nth-child(2) { animation-delay:-2.1s; animation-duration:6.6s; }
+.resume-canopy-petals use:nth-child(3) { animation-delay:-3.7s; animation-duration:6.2s; }
+.resume-canopy-petals use:nth-child(4) { animation-delay:-1.2s; animation-duration:7s; }
+@keyframes resume-petal-drift {
+  0%, 12% { opacity:0; translate:0 -3px; rotate:-8deg; }
+  28% { opacity:.78; }
+  72% { opacity:.7; translate:4px 17px; rotate:9deg; }
+  100% { opacity:0; translate:7px 28px; rotate:16deg; }
+}
+.resume-sprig-stem { stroke-width:1.65; }
+.resume-sprig-fine { stroke-width:1.05; }
+.resume-sprig-finer { stroke-width:.75; }
+.resume-section#experience .resume-section-heading { margin-bottom:28px; }
+.resume-traveling-bloom { --bloom-rest-offset:0px; }
+.dark .resume-side-branch-stem { stroke:#c1a28c; }
+.dark .resume-side-branch-twig { stroke:#ac927f; }
+.dark .resume-side-branch-leaf { fill:#889577; stroke:#a6b08f; }
+.dark .resume-sakura-petals path { fill:#d8aeb9; stroke:#e4c0c7; }
+.dark .resume-sakura-petals path:nth-child(even) { fill:#e9c9cf; }
+.dark .resume-sakura-stamens { stroke:#e4bdad; }
+.dark .resume-sakura-stamens circle { fill:#edce98; }
+.dark .resume-sakura-center { fill:#e5bd89; stroke:#4a3738; }
+.dark .resume-falling-petal { fill:#d8aeb9; stroke:#e4c0c7; }
+.dark .resume-company { background:transparent; }
+.dark .resume-role-card h3 {
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+}
+.dark .resume-role-card,.dark .resume-volunteer-card {
+  border-color:rgba(231,204,210,.17);
+  background:rgba(245,235,238,.055);
+  box-shadow:0 8px 30px rgba(0,0,0,.08),inset 0 1px rgba(255,255,255,.035);
+  -webkit-backdrop-filter:blur(18px) saturate(125%);
+  backdrop-filter:blur(18px) saturate(125%);
+}
+.dark .resume-volunteer-card h3 {
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+}
+.dark .resume-timeline-item.is-current .resume-role-card {
+  border-color:rgba(228,173,188,.48);
+  background:rgba(178,112,133,.14);
+  box-shadow:0 12px 36px rgba(0,0,0,.16),inset 0 1px rgba(255,235,239,.08);
+}
+@media(prefers-reduced-motion:reduce) {
+  .resume-canopy-petals use { animation:none; opacity:.55; }
+}
+@media(max-width:720px) {
+  .resume-canopy-slot { margin-bottom:6px; }
+  .resume-traveling-bloom { --bloom-rest-offset:0px; }
 }
 .resume-recognition-list {
   margin:0;

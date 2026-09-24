@@ -54,6 +54,7 @@
     if (!timeline || !bloom || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const entries = [...timeline.querySelectorAll('.resume-timeline-item')];
+    const canopyOrigin = document.querySelector('.resume-canopy-origin');
     let frame = 0;
     const updateBloom = () => {
       frame = 0;
@@ -80,10 +81,16 @@
       }
 
       entries.forEach(entry => entry.classList.toggle('is-current', !waitingAtBranch && entry === activeEntry));
-      const restingOffset = waitingAtBranch
-        ? parseFloat(getComputedStyle(bloom).getPropertyValue('--bloom-rest-offset')) || 0
-        : activeCenter - timelineTop - bloom.offsetHeight / 2;
-      bloom.style.transform = `translateY(${restingOffset}px)`;
+      if (waitingAtBranch && canopyOrigin) {
+        const origin = canopyOrigin.getBoundingClientRect();
+        const timelineBounds = timeline.getBoundingClientRect();
+        bloom.style.left = `${origin.left + origin.width / 2 - timelineBounds.left - bloom.offsetWidth / 2}px`;
+        bloom.style.transform = `translateY(${origin.top + origin.height / 2 - timelineBounds.top - bloom.offsetHeight / 2}px)`;
+      } else {
+        const marker = activeEntry.querySelector('.resume-timeline-marker').getBoundingClientRect();
+        bloom.style.left = `${marker.left + marker.width / 2 - timeline.getBoundingClientRect().left - bloom.offsetWidth / 2}px`;
+        bloom.style.transform = `translateY(${activeCenter - timelineTop - bloom.offsetHeight / 2}px)`;
+      }
     };
     const scheduleUpdate = () => {
       if (!frame) frame = requestAnimationFrame(updateBloom);
