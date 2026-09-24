@@ -60,16 +60,16 @@
       if (!entries.length) return;
       const focusLine = innerHeight * 0.46;
       const timelineTop = timeline.getBoundingClientRect().top;
+      const waitingAtBranch = window.scrollY <= 1 || timelineTop >= innerHeight * 0.8;
       let activeEntry = entries[0];
       const markerCenter = entry => {
         const markerBounds = entry.querySelector('.resume-timeline-marker').getBoundingClientRect();
         return markerBounds.top + markerBounds.height / 2;
       };
       let activeCenter = markerCenter(activeEntry);
-      const pageTop = window.scrollY <= 1;
       let closestDistance = Math.abs(activeCenter - focusLine);
 
-      for (const entry of (pageTop ? [] : entries.slice(1))) {
+      for (const entry of (waitingAtBranch ? [] : entries.slice(1))) {
         const center = markerCenter(entry);
         const distance = Math.abs(center - focusLine);
         if (distance < closestDistance) {
@@ -79,8 +79,10 @@
         }
       }
 
-      entries.forEach(entry => entry.classList.toggle('is-current', entry === activeEntry));
-      const restingOffset = pageTop ? 0 : activeCenter - timelineTop - bloom.offsetHeight / 2;
+      entries.forEach(entry => entry.classList.toggle('is-current', !waitingAtBranch && entry === activeEntry));
+      const restingOffset = waitingAtBranch
+        ? parseFloat(getComputedStyle(bloom).getPropertyValue('--bloom-rest-offset')) || 0
+        : activeCenter - timelineTop - bloom.offsetHeight / 2;
       bloom.style.transform = `translateY(${restingOffset}px)`;
     };
     const scheduleUpdate = () => {

@@ -4,7 +4,7 @@ theme: charlolamode
 
 params:
   description: Sumedhaa is a Senior Software Engineer at FactSet in Hyderabad, building data platforms, cloud infrastructure, and AI-powered workflows.
-  defaultTheme: auto
+  defaultTheme: light
   assets:
     favicon: /images/favicon.ico
 

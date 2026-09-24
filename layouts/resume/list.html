@@ -20,11 +20,20 @@
       <header class="resume-section-heading"><p class="eyebrow">The work</p><h2 id="experience-heading">Experience</h2><p>A path through data, cloud infrastructure, and tools for working with information.</p></header>
       <div class="resume-timeline resume-journey-timeline" data-resume-timeline>
         <span class="resume-timeline-sprig" aria-hidden="true">
-          <svg viewBox="0 0 90 50" focusable="false">
-            <path class="resume-sprig-stem" d="M3 13C28-3 54 0 85 9"/>
-            <path class="resume-sprig-leaf" d="M28 4C20-5 13-4 10-1c4 7 10 9 18 5Zm24-3c0-9 6-13 11-13 2 8-2 13-11 13Z"/>
-            <g class="resume-sprig-flower" transform="translate(77 9)">
-              <ellipse cx="0" cy="-3" rx="2.4" ry="3.6"/><ellipse cx="0" cy="-3" rx="2.4" ry="3.6" transform="rotate(72)"/><ellipse cx="0" cy="-3" rx="2.4" ry="3.6" transform="rotate(144)"/><ellipse cx="0" cy="-3" rx="2.4" ry="3.6" transform="rotate(216)"/><ellipse cx="0" cy="-3" rx="2.4" ry="3.6" transform="rotate(288)"/><circle r="1.4"/>
+          <svg viewBox="0 0 1600 180" preserveAspectRatio="none" focusable="false">
+            <g class="resume-bough resume-bough-left">
+              <path class="resume-sprig-stem" d="M-12 132C142 167 264 136 370 91S527 33 612 12"/>
+              <path class="resume-sprig-stem resume-sprig-fine" d="M76 151C115 114 131 80 119 39M177 151C223 120 242 87 235 54M309 117C286 81 291 48 319 19M425 70C454 53 468 32 465 10M365 94C346 65 349 44 368 28M514 48C494 31 494 16 505 3"/>
+              <path class="resume-sprig-leaf" d="M112 81c-20-20-38-17-46-10 10 19 25 23 46 10Zm4-2c-2-22 9-35 23-37 7 18-2 30-23 37Zm97 33c-18-18-35-16-43-9 9 17 24 22 43 9Zm5-2c-1-20 9-32 22-34 6 16-2 27-22 34Zm98-41c-17-17-33-15-41-8 8 17 22 21 41 8Zm5-2c0-19 10-29 23-31 5 16-4 26-23 31Zm111-18c-14-14-28-12-35-6 7 13 19 17 35 6Z"/>
+              <g class="resume-sprig-flower" transform="translate(319 18)"><ellipse cy="-4" rx="3" ry="4.5"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(72)"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(144)"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(216)"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(288)"/><circle r="1.7"/></g>
+              <g class="resume-sprig-flower" transform="translate(560 16) scale(.82)"><ellipse cy="-4" rx="3" ry="4.5"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(72)"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(144)"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(216)"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(288)"/><circle r="1.7"/></g>
+            </g>
+            <g class="resume-bough resume-bough-right">
+              <path class="resume-sprig-stem" d="M1612 139C1458 169 1340 135 1230 93S1064 32 977 12"/>
+              <path class="resume-sprig-stem resume-sprig-fine" d="M1517 155C1481 116 1466 80 1478 42M1413 150C1369 116 1353 84 1362 51M1290 117C1310 82 1304 48 1278 20M1173 72C1143 52 1130 30 1137 8M1234 94C1251 65 1247 42 1228 26M1084 47C1103 30 1105 14 1095 2"/>
+              <path class="resume-sprig-leaf" d="M1480 83c19-20 38-18 46-11-10 19-25 24-46 11Zm-4-2c2-22-9-35-23-38-7 19 2 31 23 38Zm-99 33c18-19 35-16 43-10-9 18-24 23-43 10Zm-5-2c1-21-9-33-22-35-6 17 2 28 22 35Zm-98-41c17-17 33-15 41-8-8 17-22 21-41 8Zm-5-2c0-19-10-29-23-31-5 16 4 26 23 31Zm-111-18c14-14 28-12 35-6-7 13-19 17-35 6Z"/>
+              <g class="resume-sprig-flower" transform="translate(1278 19)"><ellipse cy="-4" rx="3" ry="4.5"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(72)"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(144)"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(216)"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(288)"/><circle r="1.7"/></g>
+              <g class="resume-sprig-flower" transform="translate(1137 8) scale(.82)"><ellipse cy="-4" rx="3" ry="4.5"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(72)"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(144)"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(216)"/><ellipse cy="-4" rx="3" ry="4.5" transform="rotate(288)"/><circle r="1.7"/></g>
             </g>
           </svg>
         </span>
@@ -34,18 +43,6 @@
             <circle class="resume-bloom-center" cx="20" cy="20" r="3.4"/>
           </svg>
         </span>
-        {{ range $resume.experience }}
-        <article class="resume-timeline-item">
-          <div class="resume-timeline-date"><time>{{ .dates }}</time><span>{{ .location }}</span></div>
-          <div class="resume-timeline-marker" aria-hidden="true"></div>
-          <div class="resume-role-card">
-            <p class="resume-company">{{ .company }}</p>
-            <h3>{{ .role }}</h3>
-            <p class="resume-role-mobile-date">{{ .dates }} · {{ .location }}</p>
-            <ul>{{ range .highlights }}<li>{{ . }}</li>{{ end }}</ul>
-          </div>
-        </article>
-        {{ end }}
         {{ range $resume.journey }}
           {{ if eq .kind "chapter" }}
         <header class="resume-timeline-chapter" id="{{ .anchor }}">
@@ -97,9 +94,14 @@
 
     <section class="resume-section" id="recognition" aria-labelledby="recognition-heading">
       <header class="resume-section-heading"><p class="eyebrow">Milestones</p><h2 id="recognition-heading">Recognition</h2></header>
-      <div class="resume-card-grid">
-        {{ range $resume.recognition }}<article class="resume-info-card resume-recognition-card"><div class="resume-card-topline"><p>{{ .organization }}</p><time>{{ .date }}</time></div><h3>{{ .title }}</h3><p>{{ .detail }}</p></article>{{ end }}
-      </div>
+      <ol class="resume-recognition-list">
+        {{ range $resume.recognition }}
+        <li class="resume-recognition-row">
+          <time>{{ .date }}</time>
+          <div><h3>{{ .title }}</h3><p class="resume-recognition-organization">{{ .organization }}</p><p class="resume-recognition-detail">{{ .detail }}</p></div>
+        </li>
+        {{ end }}
+      </ol>
     </section>
 
     <section class="resume-section" id="volunteering" aria-labelledby="volunteering-heading">

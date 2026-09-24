@@ -114,7 +114,7 @@ volunteering:
     detail: Organised and ran DEFUSE, a digital electronics event at Excel 2019, managing 100 teams through five technical rounds.
     url: https://2019.excelmec.org/#/competitions/defuse
 
-# Controls the single descending work, recognition, and education timeline below.
+# Controls the single descending experience and education timeline below.
 journey:
   - kind: experience
     index: 0
