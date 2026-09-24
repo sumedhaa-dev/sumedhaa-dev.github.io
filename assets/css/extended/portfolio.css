@@ -3065,3 +3065,68 @@ body {
   .resume-traveling-bloom { left:-8px; width:26px; height:26px; }
   .resume-traveling-bloom svg { width:18px; height:18px; }
 }
+.resume-skill-list {
+  margin:0;
+  padding:0;
+  border-top:1px solid #eadfd7;
+}
+.resume-skill-row {
+  display:grid;
+  grid-template-columns:minmax(150px, .7fr) minmax(0, 1.8fr);
+  gap:22px;
+  align-items:baseline;
+  padding:15px 4px;
+  border-bottom:1px solid #eadfd7;
+}
+.resume-skill-row dt {
+  color:#76564f;
+  font-family:'Cormorant Garamond',serif;
+  font-size:21px;
+  font-weight:500;
+}
+.resume-skill-row dd {
+  margin:0;
+  color:#6e625b;
+  font-size:14px;
+  line-height:1.75;
+}
+.resume-recognition-entry {
+  padding-top:16px;
+  padding-bottom:16px;
+  border-color:#eee1dd;
+  background:#fffaf8;
+  box-shadow:none;
+}
+.resume-recognition-entry .resume-card-kicker {
+  margin:0 0 3px;
+  color:#98746d;
+  font-size:11px;
+  line-height:1.5;
+}
+.resume-recognition-entry h3 { font-size:17px; }
+.resume-recognition-detail { margin:7px 0 0; color:#756b62; font-size:13px; line-height:1.6; }
+.resume-timeline-item--recognition .resume-timeline-marker {
+  width:9px;
+  height:9px;
+  margin-top:23px;
+  border-color:#b99672;
+  border-radius:2px;
+  background:#f4e8dc;
+  box-shadow:0 0 0 4px #f8f0e9;
+  transform:rotate(45deg);
+}
+.dark .resume-skill-list,.dark .resume-skill-row { border-color:#59463f; }
+.dark .resume-skill-row dt { color:#e6c2c5; }
+.dark .resume-skill-row dd { color:#d3c9bf; }
+.dark .resume-recognition-entry { border-color:#59463f; background:#393033; }
+.dark .resume-recognition-entry .resume-card-kicker { color:#d5afb2; }
+.dark .resume-recognition-detail { color:#d3c9bf; }
+.dark .resume-timeline-item--recognition .resume-timeline-marker { border-color:#ddbd92; background:#4b3e37; box-shadow:0 0 0 4px #403438; }
+@media(max-width:720px) {
+  .resume-skill-row { grid-template-columns:1fr; gap:3px; padding:13px 3px; }
+  .resume-skill-row dt { font-size:20px; }
+}
+@media print {
+  .resume-skill-list,.resume-skill-row { border-color:#aaa; }
+  .resume-recognition-entry { border-color:#bbb; background:transparent!important; }
+}

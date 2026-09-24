@@ -113,3 +113,40 @@ volunteering:
     location: India
     detail: Organised and ran DEFUSE, a digital electronics event at Excel 2019, managing 100 teams through five technical rounds.
     url: https://2019.excelmec.org/#/competitions/defuse
+
+# Controls the single descending work, recognition, and education timeline below.
+journey:
+  - kind: experience
+    index: 0
+  - kind: experience
+    index: 1
+  - kind: experience
+    index: 2
+  - kind: chapter
+    anchor: recognition
+    eyebrow: Along the way
+    title: Recognition
+  - kind: recognition
+    index: 0
+  - kind: recognition
+    index: 1
+  - kind: experience
+    index: 3
+  - kind: experience
+    index: 4
+  - kind: recognition
+    index: 2
+  - kind: chapter
+    anchor: education
+    eyebrow: The foundations
+    title: Education
+  - kind: education
+    index: 0
+  - kind: recognition
+    index: 3
+  - kind: education
+    index: 1
+  - kind: recognition
+    index: 4
+  - kind: education
+    index: 2

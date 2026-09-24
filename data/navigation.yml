@@ -3,6 +3,8 @@ main:
     url: /#story
   - label: Chapters
     url: /#chapters
+  - label: Résumé
+    url: /resume/
   - label: Writing
     url: /blog/
   - label: Travel

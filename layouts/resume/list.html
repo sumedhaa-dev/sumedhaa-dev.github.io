@@ -3,12 +3,10 @@
 {{ $resume := .Site.Data.resume }}
 <article class="portfolio-shell section-page resume-page">
   <header class="resume-header">
-    <p class="eyebrow">Experience · Data · Cloud</p>
+    <p class="eyebrow">Work, learning &amp; milestones</p>
     <h1>{{ .Title }}</h1>
     <p class="resume-lead">{{ .Description }}</p>
     <div class="resume-contact">
-      <span>Hyderabad, India</span>
-      <a href="mailto:{{ $profile.email }}">{{ $profile.email }}</a>
       {{ range $profile.socials }}
       <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }} <span aria-hidden="true">↗</span></a>
       {{ end }}
@@ -19,8 +17,8 @@
   </header>
 
   <nav class="resume-section-nav" aria-label="Résumé sections">
-    <a href="#experience">Experience</a><a href="#education">Education</a><a href="#skills">Skills</a>
-    <a href="#certifications">Certifications</a><a href="#recognition">Recognition</a><a href="#volunteering">Volunteering</a>
+    <a href="#experience">Experience</a><a href="#recognition">Recognition</a><a href="#education">Education</a><a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a><a href="#volunteering">Volunteering</a>
   </nav>
 
   <div class="resume-content">
@@ -45,33 +43,52 @@
           </div>
         </article>
         {{ end }}
-        <header class="resume-timeline-chapter" id="education" aria-labelledby="education-heading">
-          <p class="eyebrow">The foundations</p>
-          <h2 id="education-heading">Education</h2>
+        {{ range $resume.journey }}
+          {{ if eq .kind "chapter" }}
+        <header class="resume-timeline-chapter" id="{{ .anchor }}">
+          <p class="eyebrow">{{ .eyebrow }}</p><h2>{{ .title }}</h2>
         </header>
-        {{ range $resume.education }}
-        <article class="resume-timeline-item">
-          <div class="resume-timeline-date"><time>{{ .year }}</time><span>{{ .location }}</span></div>
-          <div class="resume-timeline-marker" aria-hidden="true"></div>
-          <div class="resume-role-card resume-education-card">
-            <p class="resume-card-kicker">{{ .qualification }}</p>
-            <h3>{{ .institution }}</h3>
-            <p class="resume-role-mobile-date">{{ .year }} · {{ .location }}</p>
-            <p class="resume-card-detail">{{ .detail }}</p>
-            {{ with .coursework }}<details class="resume-coursework"><summary>Relevant coursework</summary><p>{{ . }}</p></details>{{ end }}
+          {{ else }}
+            {{ $entry := index (index $resume .kind) .index }}
+        <article class="resume-timeline-item resume-timeline-item--{{ .kind }}" {{ if and (eq .kind "recognition") (eq .index 0) }}id="recognition-first"{{ end }}>
+          <div class="resume-timeline-date">
+            {{ if eq .kind "experience" }}<time>{{ $entry.dates }}</time><span>{{ $entry.location }}</span>
+            {{ else if eq .kind "education" }}<time>{{ $entry.year }}</time><span>{{ $entry.location }}</span>
+            {{ else }}<time>{{ $entry.date }}</time><span>{{ $entry.organization }}</span>{{ end }}
           </div>
+          <div class="resume-timeline-marker" aria-hidden="true"></div>
+          {{ if eq .kind "experience" }}
+          <div class="resume-role-card">
+            <p class="resume-company">{{ $entry.company }}</p><h3>{{ $entry.role }}</h3>
+            <p class="resume-role-mobile-date">{{ $entry.dates }} · {{ $entry.location }}</p>
+            <ul>{{ range $entry.highlights }}<li>{{ . }}</li>{{ end }}</ul>
+          </div>
+          {{ else if eq .kind "recognition" }}
+          <div class="resume-role-card resume-recognition-entry">
+            <p class="resume-card-kicker">{{ $entry.organization }}</p><h3>{{ $entry.title }}</h3>
+            <p class="resume-role-mobile-date">{{ $entry.date }}</p><p class="resume-recognition-detail">{{ $entry.detail }}</p>
+          </div>
+          {{ else }}
+          <div class="resume-role-card resume-education-card">
+            <p class="resume-card-kicker">{{ $entry.qualification }}</p><h3>{{ $entry.institution }}</h3>
+            <p class="resume-role-mobile-date">{{ $entry.year }} · {{ $entry.location }}</p>
+            <p class="resume-card-detail">{{ $entry.detail }}</p>
+            {{ with $entry.coursework }}<details class="resume-coursework"><summary>Relevant coursework</summary><p>{{ . }}</p></details>{{ end }}
+          </div>
+          {{ end }}
         </article>
+          {{ end }}
         {{ end }}
       </div>
     </section>
 
     <section class="resume-section" id="skills" aria-labelledby="skills-heading">
       <header class="resume-section-heading"><p class="eyebrow">The toolkit</p><h2 id="skills-heading">Technical skills</h2></header>
-      <div class="resume-skill-grid">
+      <dl class="resume-skill-list">
         {{ range $resume.skills }}
-        <article class="resume-skill-card"><h3>{{ .name }}</h3><ul class="resume-tags">{{ range .items }}<li>{{ . }}</li>{{ end }}</ul></article>
+        <div class="resume-skill-row"><dt>{{ .name }}</dt><dd>{{ delimit .items ", " }}</dd></div>
         {{ end }}
-      </div>
+      </dl>
     </section>
 
     <section class="resume-section" id="certifications" aria-labelledby="certifications-heading">
@@ -79,13 +96,6 @@
       <ul class="resume-cert-list">
         {{ range $resume.certifications }}<li><span>{{ .name }}</span><time>{{ .date }}</time></li>{{ end }}
       </ul>
-    </section>
-
-    <section class="resume-section" id="recognition" aria-labelledby="recognition-heading">
-      <header class="resume-section-heading"><p class="eyebrow">Milestones</p><h2 id="recognition-heading">Recognition</h2></header>
-      <div class="resume-card-grid">
-        {{ range $resume.recognition }}<article class="resume-info-card resume-recognition-card"><div class="resume-card-topline"><p>{{ .organization }}</p><time>{{ .date }}</time></div><h3>{{ .title }}</h3><p>{{ .detail }}</p></article>{{ end }}
-      </div>
     </section>
 
     <section class="resume-section" id="volunteering" aria-labelledby="volunteering-heading">
