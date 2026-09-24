@@ -1,0 +1,31 @@
+{{ define "main" }}
+{{ $profile := .Site.Data.profile }}
+<article class="portfolio-shell section-page resume-page">
+  <header class="resume-header">
+    <p class="eyebrow">Experience · Data · Cloud</p>
+    <h1>{{ .Title }}</h1>
+    <p class="resume-lead">{{ .Description }}</p>
+    <div class="resume-contact">
+      <span>Hyderabad, India</span>
+      <a href="mailto:{{ $profile.email }}">{{ $profile.email }}</a>
+      {{ range $profile.socials }}
+      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }}</a>
+      {{ end }}
+    </div>
+    {{ with .Params.pdf }}
+    <a class="pill-link resume-download" href="{{ . }}" target="_blank" rel="noopener noreferrer">Download résumé <span aria-hidden="true">↗</span></a>
+    {{ end }}
+  </header>
+
+  <nav class="resume-section-nav" aria-label="Résumé sections">
+    <a href="#experience">Experience</a>
+    <a href="#technical-skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#education">Education</a>
+    <a href="#recognition">Recognition</a>
+    <a href="#volunteering">Volunteering</a>
+  </nav>
+
+  <div class="resume-content page-prose">{{ .Content }}</div>
+</article>
+{{ end }}
