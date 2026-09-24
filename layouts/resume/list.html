@@ -19,14 +19,14 @@
   </header>
 
   <nav class="resume-section-nav" aria-label="Résumé sections">
-    <a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#certifications">Certifications</a>
-    <a href="#education">Education</a><a href="#recognition">Recognition</a><a href="#volunteering">Volunteering</a>
+    <a href="#experience">Experience</a><a href="#education">Education</a><a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a><a href="#recognition">Recognition</a><a href="#volunteering">Volunteering</a>
   </nav>
 
   <div class="resume-content">
     <section class="resume-section" id="experience" aria-labelledby="experience-heading">
       <header class="resume-section-heading"><p class="eyebrow">The work</p><h2 id="experience-heading">Experience</h2><p>A path through data, cloud infrastructure, and tools for working with information.</p></header>
-      <div class="resume-timeline resume-timeline--experience" data-resume-timeline>
+      <div class="resume-timeline resume-journey-timeline" data-resume-timeline>
         <span class="resume-traveling-bloom" aria-hidden="true">
           <svg viewBox="0 0 40 40" focusable="false">
             <g class="resume-bloom-petals"><ellipse cx="20" cy="9" rx="5.3" ry="8"/><ellipse cx="20" cy="9" rx="5.3" ry="8" transform="rotate(72 20 20)"/><ellipse cx="20" cy="9" rx="5.3" ry="8" transform="rotate(144 20 20)"/><ellipse cx="20" cy="9" rx="5.3" ry="8" transform="rotate(216 20 20)"/><ellipse cx="20" cy="9" rx="5.3" ry="8" transform="rotate(288 20 20)"/></g>
@@ -42,6 +42,23 @@
             <h3>{{ .role }}</h3>
             <p class="resume-role-mobile-date">{{ .dates }} · {{ .location }}</p>
             <ul>{{ range .highlights }}<li>{{ . }}</li>{{ end }}</ul>
+          </div>
+        </article>
+        {{ end }}
+        <header class="resume-timeline-chapter" id="education" aria-labelledby="education-heading">
+          <p class="eyebrow">The foundations</p>
+          <h2 id="education-heading">Education</h2>
+        </header>
+        {{ range $resume.education }}
+        <article class="resume-timeline-item">
+          <div class="resume-timeline-date"><time>{{ .year }}</time><span>{{ .location }}</span></div>
+          <div class="resume-timeline-marker" aria-hidden="true"></div>
+          <div class="resume-role-card resume-education-card">
+            <p class="resume-card-kicker">{{ .qualification }}</p>
+            <h3>{{ .institution }}</h3>
+            <p class="resume-role-mobile-date">{{ .year }} · {{ .location }}</p>
+            <p class="resume-card-detail">{{ .detail }}</p>
+            {{ with .coursework }}<details class="resume-coursework"><summary>Relevant coursework</summary><p>{{ . }}</p></details>{{ end }}
           </div>
         </article>
         {{ end }}
@@ -62,25 +79,6 @@
       <ul class="resume-cert-list">
         {{ range $resume.certifications }}<li><span>{{ .name }}</span><time>{{ .date }}</time></li>{{ end }}
       </ul>
-    </section>
-
-    <section class="resume-section" id="education" aria-labelledby="education-heading">
-      <header class="resume-section-heading"><p class="eyebrow">Foundations</p><h2 id="education-heading">Education</h2></header>
-      <div class="resume-timeline resume-education-timeline">
-        {{ range $resume.education }}
-        <article class="resume-timeline-item">
-          <div class="resume-timeline-date"><time>{{ .year }}</time><span>{{ .location }}</span></div>
-          <div class="resume-timeline-marker" aria-hidden="true"></div>
-          <div class="resume-role-card resume-education-card">
-            <p class="resume-card-kicker">{{ .qualification }}</p>
-            <h3>{{ .institution }}</h3>
-            <p class="resume-role-mobile-date">{{ .year }} · {{ .location }}</p>
-            <p class="resume-card-detail">{{ .detail }}</p>
-          {{ with .coursework }}<details class="resume-coursework"><summary>Relevant coursework</summary><p>{{ . }}</p></details>{{ end }}
-          </div>
-        </article>
-        {{ end }}
-      </div>
     </section>
 
     <section class="resume-section" id="recognition" aria-labelledby="recognition-heading">

@@ -2995,3 +2995,73 @@ body {
   .resume-header { border-bottom:1px solid #999; }
   .resume-traveling-bloom { display:none; }
 }
+.resume-journey-timeline { padding-bottom:8px; }
+.resume-timeline-chapter {
+  margin:30px 0 20px 204px;
+  padding:15px 0 0;
+  border-top:1px solid #eadbd4;
+  scroll-margin-top:90px;
+}
+.resume-timeline-chapter .eyebrow { margin:0 0 3px; font-size:13px; }
+.resume-timeline-chapter h2 {
+  margin:0;
+  color:#403631;
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;
+  font-weight:400;
+  line-height:1.1;
+}
+.resume-skill-grid { column-gap:28px; row-gap:8px; }
+.resume-skill-card {
+  padding:14px 3px 17px;
+  border:0;
+  border-bottom:1px solid #eadfd7;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+.resume-skill-card h3 {
+  margin:0 0 9px;
+  color:#76564f;
+  font-family:'Cormorant Garamond',serif;
+  font-size:23px;
+  font-weight:500;
+}
+.resume-tags { gap:6px 7px; }
+.resume-tags li {
+  padding:4px 9px;
+  border:0;
+  border-radius:6px;
+  background:#f5ece8;
+  color:#6e625b;
+  font-size:12px;
+}
+.dark .resume-timeline-chapter { border-color:#59463f; }
+.dark .resume-timeline-chapter h2 { color:#f1e8dd; }
+.dark .resume-skill-card { border-color:#59463f; background:transparent; box-shadow:none; }
+.dark .resume-skill-card h3 { color:#e6c2c5; }
+.dark .resume-tags li { border:0; background:#403438; color:#e6d8d1; }
+@media(max-width:720px) {
+  .resume-timeline-chapter { margin:24px 0 18px 26px; padding-top:12px; }
+  .resume-timeline-chapter h2 { font-size:28px; }
+  .resume-skill-grid { column-gap:16px; }
+}
+@media print {
+  .resume-timeline-chapter { break-after:avoid; }
+  .resume-skill-card { border:0; border-bottom:1px solid #bbb; background:transparent!important; }
+  .resume-tags li { background:none!important; padding:2px 5px; }
+}
+.resume-traveling-bloom { left:167px; width:26px; height:26px; }
+.resume-traveling-bloom svg {
+  width:20px;
+  height:20px;
+  filter:drop-shadow(0 1px 1px rgba(99,60,68,.12));
+}
+.resume-bloom-petals { fill:#f0d1d7; stroke:#d5a1ac; stroke-width:.8; }
+.resume-bloom-center { fill:#bd8a67; stroke:#fff8f0; stroke-width:1.2; }
+.dark .resume-bloom-petals { fill:#d6b3bf; stroke:#ebc6ce; }
+.dark .resume-bloom-center { fill:#e3c39c; stroke:#403438; }
+@media(max-width:720px) {
+  .resume-traveling-bloom { left:-8px; width:26px; height:26px; }
+  .resume-traveling-bloom svg { width:18px; height:18px; }
+}
