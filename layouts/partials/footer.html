@@ -47,3 +47,27 @@
     requestUpdate();
   })();
 </script>
+<script>
+  (() => {
+    const timeline = document.querySelector('[data-resume-timeline]');
+    const bloom = timeline?.querySelector('.resume-traveling-bloom');
+    if (!timeline || !bloom || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let frame = 0;
+    const updateBloom = () => {
+      frame = 0;
+      const bounds = timeline.getBoundingClientRect();
+      const focusLine = innerHeight * 0.46;
+      const travel = Math.max(0, bounds.height - bloom.offsetHeight);
+      const progress = Math.min(1, Math.max(0, (focusLine - bounds.top) / bounds.height));
+      bloom.style.transform = `translateY(${travel * progress}px)`;
+    };
+    const scheduleUpdate = () => {
+      if (!frame) frame = requestAnimationFrame(updateBloom);
+    };
+
+    addEventListener('scroll', scheduleUpdate, { passive: true });
+    addEventListener('resize', scheduleUpdate, { passive: true });
+    scheduleUpdate();
+  })();
+</script>

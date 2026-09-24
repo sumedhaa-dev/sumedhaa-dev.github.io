@@ -26,7 +26,13 @@
   <div class="resume-content">
     <section class="resume-section" id="experience" aria-labelledby="experience-heading">
       <header class="resume-section-heading"><p class="eyebrow">The work</p><h2 id="experience-heading">Experience</h2><p>A path through data, cloud infrastructure, and tools for working with information.</p></header>
-      <div class="resume-timeline">
+      <div class="resume-timeline resume-timeline--experience" data-resume-timeline>
+        <span class="resume-traveling-bloom" aria-hidden="true">
+          <svg viewBox="0 0 40 40" focusable="false">
+            <g class="resume-bloom-petals"><ellipse cx="20" cy="9" rx="5.3" ry="8"/><ellipse cx="20" cy="9" rx="5.3" ry="8" transform="rotate(72 20 20)"/><ellipse cx="20" cy="9" rx="5.3" ry="8" transform="rotate(144 20 20)"/><ellipse cx="20" cy="9" rx="5.3" ry="8" transform="rotate(216 20 20)"/><ellipse cx="20" cy="9" rx="5.3" ry="8" transform="rotate(288 20 20)"/></g>
+            <circle class="resume-bloom-center" cx="20" cy="20" r="3.4"/>
+          </svg>
+        </span>
         {{ range $resume.experience }}
         <article class="resume-timeline-item">
           <div class="resume-timeline-date"><time>{{ .dates }}</time><span>{{ .location }}</span></div>
@@ -60,12 +66,18 @@
 
     <section class="resume-section" id="education" aria-labelledby="education-heading">
       <header class="resume-section-heading"><p class="eyebrow">Foundations</p><h2 id="education-heading">Education</h2></header>
-      <div class="resume-card-grid resume-education-grid">
+      <div class="resume-timeline resume-education-timeline">
         {{ range $resume.education }}
-        <article class="resume-info-card">
-          <div class="resume-card-topline"><p>{{ .location }}</p><time>{{ .year }}</time></div>
-          <h3>{{ .institution }}</h3><p>{{ .qualification }}</p><p class="resume-card-detail">{{ .detail }}</p>
+        <article class="resume-timeline-item">
+          <div class="resume-timeline-date"><time>{{ .year }}</time><span>{{ .location }}</span></div>
+          <div class="resume-timeline-marker" aria-hidden="true"></div>
+          <div class="resume-role-card resume-education-card">
+            <p class="resume-card-kicker">{{ .qualification }}</p>
+            <h3>{{ .institution }}</h3>
+            <p class="resume-role-mobile-date">{{ .year }} · {{ .location }}</p>
+            <p class="resume-card-detail">{{ .detail }}</p>
           {{ with .coursework }}<details class="resume-coursework"><summary>Relevant coursework</summary><p>{{ . }}</p></details>{{ end }}
+          </div>
         </article>
         {{ end }}
       </div>

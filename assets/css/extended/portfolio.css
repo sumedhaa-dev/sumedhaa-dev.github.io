@@ -2928,3 +2928,70 @@ body {
 .nav-links {
   min-width:0;
 }
+
+/* Keep the résumé in step with the site's lighter editorial typography. */
+.resume-header {
+  max-width:920px;
+  margin:0 auto 44px;
+  padding:26px 0 30px;
+  border:0;
+  border-bottom:1px solid #eadbd4;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  text-align:left;
+}
+.resume-header h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(52px,7vw,76px);
+  font-weight:400;
+  letter-spacing:-.025em;
+}
+.resume-lead { margin:12px 0 19px; }
+.resume-contact { justify-content:flex-start; margin-left:0; }
+.resume-download { margin-top:0; }
+.resume-section-nav { margin-top:-25px; margin-bottom:68px; margin-left:0; }
+.resume-section-heading h2 { font-weight:400; }
+.resume-timeline { padding-bottom:4px; }
+.resume-timeline::before { left:180px; }
+.resume-traveling-bloom {
+  position:absolute;
+  z-index:3;
+  top:0;
+  left:162px;
+  display:grid;
+  width:36px;
+  height:36px;
+  place-items:center;
+  pointer-events:none;
+  will-change:transform;
+}
+.resume-traveling-bloom svg { width:29px; height:29px; overflow:visible; filter:drop-shadow(0 2px 2px rgba(99,60,68,.14)); }
+.resume-bloom-petals { fill:#e8b7c2; stroke:#cb8e9c; stroke-width:.65; }
+.resume-bloom-center { fill:#ba805c; stroke:#fff5e9; stroke-width:1; }
+.resume-education-card .resume-card-kicker {
+  margin:0 0 4px;
+  color:#8a716b;
+  font-size:12px;
+  line-height:1.55;
+}
+.resume-education-card .resume-card-detail { margin:7px 0 0; color:#98646a; font-size:13px; font-weight:500; }
+.dark .resume-header { border-color:#59463f; background:transparent; box-shadow:none; }
+.dark .resume-bloom-petals { fill:#c7a3b0; stroke:#e2b5c0; }
+.dark .resume-bloom-center { fill:#e0bc89; stroke:#473a3c; }
+.dark .resume-education-card .resume-card-kicker { color:#c9bfb4; }
+@media(max-width:720px) {
+  .resume-header { margin-bottom:38px; padding:20px 0 26px; }
+  .resume-section-nav { margin:0 0 52px; }
+  .resume-timeline::before { left:5px; }
+  .resume-traveling-bloom { left:-13px; width:30px; height:30px; }
+  .resume-traveling-bloom svg { width:25px; height:25px; }
+  .resume-education-card .resume-card-kicker { font-size:11px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .resume-traveling-bloom { display:none; }
+}
+@media print {
+  .resume-header { border-bottom:1px solid #999; }
+  .resume-traveling-bloom { display:none; }
+}
