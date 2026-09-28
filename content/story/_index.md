@@ -15,6 +15,8 @@ Six years into working in technology, I’ve moved through software engineering,
 
 The technology keeps changing, which is probably part of what keeps me here. There is always another layer to understand, another problem hiding underneath the obvious one, another thing that could perhaps be made a little simpler.
 
+{{< story-divider >}}
+
 ## A life outside the screen
 
 Work is a big part of my life, but it has never been the whole of it.
@@ -25,11 +27,19 @@ I love travelling for much the same reason I love learning anything new. There i
 
 Books give me that feeling too, only without having to leave home. I read across whatever happens to interest me, and I like that a good book can make an ordinary idea feel unfamiliar again.
 
+{{< story-divider >}}
+
 ## Still becoming
 
 I’ve never been particularly good at choosing just one thing.
 
-There are too many things I want to understand, places I want to see, things I want to make, and versions of myself I haven't met yet. I want to become better at my work without allowing it to become the only measure of a good life. I want to take my dance further. I want to keep travelling. I want to read more books than I have time for. I want to keep saying yes to experiences that scare me a little and leave me with a story afterwards.
+There are too many things I want to understand, places I want to see, things I want to make, and versions of myself I haven't met yet.
+
+I want to become better at my work without allowing it to become the only measure of a good life.
+I want to take my dance further.
+I want to keep travelling.
+I want to read more books than I have time for.
+I want to keep saying yes to experiences that scare me a little and leave me with a story afterwards.
 
 I don't know exactly where all of that leads.
 

@@ -93,6 +93,7 @@
 
       entries.forEach(entry => entry.classList.toggle('is-current', timelineActive && entry === activeEntry));
       bloom.classList.toggle('is-falling', isFalling);
+      bloom.classList.toggle('is-on-timeline', timelineActive);
       let swayX = 0;
       let swayRotation = 0;
 
@@ -114,9 +115,7 @@
         bloom.style.transform = `translateY(${desiredY - timelineBounds.top - bloom.offsetHeight / 2}px)`;
       } else {
         const marker = activeEntry.querySelector('.resume-timeline-marker').getBoundingClientRect();
-        const cursorOffset = clamp((pointerX - (marker.left + marker.width / 2)) * .035, -12, 12);
-        swayRotation = clamp((pointerX - (marker.left + marker.width / 2)) * .035, -8, 8);
-        bloom.style.left = `${marker.left + marker.width / 2 - timelineBounds.left - bloom.offsetWidth / 2 + cursorOffset}px`;
+        bloom.style.left = `${marker.left + marker.width / 2 - timelineBounds.left - bloom.offsetWidth / 2}px`;
         bloom.style.transform = `translateY(${activeCenter - timelineBounds.top - bloom.offsetHeight / 2}px)`;
       }
       bloom.style.setProperty('--bloom-sway-x', `${swayX}px`);
