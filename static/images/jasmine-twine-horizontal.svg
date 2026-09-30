@@ -5,8 +5,10 @@
   </g>
   <g fill="#fffaf0" stroke="#ded4c5" stroke-width=".55">
     <g transform="translate(78 17)"><ellipse cy="-2.4" rx="1.8" ry="2.8"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(72)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(144)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(216)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(288)"/></g>
+    <g transform="translate(130 10) scale(.78)"><ellipse cy="-2.4" rx="1.8" ry="2.8"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(72)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(144)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(216)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(288)"/></g>
     <g transform="translate(182 23)"><ellipse cy="-2.4" rx="1.8" ry="2.8"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(72)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(144)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(216)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(288)"/></g>
+    <g transform="translate(234 30) scale(.78)"><ellipse cy="-2.4" rx="1.8" ry="2.8"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(72)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(144)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(216)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(288)"/></g>
     <g transform="translate(286 17)"><ellipse cy="-2.4" rx="1.8" ry="2.8"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(72)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(144)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(216)"/><ellipse cy="-2.4" rx="1.8" ry="2.8" transform="rotate(288)"/></g>
   </g>
-  <g fill="#d5b95c"><circle cx="78" cy="17" r=".8"/><circle cx="182" cy="23" r=".8"/><circle cx="286" cy="17" r=".8"/></g>
+  <g fill="#d5b95c"><circle cx="78" cy="17" r=".8"/><circle cx="130" cy="10" r=".65"/><circle cx="182" cy="23" r=".8"/><circle cx="234" cy="30" r=".65"/><circle cx="286" cy="17" r=".8"/></g>
 </svg>

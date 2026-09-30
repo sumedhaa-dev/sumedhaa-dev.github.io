@@ -4074,21 +4074,29 @@ body {
 .story-page h1,.story-page h2,.story-page h3,.story-page p,.story-page a,
 .story-page strong,.story-page small { min-width:0; overflow-wrap:anywhere; word-break:normal; hyphens:none; }
 .story-opening,.story-opening-copy,.story-chapter,.story-chapter-body,.story-life-card { min-width:0; }
-.story-opening { grid-template-columns:minmax(0,1fr); min-height:0; align-items:start; padding:58px 0 52px; text-align:center; }
+.story-opening { grid-template-columns:minmax(0,1fr); min-height:0; align-items:start; padding:58px 0 78px; text-align:center; }
 .story-opening-copy { grid-column:1; max-width:780px; margin:0 auto; }
 .story-opening-copy h1 { font-size:clamp(40px,6.2vw,68px); line-height:1; white-space:nowrap; }
 .story-opening-lead { max-width:680px; margin-right:auto; margin-left:auto; }
 .story-opening::after,.story-chapter::after {
-  content:""; position:absolute; z-index:2; left:0; bottom:-10px; width:100%; height:20px;
-  background:url('/images/jasmine-twine-horizontal.svg') left center / 360px 20px repeat-x;
+  content:""; position:absolute; z-index:2; left:50%; bottom:-11px; width:min(340px,68vw); height:22px;
+  transform:translateX(-50%);
+  background:url('/images/jasmine-twine-horizontal.svg') center / 100% 100% no-repeat;
+  transform-origin:center;
+  animation:story-jasmine-sway 7s ease-in-out infinite;
   pointer-events:none;
 }
-.story-opening,.story-chapter { border-color:rgba(125,148,110,.28); }
+@keyframes story-jasmine-sway {
+  0%,100% { transform:translateX(-50%) rotate(-.7deg); }
+  50% { transform:translateX(-50%) rotate(.7deg); }
+}
+.story-opening,.story-chapter { border:0; }
+.story-chapter { padding:68px 0 82px; }
 .story-number { display:flex; flex-direction:column; align-items:center; width:44px; color:#6f8060; }
 .story-number { position:relative; }
 .story-number::after {
-  content:""; display:block; position:absolute; z-index:0; top:22px; left:50%; width:1px; height:164px;
-  margin:0; transform:translateX(-50%); background:rgba(125,148,110,.42);
+  content:""; display:block; position:absolute; z-index:0; top:22px; left:50%; width:1px; height:110px;
+  margin:0; transform:translateX(-50%); background:rgba(125,148,110,.24);
 }
 .story-opening-copy .eyebrow,.story-chapter>header .eyebrow,
 .story-page .story-opening-copy .eyebrow { color:#6f8060; }
@@ -4117,7 +4125,7 @@ body {
 .story-journey strong { color:var(--primary); }
 .story-life-grid { gap:34px; margin-top:34px; }
 .story-life-card {
-  position:relative; min-width:0; padding:22px 0 0; border-top:1px solid rgba(125,148,110,.32);
+  position:relative; min-width:0; padding:22px 0 0; border-top:0;
 }
 .story-life-card::before {
   content:"0" counter(story-life) " / 03"; display:block; margin-bottom:13px;
@@ -4133,7 +4141,7 @@ body {
 .story-next-links a:hover strong { color:var(--blossom-accent); }
 .dark .story-number { color:#b9c7a9; }
 .dark .story-opening-copy .eyebrow,.dark .story-chapter>header .eyebrow { color:#b9c7a9; }
-.dark .story-opening,.dark .story-chapter { border-color:rgba(178,197,157,.24); }
+.dark .story-opening,.dark .story-chapter { border:0; }
 .dark .story-number::after { background:rgba(178,197,157,.38); }
 .dark .story-opening::after,.dark .story-chapter::after { filter:brightness(1.22) saturate(.82); }
 .dark .story-opening-art {
@@ -4145,22 +4153,25 @@ body {
 .dark .story-opening-art>p { color:#e5d5ca; border-color:rgba(213,164,181,.4); }
 .dark .story-journey-flower { background:transparent url('/images/jasmine-small.svg') center / 21px 21px no-repeat; filter:brightness(.9); }
 .dark .story-journey::before { background:linear-gradient(90deg,transparent,rgba(178,197,157,.52) 8%,rgba(178,197,157,.52) 92%,transparent); }
-.dark .story-life-card { border-color:rgba(178,197,157,.28); }
+.dark .story-life-card { border-top:0; }
 .dark .story-life-card::before { color:#d5a4b5; }
 .dark .story-life-card p { color:#c9bfb4; }
 .dark .story-chapter--4 .story-chapter-body p:last-child { color:#b9c7a9; }
 .dark .story-next-links { border-color:rgba(178,197,157,.24); }
 @media(max-width:800px) {
   .story-opening { grid-template-columns:minmax(0,1fr); text-align:center; }
+  .story-opening { padding:42px 0 62px; }
+  .story-chapter { padding:52px 0 66px; }
   .story-opening-copy { grid-column:1; }
   .story-life-grid { gap:20px; }
   .story-life-card { padding-top:16px; }
   .story-journey { display:none; }
-  .story-opening::after,.story-chapter::after { background-size:240px 20px; }
-  .story-number::after { height:96px; }
+  .story-opening::after,.story-chapter::after { width:min(250px,72vw); height:18px; bottom:-10px; }
+  .story-number::after { height:76px; }
 }
 @media(prefers-reduced-motion:reduce) {
   .story-journey-flower { animation:none; opacity:1; transform:none; filter:none; }
+  .story-opening::after,.story-chapter::after { animation:none; }
 }
 @media(max-width:380px) {
   .story-opening-copy h1 { font-size:clamp(34px,9.4vw,38px); white-space:normal; }
