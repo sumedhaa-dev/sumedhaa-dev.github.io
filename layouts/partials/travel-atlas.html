@@ -6,15 +6,11 @@
         <image class="travel-atlas-map-base" href="{{ "images/travel-atlas-dots.svg" | relURL }}" x="0" y="0" width="1000" height="500" preserveAspectRatio="none" aria-hidden="true"/>
         {{ range $index, $place := $atlas.places }}
           {{ if $place.url }}<a class="travel-atlas-map-link" href="{{ $place.url | relURL }}" data-place-index="{{ $index }}" aria-label="Read about {{ $place.name }}">{{ end }}
-        <g class="travel-atlas-marker" data-place-index="{{ $index }}" data-latitude="{{ $place.latitude }}" data-longitude="{{ $place.longitude }}" {{ if $place.url }}aria-hidden="true"{{ else }}tabindex="0" role="img" aria-label="{{ $place.name }}, {{ $place.country }}"{{ end }}>
-          <line class="travel-atlas-leader" x1="0" y1="0" x2="0" y2="0"/>
-          <circle class="travel-atlas-marker-halo" r="10"/>
-          <circle class="travel-atlas-marker-dot" r="4"/>
-          <title>{{ $place.name }}, {{ $place.country }}</title>
-        </g>
+        <circle class="travel-atlas-visited-dot" data-place-index="{{ $index }}" data-label="{{ $place.name }}, {{ $place.country }}" data-latitude="{{ $place.latitude }}" data-longitude="{{ $place.longitude }}" r="1.55" {{ if $place.url }}aria-hidden="true"{{ else }}tabindex="0" role="img" aria-label="{{ $place.name }}, {{ $place.country }}"{{ end }}/>
           {{ if $place.url }}</a>{{ end }}
         {{ end }}
       </svg>
+      <span class="travel-atlas-tooltip" role="status" aria-hidden="true"></span>
     </div>
 
     {{ if not $atlas.places }}
@@ -74,8 +70,10 @@
   (() => {
     const atlas = document.querySelector('.travel-atlas');
     if (!atlas) return;
-    const markers = [...atlas.querySelectorAll('.travel-atlas-marker')];
+    const visitedDots = [...atlas.querySelectorAll('.travel-atlas-visited-dot')];
     const points = atlas.querySelector('.travel-atlas-map');
+    const mapWrap = atlas.querySelector('.travel-atlas-map-wrap');
+    const tooltip = atlas.querySelector('.travel-atlas-tooltip');
     const toggle = atlas.querySelector('.travel-atlas-toggle');
     const directory = atlas.querySelector('.travel-atlas-directory');
     if (toggle && directory) {
@@ -90,31 +88,60 @@
     const position = () => {
       const { width, height } = points.viewBox.baseVal;
       const placed = [];
-      const spacing = 18;
-      markers.forEach(marker => {
-        const latitude = Number(marker.dataset.latitude);
-        const longitude = Number(marker.dataset.longitude);
+      visitedDots.forEach(dot => {
+        const longitude = Number(dot.dataset.longitude);
+        const latitude = Number(dot.dataset.latitude);
         const actualX = ((longitude + 180) / 360) * width;
         const actualY = ((85 - latitude) / 145) * height;
-        let x = actualX;
-        let y = actualY;
-        if (placed.some(point => Math.hypot(point.x - x, point.y - y) < spacing)) {
-          let step = 0;
-          do {
-            const angle = step * 2.399963229728653;
-            const radius = spacing + Math.ceil(step / 8) * 7;
-            x = actualX + Math.cos(angle) * radius;
-            y = actualY + Math.sin(angle) * radius;
-            step += 1;
-          } while (placed.some(point => Math.hypot(point.x - x, point.y - y) < spacing) && step < 80);
+        const gridX = Math.round((actualX - 1.5) / 6);
+        const gridY = Math.round((actualY - 1.5) / 6);
+        const candidates = [];
+        for (let dx = -5; dx <= 5; dx += 1) {
+          for (let dy = -5; dy <= 5; dy += 1) {
+            const x = 1.5 + (gridX + dx) * 6;
+            const y = 1.5 + (gridY + dy) * 6;
+            if (x < 0 || x > width || y < 0 || y > height) continue;
+            candidates.push({ x, y, distance: Math.hypot(x - actualX, y - actualY) });
+          }
         }
-        marker.setAttribute('transform', `translate(${x} ${y})`);
-        marker.querySelector('.travel-atlas-leader').setAttribute('x1', `${actualX - x}`);
-        marker.querySelector('.travel-atlas-leader').setAttribute('y1', `${actualY - y}`);
-        marker.querySelector('.travel-atlas-leader').style.opacity = Math.hypot(actualX - x, actualY - y) > 3 ? '1' : '0';
-        placed.push({ x, y });
+        candidates.sort((a, b) => a.distance - b.distance);
+        const pixel = candidates.find(candidate => placed.every(point => Math.hypot(point.x - candidate.x, point.y - candidate.y) >= 6)) || candidates[0];
+        if (!pixel) return;
+        dot.setAttribute('cx', pixel.x);
+        dot.setAttribute('cy', pixel.y);
+        placed.push(pixel);
       });
     };
+    const hideTooltip = () => {
+      tooltip.classList.remove('is-visible');
+      tooltip.setAttribute('aria-hidden', 'true');
+    };
+    const showTooltip = (dot, clientX, clientY) => {
+      tooltip.textContent = dot.dataset.label;
+      tooltip.classList.add('is-visible');
+      tooltip.setAttribute('aria-hidden', 'false');
+      const bounds = mapWrap.getBoundingClientRect();
+      const left = Math.max(6, Math.min(clientX - bounds.left + 12, bounds.width - tooltip.offsetWidth - 6));
+      let top = clientY - bounds.top - tooltip.offsetHeight - 12;
+      if (top < 6) top = clientY - bounds.top + 14;
+      tooltip.style.left = `${left}px`;
+      tooltip.style.top = `${top}px`;
+    };
+    visitedDots.forEach(dot => {
+      dot.addEventListener('mouseenter', event => showTooltip(dot, event.clientX, event.clientY));
+      dot.addEventListener('mousemove', event => showTooltip(dot, event.clientX, event.clientY));
+      dot.addEventListener('mouseleave', hideTooltip);
+      dot.addEventListener('focus', () => {
+        const bounds = dot.getBoundingClientRect();
+        showTooltip(dot, bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
+      });
+      dot.addEventListener('blur', hideTooltip);
+      dot.closest('a')?.addEventListener('focus', () => {
+        const bounds = dot.getBoundingClientRect();
+        showTooltip(dot, bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
+      });
+      dot.closest('a')?.addEventListener('blur', hideTooltip);
+    });
     const pairWith = element => atlas.querySelectorAll(`[data-place-index="${element.dataset.placeIndex}"]`).forEach(peer => peer.classList.toggle('is-linked', element.matches(':hover,:focus-visible')));
     atlas.querySelectorAll('[data-place-index]').forEach(place => {
       place.addEventListener('mouseenter', () => pairWith(place));
