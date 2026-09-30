@@ -91,9 +91,11 @@
         }
       }
 
+      const timelineComplete = timelineActive && markerCenter(entries[entries.length - 1]) <= focusLine;
       entries.forEach(entry => entry.classList.toggle('is-current', timelineActive && entry === activeEntry));
       bloom.classList.toggle('is-falling', isFalling);
-      bloom.classList.toggle('is-on-timeline', timelineActive);
+      bloom.classList.toggle('is-on-timeline', timelineActive && !timelineComplete);
+      bloom.classList.toggle('is-burst', timelineComplete);
       let swayX = 0;
       let swayRotation = 0;
 
