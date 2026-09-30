@@ -3843,7 +3843,8 @@ body {
   background:transparent;
   box-shadow:none;
 }
-.travel-atlas-map-wrap { max-width:1200px; margin:0 auto; }
+.travel-page>.page-heading { margin-bottom:42px; }
+.travel-atlas-map-wrap { max-width:780px; margin:0 auto; }
 .travel-page .eyebrow { color:#a08eae; }
 .dark .travel-page .eyebrow { color:#dfd3e8; }
 .travel-atlas-caption {
@@ -4192,8 +4193,8 @@ body {
 .page-neighbor--next { justify-content:flex-end; text-align:right; }
 .page-neighbor-arrow { flex:none; color:var(--neighbor-accent); font-size:26px; line-height:1; transition:transform .2s ease; }
 .page-neighbor-copy { display:block; min-width:0; }
-.page-neighbor-copy strong { display:block; color:var(--primary); font:500 clamp(20px,2.5vw,27px)/1.1 'Cormorant Garamond',serif; }
-.page-neighbor-copy small { display:block; margin-top:5px; color:var(--secondary); font-size:13px; line-height:1.45; }
+.page-neighbor-copy strong { display:block; color:var(--primary); font:500 clamp(18px,2vw,23px)/1.1 'Cormorant Garamond',serif; }
+.page-neighbor-copy small { display:block; margin-top:4px; color:var(--secondary); font-size:12px; line-height:1.4; }
 .page-neighbor:hover .page-neighbor-copy strong { color:var(--neighbor-accent); }
 .page-neighbor--previous:hover .page-neighbor-arrow { transform:translateX(-4px); }
 .page-neighbor--next:hover .page-neighbor-arrow { transform:translateX(4px); }
@@ -4207,8 +4208,8 @@ body {
   .page-neighbor-nav { gap:10px; margin-top:30px; padding:12px 0 14px; }
   .page-neighbor { gap:9px; }
   .page-neighbor-arrow { font-size:21px; }
-  .page-neighbor-copy strong { font-size:19px; }
-  .page-neighbor-copy small { font-size:11px; }
+  .page-neighbor-copy strong { font-size:17px; }
+  .page-neighbor-copy small { font-size:10px; }
 }
 @media(prefers-reduced-motion:reduce) {
   .page-neighbor-arrow { transition:none; }
