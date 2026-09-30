@@ -6,5 +6,6 @@
     <a class="writing-card" href="{{ .RelPermalink }}"><p class="chapter-meta">{{ .Date.Format "January 2, 2006" }}</p><h2>{{ .Title }}</h2><p>{{ .Summary | plainify | truncate 180 }}</p><span class="text-link">Read the post →</span></a>
     {{ end }}
   </div>
+  {{ partial "page-neighbors.html" . }}
 </div>
 {{ end }}

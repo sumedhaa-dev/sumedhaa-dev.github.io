@@ -24,11 +24,11 @@
       <div class="resume-timeline resume-journey-timeline" data-resume-timeline>
         <span class="resume-traveling-bloom" aria-hidden="true">
           <svg viewBox="-14 -14 28 28" focusable="false">{{ partial "sakura-mark.html" dict }}</svg>
-          <i class="resume-burst-petal" aria-hidden="true"></i>
-          <i class="resume-burst-petal" aria-hidden="true"></i>
-          <i class="resume-burst-petal" aria-hidden="true"></i>
-          <i class="resume-burst-petal" aria-hidden="true"></i>
-          <i class="resume-burst-petal" aria-hidden="true"></i>
+          <span class="resume-burst-petal" aria-hidden="true"><svg viewBox="-6 -14 12 14"><use href="#resume-falling-petal"/></svg></span>
+          <span class="resume-burst-petal" aria-hidden="true"><svg viewBox="-6 -14 12 14"><use href="#resume-falling-petal"/></svg></span>
+          <span class="resume-burst-petal" aria-hidden="true"><svg viewBox="-6 -14 12 14"><use href="#resume-falling-petal"/></svg></span>
+          <span class="resume-burst-petal" aria-hidden="true"><svg viewBox="-6 -14 12 14"><use href="#resume-falling-petal"/></svg></span>
+          <span class="resume-burst-petal" aria-hidden="true"><svg viewBox="-6 -14 12 14"><use href="#resume-falling-petal"/></svg></span>
         </span>
         {{ range $resume.journey }}
           {{ if eq .kind "chapter" }}
@@ -100,5 +100,6 @@
       </div>
     </section>
   </div>
+  {{ partial "page-neighbors.html" . }}
 </article>
 {{ end }}

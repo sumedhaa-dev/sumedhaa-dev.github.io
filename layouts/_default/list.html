@@ -6,5 +6,6 @@
     {{ with .Description }}<p class="page-intro">{{ . }}</p>{{ end }}
   </header>
   <div class="page-prose">{{ .Content }}</div>
+  {{ partial "page-neighbors.html" . }}
 </div>
 {{ end }}

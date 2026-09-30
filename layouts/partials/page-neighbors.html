@@ -1,0 +1,48 @@
+{{ $page := . }}
+{{ $flow := slice }}
+{{ range .Site.Data.navigation.main }}
+  {{ if not (strings.Contains .url "#") }}
+    {{ $flow = $flow | append . }}
+  {{ end }}
+{{ end }}
+{{ if gt (len $flow) 1 }}
+  {{ $summaries := dict
+    "story" "The person behind the work"
+    "resume" "Work, experience and more"
+    "blog" "Notes on tools, systems and learning"
+    "travel" "Places, stories and little moments"
+  }}
+  {{ $current := $page.Section }}
+  {{ $variant := $current }}
+  {{ $previousIndex := 0 }}
+  {{ $nextIndex := 1 }}
+  {{ if $page.IsHome }}
+    {{ $variant = "home" }}
+    {{ $previousIndex = sub (len $flow) 1 }}
+    {{ $nextIndex = 0 }}
+  {{ else }}
+    {{ $currentIndex := 0 }}
+    {{ range $index, $item := $flow }}
+      {{ if eq (strings.Trim $item.url "/") $current }}
+        {{ $currentIndex = $index }}
+      {{ end }}
+    {{ end }}
+    {{ $previousIndex = mod (add $currentIndex (sub (len $flow) 1)) (len $flow) }}
+    {{ $nextIndex = mod (add $currentIndex 1) (len $flow) }}
+    {{ if not (in (slice "story" "resume" "blog" "travel") $variant) }}
+      {{ $variant = "story" }}
+    {{ end }}
+  {{ end }}
+  {{ $previous := index $flow $previousIndex }}
+  {{ $next := index $flow $nextIndex }}
+  <nav class="page-neighbor-nav page-neighbor-nav--{{ $variant }}" aria-label="Explore another section">
+    <a class="page-neighbor page-neighbor--previous" href="{{ $previous.url | relURL }}">
+      <span class="page-neighbor-arrow" aria-hidden="true">←</span>
+      <span class="page-neighbor-copy"><strong>{{ $previous.label }}</strong><small>{{ index $summaries (strings.Trim $previous.url "/") }}</small></span>
+    </a>
+    <a class="page-neighbor page-neighbor--next" href="{{ $next.url | relURL }}">
+      <span class="page-neighbor-copy"><strong>{{ $next.label }}</strong><small>{{ index $summaries (strings.Trim $next.url "/") }}</small></span>
+      <span class="page-neighbor-arrow" aria-hidden="true">→</span>
+    </a>
+  </nav>
+{{ end }}

@@ -1,48 +1,60 @@
 {{ $count := .Scratch.Get "golden-divider-count" | default 0 }}
 {{ $flowerID := printf "golden-shower-flower-%d" $count }}
-<div class="botanical-divider botanical-divider--golden{{ if eq (mod $count 2) 1 }} botanical-divider--down{{ end }}" data-botanical-divider aria-hidden="true">
-  <svg viewBox="0 0 200 150" fill="none" focusable="false">
+{{ $petalGradientID := printf "golden-shower-petal-gradient-%d" $count }}
+<div class="botanical-divider botanical-divider--golden" data-botanical-divider aria-hidden="true">
+  <svg viewBox="0 0 360 166" fill="none" focusable="false">
     <defs>
+      <linearGradient id="{{ $petalGradientID }}" x1="0" y1="1" x2="0.2" y2="0">
+        <stop class="golden-petal-shadow" offset="0" stop-color="#e6a51c"/>
+        <stop class="golden-petal-mid" offset=".52" stop-color="#f6c83f"/>
+        <stop class="golden-petal-light" offset="1" stop-color="#fff4bd"/>
+      </linearGradient>
       <g id="{{ $flowerID }}" class="golden-flower">
-        <ellipse cx="0" cy="-2" rx="2.8" ry="4"/>
-        <ellipse cx="0" cy="-2" rx="2.8" ry="4" transform="rotate(72)"/>
-        <ellipse cx="0" cy="-2" rx="2.8" ry="4" transform="rotate(144)"/>
-        <ellipse cx="0" cy="-2" rx="2.8" ry="4" transform="rotate(216)"/>
-        <ellipse cx="0" cy="-2" rx="2.8" ry="4" transform="rotate(288)"/>
-        <path class="golden-flower-stamens" d="M0 0 Q4-2 5-7 M0 0 Q-3-3-4-6 M0 0 Q2 2 2 6"/>
-        <circle class="golden-flower-center" r="1.15"/>
+        <path class="golden-petal" fill="url(#{{ $petalGradientID }})" d="M0 0 C-2.5-1.4-4.3-5.1-2-8.4 C-.8-10 1-9.2 2-7.4 C4-4.5 2.4-1.2 0 0Z"/>
+        <path class="golden-petal" fill="url(#{{ $petalGradientID }})" d="M0 0 C-2.5-1.4-4.3-5.1-2-8.4 C-.8-10 1-9.2 2-7.4 C4-4.5 2.4-1.2 0 0Z" transform="rotate(72)"/>
+        <path class="golden-petal" fill="url(#{{ $petalGradientID }})" d="M0 0 C-2.5-1.4-4.3-5.1-2-8.4 C-.8-10 1-9.2 2-7.4 C4-4.5 2.4-1.2 0 0Z" transform="rotate(144)"/>
+        <path class="golden-petal" fill="url(#{{ $petalGradientID }})" d="M0 0 C-2.5-1.4-4.3-5.1-2-8.4 C-.8-10 1-9.2 2-7.4 C4-4.5 2.4-1.2 0 0Z" transform="rotate(216)"/>
+        <path class="golden-petal" fill="url(#{{ $petalGradientID }})" d="M0 0 C-2.5-1.4-4.3-5.1-2-8.4 C-.8-10 1-9.2 2-7.4 C4-4.5 2.4-1.2 0 0Z" transform="rotate(288)"/>
+        <g class="golden-petal-veins">
+          <path d="M0-1 Q-.3-4 .1-7.3"/><path d="M0-1 Q-.3-4 .1-7.3" transform="rotate(72)"/>
+          <path d="M0-1 Q-.3-4 .1-7.3" transform="rotate(144)"/><path d="M0-1 Q-.3-4 .1-7.3" transform="rotate(216)"/>
+          <path d="M0-1 Q-.3-4 .1-7.3" transform="rotate(288)"/>
+        </g>
+        <path class="golden-flower-stamens" d="M0 0 Q3-1 4-4 M0 0 Q-3-1-4-4 M0 0 Q1 2 1 4 M0 0 Q-1 2-1 4"/>
+        <circle class="golden-flower-center" r="1.35" fill="#aa7413"/>
+      </g>
+      <g id="golden-pendant-{{ $count }}" class="golden-pendant">
+        <path class="golden-raceme" d="M0 0 Q2 20 0 47 M0 12 Q-6 19-9 27 M1 19 Q7 26 9 33"/>
+        <use href="#{{ $flowerID }}" transform="translate(0 5) scale(.62)"/>
+        <use href="#{{ $flowerID }}" transform="translate(-4 12) scale(.62)"/><use href="#{{ $flowerID }}" transform="translate(4 13) scale(.62)"/>
+        <use href="#{{ $flowerID }}" transform="translate(-7 20) scale(.62)"/><use href="#{{ $flowerID }}" transform="translate(0 20) scale(.62)"/><use href="#{{ $flowerID }}" transform="translate(7 21) scale(.62)"/>
+        <use href="#{{ $flowerID }}" transform="translate(-9 28) scale(.62)"/><use href="#{{ $flowerID }}" transform="translate(-3 28) scale(.62)"/><use href="#{{ $flowerID }}" transform="translate(4 29) scale(.62)"/><use href="#{{ $flowerID }}" transform="translate(9 29) scale(.62)"/>
+        <use href="#{{ $flowerID }}" transform="translate(-7 36) scale(.62)"/><use href="#{{ $flowerID }}" transform="translate(0 37) scale(.62)"/><use href="#{{ $flowerID }}" transform="translate(7 36) scale(.62)"/>
+        <use href="#{{ $flowerID }}" transform="translate(-4 43) scale(.62)"/><use href="#{{ $flowerID }}" transform="translate(3 44) scale(.62)"/>
       </g>
     </defs>
 
-    <!-- Fine arching branch with pinnate leaf sprays. -->
-    <path class="divider-branch" d="M9 34 C54 58 116 35 193 8"/>
-    <path class="golden-leaf-spine" d="M47 49 Q32 35 23 17 M83 47 Q73 30 72 13 M123 34 Q119 18 123 5 M156 24 Q170 17 183 16"/>
+    <!-- A gently bowed, balanced branch with paired leaf sprays. -->
+    <path class="divider-branch" d="M12 23 C88 72 272 72 348 23"/>
+    <path class="golden-leaf-spine" d="M52 44 Q42 29 31 19 M91 59 Q79 41 73 27 M133 68 Q124 49 122 35 M180 71 Q180 49 180 31 M227 68 Q236 49 238 35 M269 59 Q281 41 287 27 M308 44 Q318 29 329 19"/>
     <g class="golden-leaflets">
-      <path d="M36 39 Q27 28 24 21 Q34 22 38 34Z"/><path d="M30 32 Q20 29 15 24 Q24 21 31 28Z"/>
-      <path d="M41 44 Q37 34 37 29 Q45 33 44 41Z"/><path d="M37 39 Q28 38 24 34 Q33 31 39 36Z"/>
-      <path d="M75 39 Q66 27 65 21 Q75 24 78 34Z"/><path d="M74 34 Q66 30 63 24 Q72 24 76 31Z"/>
-      <path d="M78 42 Q74 31 75 25 Q83 29 82 38Z"/><path d="M78 37 Q87 33 91 27 Q82 26 77 34Z"/>
-      <path d="M124 27 Q117 17 118 11 Q126 14 128 23Z"/><path d="M125 22 Q133 16 135 10 Q127 11 124 18Z"/>
-      <path d="M163 21 Q172 12 179 11 Q177 20 167 24Z"/><path d="M171 19 Q180 21 187 18 Q182 12 174 16Z"/>
+      <path d="M40 34 Q29 25 26 18 Q38 19 43 30Z"/><path d="M38 31 Q28 32 20 29 Q27 23 37 27Z"/>
+      <path d="M80 49 Q70 38 69 31 Q80 35 84 45Z"/><path d="M79 45 Q68 45 61 40 Q70 36 80 41Z"/>
+      <path d="M122 59 Q114 48 115 41 Q124 45 127 55Z"/><path d="M122 55 Q112 57 105 52 Q113 47 123 51Z"/>
+      <path d="M169 62 Q163 50 165 43 Q174 48 175 58Z"/><path d="M191 62 Q197 50 195 43 Q186 48 185 58Z"/>
+      <path d="M238 59 Q246 48 245 41 Q236 45 233 55Z"/><path d="M238 55 Q248 57 255 52 Q247 47 237 51Z"/>
+      <path d="M280 49 Q290 38 291 31 Q280 35 276 45Z"/><path d="M281 45 Q292 45 299 40 Q290 36 280 41Z"/>
+      <path d="M320 34 Q331 25 334 18 Q322 19 317 30Z"/><path d="M322 31 Q332 32 340 29 Q333 23 323 27Z"/>
     </g>
 
-    <!-- The long flower strings sway separately, like a hanging raceme. -->
-    <g class="golden-raceme-swing" transform="translate(67 42)">
-      <path class="golden-raceme" d="M0 0 C-8 20 8 39 1 72"/>
-      <use href="#{{ $flowerID }}" x="-3" y="10" fill="#f3cb35"/><use href="#{{ $flowerID }}" x="5" y="19" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="-1" y="28" fill="#edb91f"/><use href="#{{ $flowerID }}" x="5" y="38" fill="#f7d34a"/><use href="#{{ $flowerID }}" x="0" y="48" fill="#edb91f"/><use href="#{{ $flowerID }}" x="3" y="58" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="-1" y="69" fill="#edb91f"/>
-    </g>
-    <g class="golden-raceme-swing" transform="translate(96 39)">
-      <path class="golden-raceme" d="M0 0 C-2 22 9 42 1 91"/>
-      <use href="#{{ $flowerID }}" x="-4" y="9" fill="#f3cb35"/><use href="#{{ $flowerID }}" x="4" y="18" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="-2" y="28" fill="#edb91f"/><use href="#{{ $flowerID }}" x="5" y="39" fill="#f7d34a"/><use href="#{{ $flowerID }}" x="0" y="50" fill="#edb91f"/><use href="#{{ $flowerID }}" x="6" y="61" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="0" y="72" fill="#edb91f"/><use href="#{{ $flowerID }}" x="3" y="83" fill="#f7d34a"/><use href="#{{ $flowerID }}" x="-2" y="91" fill="#edb91f"/>
-    </g>
-    <g class="golden-raceme-swing" transform="translate(126 31)">
-      <path class="golden-raceme" d="M0 0 C7 19 -4 39 4 75"/>
-      <use href="#{{ $flowerID }}" x="2" y="8" fill="#f3cb35"/><use href="#{{ $flowerID }}" x="-5" y="18" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="1" y="28" fill="#edb91f"/><use href="#{{ $flowerID }}" x="-4" y="38" fill="#f7d34a"/><use href="#{{ $flowerID }}" x="3" y="48" fill="#edb91f"/><use href="#{{ $flowerID }}" x="-2" y="58" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="4" y="69" fill="#edb91f"/><use href="#{{ $flowerID }}" x="3" y="77" fill="#f7d34a"/>
-    </g>
-    <g class="golden-raceme-swing" transform="translate(151 23)">
-      <path class="golden-raceme" d="M0 0 C8 17 -1 29 8 57"/>
-      <use href="#{{ $flowerID }}" x="1" y="8" fill="#f3cb35"/><use href="#{{ $flowerID }}" x="-5" y="17" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="2" y="27" fill="#edb91f"/><use href="#{{ $flowerID }}" x="-1" y="37" fill="#f7d34a"/><use href="#{{ $flowerID }}" x="5" y="47" fill="#edb91f"/><use href="#{{ $flowerID }}" x="6" y="58" fill="#f8d84f"/>
-    </g>
+    <!-- Dense hanging flower bunches attach directly to the branch. -->
+    <use href="#golden-pendant-{{ $count }}" transform="translate(68 47) scale(.67)"/>
+    <use href="#golden-pendant-{{ $count }}" transform="translate(106 59) scale(.78)"/>
+    <use href="#golden-pendant-{{ $count }}" transform="translate(146 68) scale(.9)"/>
+    <use href="#golden-pendant-{{ $count }}" transform="translate(180 71) scale(1)"/>
+    <use href="#golden-pendant-{{ $count }}" transform="translate(214 68) scale(.9)"/>
+    <use href="#golden-pendant-{{ $count }}" transform="translate(254 59) scale(.78)"/>
+    <use href="#golden-pendant-{{ $count }}" transform="translate(292 47) scale(.67)"/>
   </svg>
 </div>
 {{ .Scratch.Set "golden-divider-count" (add $count 1) }}

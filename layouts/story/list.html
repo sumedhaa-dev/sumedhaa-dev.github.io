@@ -1,53 +1,95 @@
 {{ define "main" }}
-<article class="portfolio-shell section-page about-page story-page">
-  <header class="about-hero">
-    <p class="eyebrow">{{ .Params.eyebrow }}</p>
-    <h1>A little about me</h1>
-    <p class="about-lead">{{ .Params.lead }}</p>
+<article class="portfolio-shell section-page story-page story-editorial">
+  <header class="story-opening">
+    <div class="story-opening-copy">
+      <p class="eyebrow">{{ .Params.eyebrow }}</p>
+      <h1>A little about me.</h1>
+      <p class="story-opening-lead">{{ .Params.lead }}</p>
+    </div>
   </header>
 
-  {{ partial "golden-shower-divider.html" . }}
+  <div class="about-story story-editorial-content">{{ .Content }}</div>
 
-  <div class="about-story">{{ .Content }}</div>
-  <template id="story-marker-template">
-    <span class="story-chapter-marker" aria-hidden="true"><svg viewBox="-14 -14 28 28">{{ partial "golden-shower-mark.html" dict }}</svg></span>
-  </template>
-
-  <nav class="about-links" aria-label="More to explore">
-    <a class="text-link" href="{{ "travel/" | relURL }}">Visit my travel journal <span aria-hidden="true">→</span></a>
-    <a class="text-link" href="{{ "resume/" | relURL }}">View my résumé <span aria-hidden="true">↗</span></a>
-  </nav>
+  {{ partial "page-neighbors.html" . }}
 </article>
 <script>
   (() => {
-    const story = document.querySelector('.about-story');
-    const template = document.getElementById('story-marker-template');
-    if (!story || !template) return;
+    const story = document.querySelector('.story-editorial-content');
+    if (!story) return;
+    const labels = ['A curious beginning', 'Beyond the code', 'Becoming'];
+    const headings = [...story.querySelectorAll(':scope > h2')];
 
-    const chapters = [...story.querySelectorAll('h2')];
-    if (!chapters.length) return;
-    const marker = template.content.firstElementChild;
-    chapters.forEach(heading => heading.prepend(marker.cloneNode(true)));
+    headings.forEach((heading, index) => {
+      let node = heading.nextSibling;
+      const section = document.createElement('section');
+      section.className = `story-chapter story-chapter--${index + 2}`;
+      const number = document.createElement('span');
+      number.className = 'story-number';
+      number.setAttribute('aria-hidden', 'true');
+      number.textContent = String(index + 1).padStart(2, '0');
+      const header = document.createElement('header');
+      const eyebrow = document.createElement('p');
+      eyebrow.className = 'eyebrow';
+      eyebrow.textContent = labels[index];
+      header.append(eyebrow, heading);
+      section.append(number, header);
 
-    let frame = 0;
-    const updateStoryThread = () => {
-      frame = 0;
-      const firstTop = chapters[0].offsetTop;
-      const readingLine = innerHeight * 0.4;
-      let current = chapters[0];
-      for (const heading of chapters) {
-        if (heading.getBoundingClientRect().top <= readingLine) current = heading;
+      const body = document.createElement('div');
+      body.className = 'story-chapter-body';
+      while (node && !(node.nodeType === 1 && node.tagName === 'H2')) {
+        const next = node.nextSibling;
+        body.append(node);
+        node = next;
       }
-      chapters.forEach(heading => heading.classList.toggle('is-current', heading === current));
-      story.style.setProperty('--story-thread-progress', `${Math.max(0, current.offsetTop - firstTop + current.offsetHeight / 2)}px`);
-    };
-    const scheduleUpdate = () => {
-      if (!frame) frame = requestAnimationFrame(updateStoryThread);
-    };
+      section.append(body);
+      story.insertBefore(section, node || null);
+    });
 
-    addEventListener('scroll', scheduleUpdate, { passive:true });
-    addEventListener('resize', scheduleUpdate, { passive:true });
-    scheduleUpdate();
+    const beginning = story.querySelector('.story-chapter--2');
+    if (beginning) {
+      const journey = document.createElement('ol');
+      journey.className = 'story-journey';
+      ['Mathematics', 'Coding', 'Data', 'Cloud', 'AI', 'Still curious'].forEach(label => {
+        const item = document.createElement('li');
+        item.innerHTML = `<span class="story-journey-flower" aria-hidden="true"></span><strong>${label}</strong>`;
+        journey.append(item);
+      });
+      beginning.append(journey);
+
+      const flowers = [...journey.querySelectorAll('.story-journey-flower')];
+      if (flowers.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let index = 0;
+        const lightNext = () => {
+          if (index >= flowers.length) {
+            flowers.forEach(flower => flower.classList.remove('is-lit'));
+            index = 0;
+            setTimeout(lightNext, 700);
+            return;
+          }
+          flowers[index++].classList.add('is-lit');
+          setTimeout(lightNext, 900);
+        };
+        lightNext();
+      }
+    }
+
+    const life = story.querySelector('.story-chapter--3 .story-chapter-body');
+    if (life) {
+      const paragraphs = [...life.querySelectorAll(':scope > p')];
+      if (paragraphs.length > 1) {
+        const grid = document.createElement('div');
+        grid.className = 'story-life-grid';
+        ['Dance', 'Travel', 'Books & little joys'].forEach((title, index) => {
+          const card = document.createElement('article');
+          card.className = `story-life-card story-life-card--${index + 1}`;
+          const cardHeading = document.createElement('h3');
+          cardHeading.textContent = title;
+          card.append(cardHeading, paragraphs[index + 1]);
+          grid.append(card);
+        });
+        life.append(grid);
+      }
+    }
   })();
 </script>
 {{ end }}

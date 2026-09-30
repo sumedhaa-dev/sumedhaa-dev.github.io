@@ -91,7 +91,13 @@
         }
       }
 
-      const timelineComplete = timelineActive && markerCenter(entries[entries.length - 1]) <= focusLine;
+      const finalEntry = entries[entries.length - 1];
+      const finalCenter = markerCenter(finalEntry);
+      const timelineComplete = timelineActive && finalCenter <= focusLine;
+      if (timelineComplete) {
+        activeEntry = finalEntry;
+        activeCenter = finalCenter;
+      }
       entries.forEach(entry => entry.classList.toggle('is-current', timelineActive && entry === activeEntry));
       bloom.classList.toggle('is-falling', isFalling);
       bloom.classList.toggle('is-on-timeline', timelineActive && !timelineComplete);
@@ -107,10 +113,10 @@
         const originX = originBounds.left + originBounds.width / 2 + window.scrollX;
         const landingX = firstMarker.left + firstMarker.width / 2 + window.scrollX;
         const envelope = Math.sin(progress * Math.PI);
-        const wind = Math.sin(progress * Math.PI * 3.5) * 20 * envelope;
-        const cursor = clamp((pointerX - (originX + (landingX - originX) * progress - window.scrollX)) * .025, -9, 9) * envelope;
+        const wind = Math.sin(progress * Math.PI * 2.4) * 11 * envelope;
+        const cursor = clamp((pointerX - (originX + (landingX - originX) * progress - window.scrollX)) * .015, -5, 5) * envelope;
         swayX = wind + cursor;
-        swayRotation = Math.sin(progress * Math.PI * 3.5 - .45) * 17 * envelope;
+        swayRotation = Math.sin(progress * Math.PI * 2.4 - .35) * 10 * envelope;
         const desiredX = originX + (landingX - originX) * progress - window.scrollX;
         const desiredY = originY + (landingY - originY) * progress - scrollY;
         bloom.style.left = `${desiredX - timelineBounds.left - bloom.offsetWidth / 2}px`;
