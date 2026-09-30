@@ -1,0 +1,48 @@
+{{ $count := .Scratch.Get "golden-divider-count" | default 0 }}
+{{ $flowerID := printf "golden-shower-flower-%d" $count }}
+<div class="botanical-divider botanical-divider--golden{{ if eq (mod $count 2) 1 }} botanical-divider--down{{ end }}" data-botanical-divider aria-hidden="true">
+  <svg viewBox="0 0 200 150" fill="none" focusable="false">
+    <defs>
+      <g id="{{ $flowerID }}" class="golden-flower">
+        <ellipse cx="0" cy="-2" rx="2.8" ry="4"/>
+        <ellipse cx="0" cy="-2" rx="2.8" ry="4" transform="rotate(72)"/>
+        <ellipse cx="0" cy="-2" rx="2.8" ry="4" transform="rotate(144)"/>
+        <ellipse cx="0" cy="-2" rx="2.8" ry="4" transform="rotate(216)"/>
+        <ellipse cx="0" cy="-2" rx="2.8" ry="4" transform="rotate(288)"/>
+        <path class="golden-flower-stamens" d="M0 0 Q4-2 5-7 M0 0 Q-3-3-4-6 M0 0 Q2 2 2 6"/>
+        <circle class="golden-flower-center" r="1.15"/>
+      </g>
+    </defs>
+
+    <!-- Fine arching branch with pinnate leaf sprays. -->
+    <path class="divider-branch" d="M9 34 C54 58 116 35 193 8"/>
+    <path class="golden-leaf-spine" d="M47 49 Q32 35 23 17 M83 47 Q73 30 72 13 M123 34 Q119 18 123 5 M156 24 Q170 17 183 16"/>
+    <g class="golden-leaflets">
+      <path d="M36 39 Q27 28 24 21 Q34 22 38 34Z"/><path d="M30 32 Q20 29 15 24 Q24 21 31 28Z"/>
+      <path d="M41 44 Q37 34 37 29 Q45 33 44 41Z"/><path d="M37 39 Q28 38 24 34 Q33 31 39 36Z"/>
+      <path d="M75 39 Q66 27 65 21 Q75 24 78 34Z"/><path d="M74 34 Q66 30 63 24 Q72 24 76 31Z"/>
+      <path d="M78 42 Q74 31 75 25 Q83 29 82 38Z"/><path d="M78 37 Q87 33 91 27 Q82 26 77 34Z"/>
+      <path d="M124 27 Q117 17 118 11 Q126 14 128 23Z"/><path d="M125 22 Q133 16 135 10 Q127 11 124 18Z"/>
+      <path d="M163 21 Q172 12 179 11 Q177 20 167 24Z"/><path d="M171 19 Q180 21 187 18 Q182 12 174 16Z"/>
+    </g>
+
+    <!-- The long flower strings sway separately, like a hanging raceme. -->
+    <g class="golden-raceme-swing" transform="translate(67 42)">
+      <path class="golden-raceme" d="M0 0 C-8 20 8 39 1 72"/>
+      <use href="#{{ $flowerID }}" x="-3" y="10" fill="#f3cb35"/><use href="#{{ $flowerID }}" x="5" y="19" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="-1" y="28" fill="#edb91f"/><use href="#{{ $flowerID }}" x="5" y="38" fill="#f7d34a"/><use href="#{{ $flowerID }}" x="0" y="48" fill="#edb91f"/><use href="#{{ $flowerID }}" x="3" y="58" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="-1" y="69" fill="#edb91f"/>
+    </g>
+    <g class="golden-raceme-swing" transform="translate(96 39)">
+      <path class="golden-raceme" d="M0 0 C-2 22 9 42 1 91"/>
+      <use href="#{{ $flowerID }}" x="-4" y="9" fill="#f3cb35"/><use href="#{{ $flowerID }}" x="4" y="18" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="-2" y="28" fill="#edb91f"/><use href="#{{ $flowerID }}" x="5" y="39" fill="#f7d34a"/><use href="#{{ $flowerID }}" x="0" y="50" fill="#edb91f"/><use href="#{{ $flowerID }}" x="6" y="61" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="0" y="72" fill="#edb91f"/><use href="#{{ $flowerID }}" x="3" y="83" fill="#f7d34a"/><use href="#{{ $flowerID }}" x="-2" y="91" fill="#edb91f"/>
+    </g>
+    <g class="golden-raceme-swing" transform="translate(126 31)">
+      <path class="golden-raceme" d="M0 0 C7 19 -4 39 4 75"/>
+      <use href="#{{ $flowerID }}" x="2" y="8" fill="#f3cb35"/><use href="#{{ $flowerID }}" x="-5" y="18" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="1" y="28" fill="#edb91f"/><use href="#{{ $flowerID }}" x="-4" y="38" fill="#f7d34a"/><use href="#{{ $flowerID }}" x="3" y="48" fill="#edb91f"/><use href="#{{ $flowerID }}" x="-2" y="58" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="4" y="69" fill="#edb91f"/><use href="#{{ $flowerID }}" x="3" y="77" fill="#f7d34a"/>
+    </g>
+    <g class="golden-raceme-swing" transform="translate(151 23)">
+      <path class="golden-raceme" d="M0 0 C8 17 -1 29 8 57"/>
+      <use href="#{{ $flowerID }}" x="1" y="8" fill="#f3cb35"/><use href="#{{ $flowerID }}" x="-5" y="17" fill="#f8d84f"/><use href="#{{ $flowerID }}" x="2" y="27" fill="#edb91f"/><use href="#{{ $flowerID }}" x="-1" y="37" fill="#f7d34a"/><use href="#{{ $flowerID }}" x="5" y="47" fill="#edb91f"/><use href="#{{ $flowerID }}" x="6" y="58" fill="#f8d84f"/>
+    </g>
+  </svg>
+</div>
+{{ .Scratch.Set "golden-divider-count" (add $count 1) }}

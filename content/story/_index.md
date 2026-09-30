@@ -15,8 +15,6 @@ Six years into working in technology, I’ve moved through software engineering,
 
 The technology keeps changing, which is probably part of what keeps me here. There is always another layer to understand, another problem hiding underneath the obvious one, another thing that could perhaps be made a little simpler.
 
-{{< story-divider >}}
-
 ## A life outside the screen
 
 Work is a big part of my life, but it has never been the whole of it.
@@ -26,8 +24,6 @@ Dance has been with me since I was young. I learnt Bharatanatyam for years, left
 I love travelling for much the same reason I love learning anything new. There is something wonderful about being somewhere you don't quite understand yet. I like wandering through unfamiliar places, noticing how people eat, pray, work, celebrate and live, and slowly putting the pieces together.
 
 Books give me that feeling too, only without having to leave home. I read across whatever happens to interest me, and I like that a good book can make an ordinary idea feel unfamiliar again.
-
-{{< story-divider >}}
 
 ## Still becoming
 

@@ -1,16 +1,16 @@
 {{ define "main" }}
-<article class="portfolio-shell section-page about-page">
+<article class="portfolio-shell section-page about-page story-page">
   <header class="about-hero">
     <p class="eyebrow">{{ .Params.eyebrow }}</p>
     <h1>A little about me</h1>
     <p class="about-lead">{{ .Params.lead }}</p>
   </header>
 
-  {{ partial "botanical-divider.html" . }}
+  {{ partial "golden-shower-divider.html" . }}
 
   <div class="about-story">{{ .Content }}</div>
   <template id="story-marker-template">
-    <span class="story-chapter-marker" aria-hidden="true"><svg viewBox="-14 -14 28 28">{{ partial "sakura-mark.html" dict }}</svg></span>
+    <span class="story-chapter-marker" aria-hidden="true"><svg viewBox="-14 -14 28 28">{{ partial "golden-shower-mark.html" dict }}</svg></span>
   </template>
 
   <nav class="about-links" aria-label="More to explore">
