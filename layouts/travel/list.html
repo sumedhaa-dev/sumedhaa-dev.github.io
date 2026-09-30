@@ -6,6 +6,8 @@
     <p class="page-intro">{{ .Description }}</p>
   </header>
 
+  {{ partial "travel-atlas.html" . }}
+
   {{ $posts := .RegularPages.ByWeight }}
   {{ $categories := .Site.Data.travel.categories }}
   <nav class="travel-category-nav" aria-label="Travel categories">

@@ -5,3 +5,321 @@ categories:
   - title: Within India
     slug: within-india
     intro: Places and journeys across India
+
+# Add visited destinations here when ready. Coordinates use decimal degrees.
+map:
+  regions:
+    - Americas
+    - Europe
+    - Middle East
+    - Southeast Asia
+    - India
+  indian_states:
+    - Andhra Pradesh
+    - Bihar
+    - Delhi
+    - Goa
+    - Gujarat
+    - Jammu and Kashmir
+    - Karnataka
+    - Kerala
+    - Madhya Pradesh
+    - Maharashtra
+    - Puducherry
+    - Rajasthan
+    - Tamil Nadu
+    - Telangana
+    - Uttar Pradesh
+  places:
+    - name: Las Vegas
+      country: United States
+      region: Americas
+      category: International Trips
+      latitude: 36.1699
+      longitude: -115.1398
+      url: /travel/solo-us-trip/
+    - name: Los Angeles
+      country: United States
+      region: Americas
+      category: International Trips
+      latitude: 34.0522
+      longitude: -118.2437
+      url: /travel/solo-us-trip/
+    - name: New York
+      country: United States
+      region: Americas
+      category: International Trips
+      latitude: 40.7128
+      longitude: -74.0060
+      url: /travel/solo-us-trip/
+    - name: New Jersey
+      country: United States
+      region: Americas
+      category: International Trips
+      latitude: 40.0583
+      longitude: -74.4057
+      url: /travel/solo-us-trip/
+    - name: Tromsø
+      country: Norway
+      region: Europe
+      category: International Trips
+      latitude: 69.6492
+      longitude: 18.9553
+      url: /travel/tromso-northern-lights/
+    - name: Oslo
+      country: Norway
+      region: Europe
+      category: International Trips
+      latitude: 59.9139
+      longitude: 10.7522
+    - name: Dubai
+      country: United Arab Emirates
+      region: Middle East
+      category: International Trips
+      latitude: 25.2048
+      longitude: 55.2708
+    - name: Abu Dhabi
+      country: United Arab Emirates
+      region: Middle East
+      category: International Trips
+      latitude: 24.4539
+      longitude: 54.3773
+    - name: Penang
+      country: Malaysia
+      region: Southeast Asia
+      category: International Trips
+      latitude: 5.4141
+      longitude: 100.3288
+      url: /travel/malaysia/
+    - name: Langkawi
+      country: Malaysia
+      region: Southeast Asia
+      category: International Trips
+      latitude: 6.3500
+      longitude: 99.8000
+      url: /travel/malaysia/
+    - name: Kuala Lumpur
+      country: Malaysia
+      region: Southeast Asia
+      category: International Trips
+      latitude: 3.1390
+      longitude: 101.6869
+      url: /travel/malaysia/
+    - name: Singapore
+      country: Singapore
+      region: Southeast Asia
+      category: International Trips
+      latitude: 1.3521
+      longitude: 103.8198
+      url: /travel/singapore/
+    - name: Pune
+      country: India
+      region: India
+      state: Maharashtra
+      category: Within India
+      latitude: 18.5204
+      longitude: 73.8567
+    - name: Torna Fort
+      country: India
+      region: India
+      state: Maharashtra
+      category: Within India
+      latitude: 18.2805
+      longitude: 73.6233
+    - name: Panchgani
+      country: India
+      region: India
+      state: Maharashtra
+      category: Within India
+      latitude: 17.9240
+      longitude: 73.7993
+    - name: Mahabaleshwar
+      country: India
+      region: India
+      state: Maharashtra
+      category: Within India
+      latitude: 17.9307
+      longitude: 73.6477
+    - name: Pondicherry
+      country: India
+      region: India
+      state: Puducherry
+      category: Within India
+      latitude: 11.9416
+      longitude: 79.8083
+    - name: Hyderabad
+      country: India
+      region: India
+      state: Telangana
+      category: Within India
+      latitude: 17.3850
+      longitude: 78.4867
+    - name: Tirupathi
+      country: India
+      region: India
+      state: Andhra Pradesh
+      category: Within India
+      latitude: 13.6288
+      longitude: 79.4192
+    - name: Bangalore
+      country: India
+      region: India
+      state: Karnataka
+      category: Within India
+      latitude: 12.9716
+      longitude: 77.5946
+    - name: Coorg
+      country: India
+      region: India
+      state: Karnataka
+      category: Within India
+      latitude: 12.4208
+      longitude: 75.7397
+    - name: Ujjain
+      country: India
+      region: India
+      state: Madhya Pradesh
+      category: Within India
+      latitude: 23.1765
+      longitude: 75.7885
+      url: /travel/diwali-in-ujjain/
+    - name: Indore
+      country: India
+      region: India
+      state: Madhya Pradesh
+      category: Within India
+      latitude: 22.7196
+      longitude: 75.8577
+    - name: Jammu and Kashmir
+      country: India
+      region: India
+      state: Jammu and Kashmir
+      category: Within India
+      latitude: 33.7782
+      longitude: 76.5762
+    - name: Ahmedabad
+      country: India
+      region: India
+      state: Gujarat
+      category: Within India
+      latitude: 23.0225
+      longitude: 72.5714
+    - name: Kerala
+      country: India
+      region: India
+      state: Kerala
+      category: Within India
+      latitude: 10.8505
+      longitude: 76.2711
+    - name: Goa
+      country: India
+      region: India
+      state: Goa
+      category: Within India
+      latitude: 15.2993
+      longitude: 74.1240
+    - name: Gokarna
+      country: India
+      region: India
+      state: Karnataka
+      category: Within India
+      latitude: 14.5479
+      longitude: 74.3188
+    - name: Delhi
+      country: India
+      region: India
+      state: Delhi
+      category: Within India
+      latitude: 28.6139
+      longitude: 77.2090
+    - name: Mumbai
+      country: India
+      region: India
+      state: Maharashtra
+      category: Within India
+      latitude: 19.0760
+      longitude: 72.8777
+    - name: Jaipur
+      country: India
+      region: India
+      state: Rajasthan
+      category: Within India
+      latitude: 26.9124
+      longitude: 75.7873
+    - name: Udaipur
+      country: India
+      region: India
+      state: Rajasthan
+      category: Within India
+      latitude: 24.5854
+      longitude: 73.7125
+    - name: Jodhpur
+      country: India
+      region: India
+      state: Rajasthan
+      category: Within India
+      latitude: 26.2389
+      longitude: 73.0243
+    - name: Jaisalmer
+      country: India
+      region: India
+      state: Rajasthan
+      category: Within India
+      latitude: 26.9157
+      longitude: 70.9083
+    - name: Varanasi
+      country: India
+      region: India
+      state: Uttar Pradesh
+      category: Within India
+      latitude: 25.3176
+      longitude: 82.9739
+    - name: Gaya
+      country: India
+      region: India
+      state: Bihar
+      category: Within India
+      latitude: 24.7955
+      longitude: 84.9994
+    - name: Prayagraj
+      country: India
+      region: India
+      state: Uttar Pradesh
+      category: Within India
+      latitude: 25.4358
+      longitude: 81.8463
+    - name: Rameshwaram
+      country: India
+      region: India
+      state: Tamil Nadu
+      category: Within India
+      latitude: 9.2876
+      longitude: 79.3129
+    - name: Dhanushkodi
+      country: India
+      region: India
+      state: Tamil Nadu
+      category: Within India
+      latitude: 9.1710
+      longitude: 79.4160
+    - name: Madurai
+      country: India
+      region: India
+      state: Tamil Nadu
+      category: Within India
+      latitude: 9.9252
+      longitude: 78.1198
+    - name: Coimbatore
+      country: India
+      region: India
+      state: Tamil Nadu
+      category: Within India
+      latitude: 11.0168
+      longitude: 76.9558
+    - name: Chennai
+      country: India
+      region: India
+      state: Tamil Nadu
+      category: Within India
+      latitude: 13.0827
+      longitude: 80.2707

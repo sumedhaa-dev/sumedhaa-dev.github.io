@@ -7,7 +7,7 @@ This site is built with Hugo using a customized copy of the `charlolamode` theme
 - `data/profile.yml` — name, email address, and homepage social links.
 - `data/home.yml` — homepage text, experience highlights, writing cards, and newsletter note.
 - `data/navigation.yml` — visible navigation links.
-- `data/travel.yml` — travel journal categories. Each travel post’s `travelCategory` must exactly match a category title here.
+- `data/travel.yml` — travel journal categories and the visited places shown on the map. Each travel post’s `travelCategory` must exactly match a category title here.
 - `data/resume.yml` — résumé roles, skills, certifications, education, recognition, and volunteering. The `journey` list controls the order of experience and education entries on the shared timeline.
 - `content/resume/_index.md` — résumé page title, introduction, and PDF link.
 - `content/story/_index.md` — Story page text and search description.
@@ -35,6 +35,26 @@ hugo new content/travel/my-trip.md
 ```
 
 The travel archetype starts with `Within India`; change `travelCategory` to `International Trips` for an overseas trip. Posts are drafts by default. Add photos to `static/images/` and refer to them as `/images/your-photo.jpg` in Markdown.
+
+## Update the visited places map
+
+Edit `map.places` in `data/travel.yml` to add, remove, or update a destination. Each place needs a name, country, region, travel category, and decimal latitude and longitude. The optional `url` links the place to a travel story.
+
+For an Indian destination, set `region: India` and provide its state or union territory in `state`. If it is a new state or union territory, add its name to `map.indian_states` so it appears in the grouped list. For an international destination, use an existing region or add the new region name to `map.regions`.
+
+Example:
+
+```yaml
+- name: Mahabaleshwar
+  country: India
+  region: India
+  state: Maharashtra
+  category: Within India
+  latitude: 17.9307
+  longitude: 73.6477
+```
+
+Coordinates place the marker on the map; destinations close together may be spaced apart visually while leader lines indicate their locations. Keep the latitude and longitude accurate even when several places share a small area.
 
 ## Preview locally
 
