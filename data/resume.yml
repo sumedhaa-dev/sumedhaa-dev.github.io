@@ -7,6 +7,10 @@ experience:
       - Architected an MCP server that exposed FactSet's data catalog and query execution capabilities as LLM-callable tools, enabling AI-assisted data discovery and analysis.
       - Designed and implemented agentic workflows for Data Navigator, orchestrating data discovery, query execution, and insight generation across data services.
       - Developed Elasticsearch-based search capabilities for Data Navigator to improve retrieval of relevant data assets and search results.
+    highlightHeadings:
+      - Agentic AI platform
+      - Agentic Data Navigator workflows
+      - Intelligent data search
   - company: FactSet
     role: Software Engineer III
     dates: Apr 2023 – Jan 2026
@@ -19,6 +23,14 @@ experience:
       - Planned and executed EKS Service Catalog backend upgrades from Kubernetes 1.29 to 1.32 across environments, validating add-on compatibility, migrating worker nodes to Amazon Linux 2023, and strengthening security posture with zero downtime.
       - Improved cluster efficiency for the Service Catalog backend by implementing native kubelet garbage collection through custom launch templates and user data, and retiring the Cache DaemonSet, leading to reduced disk pressure and alert noise.
       - Developed data pipelines to integrate Concordance API with Scripts Asia dataset, consisting of text data from Asian languages.
+    highlightHeadings:
+      - High volume file transfer
+      - Standard Data Feeds
+      - Data feed engineering
+      - Crossplane infrastructure
+      - Zero downtime EKS upgrades
+      - Kubernetes cluster efficiency
+      - Multilingual data integration
   - company: FactSet
     role: Software Engineer II
     dates: Apr 2022 – Apr 2023
@@ -30,6 +42,13 @@ experience:
       - Implemented automation of data delivery pipelines and redesigned the architecture for 7 data pipelines into 2 distinct projects (ingestion and delivery) in Airflow, resulting in an 80% decrease in costs and a 20% increase in efficiency, as measured by reduced resource utilization.
       - Streamlined and automated blue-green deployment for 4 projects utilizing Terraform, an Infrastructure as Code tool.
       - Mentored and guided junior engineers to develop customized data pipelines.
+    highlightHeadings:
+      - Serverless PySpark Rules Engine
+      - Snowflake migration
+      - Event driven data pipelines
+      - Airflow pipeline optimization
+      - Blue green deployment automation
+      - Engineering mentorship
   - company: FactSet
     role: Software Engineer I
     dates: Dec 2020 – Apr 2022
@@ -39,6 +58,11 @@ experience:
       - Developed and implemented 13 endpoints within a centralized serverless API in AWS to accommodate three distinct feeds/providers, facilitating the delivery of a variety of document types.
       - Collaborated with cross-functional teams to design, develop, and maintain high-quality, performant, and resilient pipelines, while adhering to agile methodologies.
       - Addressed queries and provided support for high-priority bugs in the integration, concordance, and feed distribution technologies developed by the team.
+    highlightHeadings:
+      - Elasticsearch caching
+      - Serverless AWS API
+      - Resilient data pipelines
+      - Production support
 
   - company: Dexlock
     role: Software Engineer
@@ -48,6 +72,10 @@ experience:
       - Developed a metro ticket booking system, using ReactJS and MongoDB, along with RESTful APIs developed in Java.
       - Designed and developed a feature-rich responsive web application to track the live location of field workers.
       - Translated the design team's UX wireframes into interactive features, using HTML/CSS and ReactJS.
+    highlightHeadings:
+      - Metro ticketing platform
+      - Field workforce tracking
+      - Responsive web development
 
 
 skills:

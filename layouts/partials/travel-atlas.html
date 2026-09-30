@@ -46,22 +46,22 @@
       {{ if $india }}
       <section class="travel-atlas-country-group" aria-labelledby="travel-atlas-india-heading">
         <h3 id="travel-atlas-india-heading">India<span>{{ len $india }}</span></h3>
-        <div class="travel-atlas-state-list">
+        <p class="travel-atlas-india-places">
+          {{ $stateCount := 0 }}
           {{ range $state := $atlas.indian_states }}
             {{ $places := where $atlas.places "state" $state }}
             {{ if $places }}
-          <div class="travel-atlas-state">
-            <h4>{{ $state }}<span>{{ len $places }}</span></h4>
-            <p>
+          {{ if gt $stateCount 0 }}; {{ end }}<span class="travel-atlas-state">
+            <strong>{{ $state }}</strong> <span>(
               {{ $shown := 0 }}
               {{ range $index, $place := $atlas.places }}
                 {{ if eq $place.state $state }}{{ if gt $shown 0 }}, {{ end }}{{ if $place.url }}<a href="{{ $place.url | relURL }}" data-place-index="{{ $index }}">{{ $place.name }}</a>{{ else }}<span class="travel-atlas-place" data-place-index="{{ $index }}" tabindex="0">{{ $place.name }}</span>{{ end }}{{ $shown = add $shown 1 }}{{ end }}
               {{ end }}
-            </p>
-          </div>
+            )</span>
+          </span>{{ $stateCount = add $stateCount 1 }}
             {{ end }}
           {{ end }}
-        </div>
+        </p>
       </section>
       {{ end }}
     </div>

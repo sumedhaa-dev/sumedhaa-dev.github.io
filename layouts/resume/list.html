@@ -47,7 +47,7 @@
           <div class="resume-role-card">
             <p class="resume-company">{{ $entry.company }}</p><h3>{{ $entry.role }}</h3>
             <p class="resume-role-mobile-date">{{ $entry.dates }} · {{ $entry.location }}</p>
-            <ul>{{ range $entry.highlights }}<li>{{ . }}</li>{{ end }}</ul>
+            <ul>{{ range $pointIndex, $point := $entry.highlights }}<li><strong class="resume-highlight-heading">{{ index $entry.highlightHeadings $pointIndex }}</strong><span class="resume-highlight-text">{{ $point }}</span></li>{{ end }}</ul>
           </div>
           {{ else }}
           <div class="resume-role-card resume-education-card">

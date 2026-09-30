@@ -1333,6 +1333,8 @@ a:hover {
 .resume-role-card ul { margin:12px 0 0; padding-left:19px; color:#625951; font-size:14px; line-height:1.65; }
 .resume-role-card li+li { margin-top:5px; }
 .resume-role-card li::marker { color:#b17882; }
+.resume-role-card .resume-highlight-heading { color:#8e6878; font-weight:600; }
+.resume-role-card .resume-highlight-heading::after { content:" — "; color:#b28f9b; font-weight:400; }
 .resume-skill-grid,.resume-card-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
 .resume-skill-card { padding:20px; }
 .resume-skill-card h3 { margin-bottom:13px; font-size:16px; }
@@ -1360,6 +1362,8 @@ a:hover {
 .dark .resume-timeline-marker { background:#352e2c; border-color:#e2a6b0; box-shadow:0 0 0 5px #403438; }
 .dark .resume-role-card,.dark .resume-info-card,.dark .resume-volunteer-card,.dark .resume-skill-card { border-color:#59463f; background:#352e2c; }
 .dark .resume-role-card ul,.dark .resume-info-card>p,.dark .resume-volunteer-card>p { color:#d3c9bf; }
+.dark .resume-role-card .resume-highlight-heading { color:#e0bac7; }
+.dark .resume-role-card .resume-highlight-heading::after { color:#ad8793; }
 .dark .resume-content .resume-role-card h3+.resume-role-mobile-date,
 .dark .resume-content .resume-info-card h3+p,.dark .resume-content .resume-volunteer-card h3+p { color:#c9bfb4; }
 .dark .resume-tags li { border-color:#59463f; background:#403438; color:#e6d8d1; }
@@ -3590,24 +3594,18 @@ body {
   stroke-linejoin:round;
 }
 .botanical-divider--golden .divider-branch { stroke:#756d4b; stroke-width:1.5; }
+.botanical-divider--golden svg { animation:none; rotate:0deg; transform:none; transition:none; }
 .botanical-divider--golden .golden-raceme { stroke:#7f8c58; stroke-width:.8; }
-.botanical-divider--golden .golden-raceme-swing {
-  transform-box:fill-box;
-  transform-origin:top center;
-  animation:golden-raceme-sway 4.8s ease-in-out infinite alternate;
-}
-.botanical-divider--golden .golden-raceme-swing:nth-of-type(3) { animation-delay:-1.7s; animation-duration:5.4s; }
-.botanical-divider--golden .golden-raceme-swing:nth-of-type(4) { animation-delay:-2.8s; animation-duration:5s; }
-.botanical-divider--golden .golden-raceme-swing:nth-of-type(5) { animation-delay:-.9s; animation-duration:5.7s; }
 .botanical-divider--golden .golden-leaflets path {
   fill:#829543;
   stroke:#5c7134;
   stroke-width:.55;
   stroke-linejoin:round;
 }
-.botanical-divider--golden .golden-flower ellipse { fill:#f2c526; stroke:#d9a311; stroke-width:.4; }
-.botanical-divider--golden .golden-flower-stamens { fill:none; stroke:#bd8914; stroke-width:.7; stroke-linecap:round; }
-.botanical-divider--golden .golden-flower-center { fill:#aa7413; stroke:none; }
+.botanical-divider--golden .golden-flower .golden-petal { stroke:#d29a25; stroke-width:.32; stroke-linejoin:round; }
+.botanical-divider--golden .golden-petal-veins path { fill:none; stroke:#d99f26; stroke-width:.3; stroke-linecap:round; opacity:.56; }
+.botanical-divider--golden .golden-flower-stamens { fill:none; stroke:#b47a12; stroke-width:.65; stroke-linecap:round; }
+.botanical-divider--golden .golden-flower-center { fill:#a96d12; stroke:#f8d15b; stroke-width:.35; }
 .botanical-divider--golden .golden-leaf {
   fill:#9b9c6c;
   stroke:#7d8059;
@@ -3626,7 +3624,9 @@ body {
   stroke-linecap:round;
 }
 .story-page .about-hero>.eyebrow { color:#aa8a43; }
-.story-page>.botanical-divider--golden svg { width:clamp(220px,31vw,310px); height:auto; }
+.story-page>.botanical-divider--golden svg { width:clamp(320px,45vw,520px); height:auto; }
+.about-story .botanical-divider--golden { justify-content:center; margin:30px auto 38px; opacity:.82; }
+.about-story .botanical-divider--golden svg { width:clamp(280px,40vw,460px); height:auto; }
 .story-page .about-links .text-link { color:#987526; border-color:#d8bd78; }
 .story-page .about-links .text-link:hover { color:#755814; border-color:#a98736; }
 .story-chapter-marker { color:#d7a42f; }
@@ -3636,9 +3636,13 @@ body {
 .dark .botanical-divider--golden .divider-branch { stroke:#b6a479; }
 .dark .botanical-divider--golden .golden-raceme,.dark .botanical-divider--golden .golden-leaf-spine { stroke:#a9b17e; }
 .dark .botanical-divider--golden .golden-leaflets path { fill:#a2ac65; stroke:#c0c986; }
-.dark .botanical-divider--golden .golden-flower ellipse { fill:#f2ce4e; stroke:#f6dc85; }
+.dark .botanical-divider--golden .golden-flower .golden-petal { stroke:#f6dc85; }
+.dark .botanical-divider--golden .golden-petal-shadow { stop-color:#d89b18; }
+.dark .botanical-divider--golden .golden-petal-mid { stop-color:#f2c83e; }
+.dark .botanical-divider--golden .golden-petal-light { stop-color:#fff0a7; }
+.dark .botanical-divider--golden .golden-petal-veins path { stroke:#a8781e; opacity:.62; }
 .dark .botanical-divider--golden .golden-flower-stamens { stroke:#f2d176; }
-.dark .botanical-divider--golden .golden-flower-center { fill:#785c26; }
+.dark .botanical-divider--golden .golden-flower-center { fill:#9b6817; stroke:#f2d176; }
 .dark .botanical-divider--golden .golden-leaf { fill:#a4a276; stroke:#c1b57a; }
 .dark .botanical-divider--golden .golden-cluster circle,
 .dark .golden-story-floret circle { fill:#eac45b; stroke:#f0d17b; }
@@ -3647,14 +3651,6 @@ body {
 .dark .story-page .about-links .text-link { color:#e9c866; border-color:#99804b; }
 .dark .story-page .about-links .text-link:hover { color:#f4dc91; border-color:#c5aa62; }
 .dark .story-chapter-marker { color:#f0cf72; }
-@keyframes golden-raceme-sway {
-  from { rotate:-3deg; }
-  to { rotate:3deg; }
-}
-@media(prefers-reduced-motion:reduce) {
-  .botanical-divider--golden .golden-raceme-swing { animation:none; }
-}
-
 /* A quiet, editable atlas for the travel journal. */
 .travel-atlas {
   margin:0 auto 78px;
@@ -3930,18 +3926,16 @@ body {
   font:500 15px 'Outfit',sans-serif;
 }
 .travel-atlas-country-group>h3 span { color:#9b9186; font-size:12px; font-weight:400; }
-.travel-atlas-state-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; }
-.travel-atlas-state {
-  min-width:0;
-  padding:7px 9px 8px;
-  border-left:2px solid #e4d9ea;
-  background:rgba(244,239,247,.34);
+.travel-atlas-india-places {
+  margin:0;
+  color:#756e66;
+  font-size:12px;
+  line-height:1.9;
 }
-.travel-atlas-state h4 { margin:0 0 2px; color:#857392; font:500 11px 'Outfit',sans-serif; }
-.travel-atlas-state h4 span { margin-left:7px; color:#a79bab; font-size:10px; font-weight:400; }
-.travel-atlas-state p { margin:0; color:#756e66; font-size:11px; line-height:1.55; }
-.travel-atlas-state p a,.travel-atlas-state p .travel-atlas-place { color:inherit; text-decoration:none; border-bottom:1px solid transparent; transition:color .18s ease,border-color .18s ease; }
-.travel-atlas-state p a:hover,.travel-atlas-state p a.is-linked,.travel-atlas-state p .travel-atlas-place.is-linked { color:#9a87a7; border-color:#ded3e6; }
+.travel-atlas-state { white-space:normal; }
+.travel-atlas-state>strong { color:#857392; font-weight:500; }
+.travel-atlas-state a,.travel-atlas-state .travel-atlas-place { color:inherit; text-decoration:none; border-bottom:1px solid transparent; transition:color .18s ease,border-color .18s ease; }
+.travel-atlas-state a:hover,.travel-atlas-state a.is-linked,.travel-atlas-state .travel-atlas-place.is-linked { color:#9a87a7; border-color:#ded3e6; }
 .dark .travel-atlas-toggle { border-color:rgba(222,211,230,.4); background:transparent; color:#eee4d7; }
 .dark .travel-atlas-toggle:hover { border-color:#ded3e6; background:rgba(222,211,230,.08); color:#f0e8f4; }
 .dark .travel-atlas-toggle:focus-visible { outline-color:#ded3e6; }
@@ -3953,15 +3947,13 @@ body {
 .dark .travel-atlas-group p a:hover,.dark .travel-atlas-group p a.is-linked,.dark .travel-atlas-group p .travel-atlas-place.is-linked { color:#e5d9ed; border-color:#bba9c7; }
 .dark .travel-atlas-country-group { border-color:rgba(219,199,166,.16); }
 .dark .travel-atlas-country-group>h3 { color:#dfd3e8; }
-.dark .travel-atlas-country-group>h3 span,.dark .travel-atlas-state h4 span { color:#b7aa98; }
-.dark .travel-atlas-state { border-color:#66576e; background:rgba(222,211,230,.035); }
-.dark .travel-atlas-state h4 { color:#dfd3e8; }
-.dark .travel-atlas-state p { color:#b7aa98; }
-.dark .travel-atlas-state p a:hover,.dark .travel-atlas-state p a.is-linked,.dark .travel-atlas-state p .travel-atlas-place.is-linked { color:#e5d9ed; border-color:#bba9c7; }
+.dark .travel-atlas-country-group>h3 span { color:#b7aa98; }
+.dark .travel-atlas-india-places { color:#b7aa98; }
+.dark .travel-atlas-state>strong { color:#dfd3e8; }
+.dark .travel-atlas-state a:hover,.dark .travel-atlas-state a.is-linked,.dark .travel-atlas-state .travel-atlas-place.is-linked { color:#e5d9ed; border-color:#bba9c7; }
 @media(max-width:640px) {
   .travel-atlas-group { grid-template-columns:1fr; gap:6px; padding:15px 0; }
   .travel-atlas-country-group { grid-template-columns:1fr; gap:12px; padding:18px 0 4px; }
-  .travel-atlas-state-list { grid-template-columns:1fr; gap:8px; }
   .travel-atlas-directory { margin-top:23px; }
 }
 @media(min-width:641px) and (max-width:900px) {
